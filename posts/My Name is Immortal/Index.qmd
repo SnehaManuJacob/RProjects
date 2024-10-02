@@ -1,0 +1,90 @@
+---
+title: "Day 1"
+author: "Sneha Jacob"
+date: "2024-09-26"
+categories: [intro, babyname-analysis, line-graph]
+---
+
+## Introduction
+
+I'm a designer in training and like most people in the creatives, my interests cover a broad spectrum ranging from 3D Modelling and Lettering to Website Designs. I'm now working to add data visualisation and into my skill set, **I hope I don't totally suck at it**!
+
+## My First Piece of R-code
+
+I'm doing this!!!!!
+
+```{r}
+#| label: setup
+library (tidyverse)
+library (ggformula)
+library (babynames)
+
+library(mosaic)
+library(skimr)
+library(knitr)
+library(kableExtra)
+```
+
+#### Getting a list of all baby names in the USA from the year 1880
+
+```{r}
+babynames
+```
+
+```         
+```
+
+#### Filtering the presence of my name i.e. Sneha and creating a line graph with this data
+
+```{r}
+babynames %>% filter (name=="Sneha")
+
+```
+
+```{r}
+babynames %>% filter(name=="Sneha") %>% gf_line(n~year)
+```
+
+#### Filtering the presence of the name "Trisha" and creating a line graph with this data
+
+```{r}
+babynames %>% filter (name=="Trisha")
+```
+
+```{r}
+babynames %>% filter(name=="Trisha") %>% gf_line(n~year)
+```
+
+#### Filtering the presence of the name "Sarah" and creating a line graph with this data
+
+```{r}
+babynames %>% filter (name=="Sarah" | name=="Sara") 
+
+```
+
+```{r}
+babynames %>% filter(name=="Sarah" | name=="Sara") %>% gf_line(n~year)
+
+```
+
+#### Glimpse:
+
+```{r}
+babynames %>% dplyr::glimpse()
+```
+
+```{r}
+babynames_modified <- babynames %>%
+  dplyr::mutate(
+    sex = as_factor(sex),
+  )
+glimpse(babynames_modified)
+```
+
+```{r}
+babynames_modified %>% mosaic::inspect()
+```
+
+```{r}
+babynames_modified %>% skimr::skim()
+```

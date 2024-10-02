@@ -1,0 +1,188 @@
+---
+title: "Day 2"
+author: "Sneha Jacob"
+date: "2024-09-27"
+categories: [summaries]
+---
+
+## Introduction
+
+Throwing away data to grasp it. I am trying to reduce data into a summarized form.
+
+## R-code:
+
+> note to self: don't forget to put the label!!!!!
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(knitr)
+library(kableExtra)
+```
+
+## The mpg data-set (car stuff):
+
+```{r}
+mpg
+```
+
+> making it look fancy. Arvind wrote this, i only added it here cause i wanted the full form of all columns cause i don't know car stuff.
+
+```{r}
+mpg %>%
+  head(10) %>%
+  kbl(
+    # add Human Readable column names
+    col.names = c(
+      "Manufacturer", "Model", "Engine\nDisplacement",
+      "Model\n Year", "Cylinders", "Transmission",
+      "Drivetrain", "City\n Mileage", "Highway\n Mileage",
+      "Fuel", "Class\nOf\nVehicle"
+    ),
+    caption = "MPG Dataset"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c(
+      "striped", "hover",
+      "condensed", "responsive"
+    ),
+    full_width = F, position = "center"
+  )
+
+
+
+```
+
+#### Glimpse:
+
+```{r}
+mpg %>% dplyr::glimpse()
+```
+
+> Through this glimpse, i find that cylinder is encoded as an int, and so it is considered a quantitative variable. i need to change it.
+
+```{r}
+mpg_modified <- mpg %>%
+  dplyr::mutate(
+    cyl = as_factor(cyl),
+    fl = as_factor(fl),
+    drv = as_factor(drv),
+    class = as_factor(class),
+    trans = as_factor(trans)
+  )
+glimpse(mpg_modified)
+```
+
+#### Inspecting the data-set with mosaic and skimr
+
+A mosaic inspect of the mgp data-set only to see the difference between this and the newly created mpg_modified data set
+
+```{r}
+mpg %>% mosaic::inspect()
+```
+
+```{r}
+mpg_modified %>% mosaic::inspect()
+```
+
+```{r}
+mpg_modified %>% skimr::skim()
+```
+
+#### Groups within columns -
+
+We can group a quantitative data based on different qualitative data-sets.
+
+> Here i am finding the separate means of highway mileage for every separate level of cyl.
+
+```{r}
+mpg_modified %>%
+  group_by(cyl) %>%
+  summarize(average_hwy = mean(hwy), count = n())
+```
+
+> You can find mean based on 2 or more factors i.e. permutations and combinations of all factors
+
+```{r}
+mpg_modified %>%
+  group_by(cyl, fl) %>%
+  summarize(average_hwy = mean(hwy), count = n())
+```
+
+```{r}
+mpg_modified %>%
+  group_by(manufacturer) %>%
+  summarize(average_cty = mean(cty))
+```
+
+## Math Anxiety Data-Set:
+
+```{r}
+math_anx <- read_delim("../../data/MathAnxiety.csv", delim=";")
+math_anx
+```
+
+> AMAS (Adult Manifest Anxiety Scale), RCMAS (Revised Children's Manifest Anxiety Scale), Arith (Arithmetic Subtest of Intelligence Tests)
+
+```{r}
+math_anx %>% dplyr::glimpse()
+```
+
+```{r}
+math_anx_modified <- math_anx %>%
+  dplyr::mutate(
+    Gender = as_factor(Gender),
+    Grade = as_factor(Grade),
+    Arith = as_factor(Arith)
+  )
+glimpse(math_anx_modified)
+```
+
+```{r}
+math_anx_modified %>% skimr::skim()
+```
+
+#### Anxiety based on Gender:
+
+```{r}
+math_anx_modified %>%
+  group_by(Gender) %>%
+  summarize(average_AMAS = mean(AMAS), average_RCMAS = mean(RCMAS), count =n())
+
+```
+
+Hypothesis to Evaluate: Girls have a higher anxiety level.
+
+#### Anxiety based on Grade:
+
+```{r}
+math_anx_modified %>%
+  group_by(Grade) %>%
+  summarize(average_AMAS = mean(AMAS), average_RCMAS = mean(RCMAS), count =n())
+
+```
+
+Hypothesis to Evaluate: Primary school students experience more anxiety than secondary school students.
+
+#### Anxiety based on Grade and Gender:
+
+```{r}
+math_anx_modified %>%
+  group_by(Grade, Gender) %>%
+  summarize(average_AMAS = mean(AMAS), average_RCMAS = mean(RCMAS), count =n())
+```
+
+Hypothesis to Evaluate: Girls studying in secondary school have the highest anxiety and Secondary School boys have the least amount of anxiety.
+
+#### Anxiety based on Arithmetic Subtest of Intelligence Tests:
+
+```{r}
+math_anx_modified %>%
+  group_by(Arith) %>%
+  summarize(average_AMAS = mean(AMAS), average_RCMAS = mean(RCMAS), count =n())
+```
+
+```         
+```
