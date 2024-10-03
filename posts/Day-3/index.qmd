@@ -1,0 +1,88 @@
+---
+title: "Day 3"
+author: "Sneha Manu Jacob"
+date: "2024-10-03"
+categories: [counts, Bar-graph,]
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+library(skimr)
+```
+
+```{r}
+#| label: Read-the-data
+taxi <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/modeldata/taxi.csv")
+```
+
+```{r}
+taxi
+```
+
+```{r}
+taxi %>% dplyr::glimpse()
+```
+
+```{r}
+taxi %>% mosaic::inspect()
+```
+
+```{r}
+taxi %>% skimr::skim()
+```
+
+```{r}
+taxi_modified <- taxi %>%
+  dplyr::mutate(
+    tip = factor(tip,
+      levels = c("no", "yes"),
+      labels = c("no", "yes"),
+      ordered = TRUE
+    ),
+    company = as_factor(company),
+    ##
+    dow = factor(dow,
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+      labels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+      ordered = TRUE
+    ),
+    ##
+    local = factor(local,
+      levels = c("no", "yes"),
+      labels = c("no", "yes"),
+      ordered = TRUE
+    ),
+    ##
+    month = factor(month,
+      levels = c("Jan", "Feb", "Mar", "Apr"),
+      labels = c("Jan", "Feb", "Mar", "Apr"),
+      ordered = TRUE
+    ),
+    hour = as_factor(hour)
+  )
+glimpse(taxi_modified)
+```
+
+### **Do more people tip than not?**
+
+```{r}
+
+gf_bar(~tip, data = taxi_modified) %>%
+  gf_labs(title = "Plot 1A: Counts of Tips")
+```
+
+### **Does the tip depend upon whether the trip is local or not?**
+
+```{r}
+
+taxi_modified %>%
+  gf_bar(~local,
+    fill = ~tip,
+    position = "stack"
+  ) %>%
+  gf_labs(title = "Plot 2A: Dodged Bar Chart")%>%
+  gf_refine(scale_fill_manual(values = c("salmon", "turquoise")))
+```
