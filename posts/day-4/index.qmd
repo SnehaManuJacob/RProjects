@@ -1,0 +1,467 @@
+---
+title: "Day 4"
+author: "Sneha Manu Jacob"
+date: "2024-10-04"
+categories: [quantities, histogram]
+---
+
+## Introduction:
+
+Quant and Qual Variable Graphs and their Siblings (god knows what that means).
+
+A **histogram** is a graphical representation of the distribution of continuous numerical data, where data is grouped into ranges (or bins), and the frequency of data points in each bin is displayed using bars. **Quant** variables will be present on the x-axis and the histogram shows us how frequently different values occur for that variable by showing *counts/frequencies* on the y-axis. we use "gf_histogram" for this.
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+library(skimr)
+##
+library(crosstable)
+```
+
+## Diamonds data-set:
+
+```{r}
+diamonds
+```
+
+```{r}
+glimpse(diamonds)
+```
+
+> Considering the fact that all qualitative data is already ordered and factored, we don't mutate any values here.
+
+```{r}
+skim(diamonds)
+```
+
+> -   `carat`: weight of the diamond 0.2-5.01
+>
+> -   `depth`: depth total depth percentage 43-79
+>
+> -   `table`: width of top of diamond relative to widest point 43-95
+>
+> -   `price`: price in US dollars \$326-\$18,823
+>
+> -   `x`: length in mm 0-10.74
+>
+> -   `y`: width in mm 0-58.9
+>
+> -   `z`(dbl): depth in mm 0-31.8
+>
+> <!-- -->
+>
+> -   There are no missing values for any variable, all are complete with 54K entries.
+
+My first histogram!!!!
+
+### Plotting diamond prices.
+
+```{r}
+## if i want i can not specigy the bins too. 
+gf_histogram(~price,
+  data = diamonds,
+  bins = 100
+) %>%
+  gf_labs(
+    title = "Plot 1A: Diamond Prices",
+    caption = "ggformula"
+  )
+```
+
+We can infer that while a large number of diamonds are priced relatively low, there are also a significant number of diamonds that are priced very high.
+
+### **What is the distribution of the predictor variable carat?**
+
+```{r}
+diamonds %>%
+  gf_histogram(~carat,
+    bins = 100
+  ) %>%
+  gf_labs(
+    title = "Plot 2B: Carats of Diamonds",
+    caption = "ggformula"
+  )
+```
+
+We can infer that there must be some, very few, diamonds of very high carat value while there a few carat values that appear to be more than common! People very commonly buy diamonds of 1 carat and a little less frequently 0.5, 1.5 and 2.
+
+### **Does a price distribution vary based upon type of** cut?
+
+> from what i observe, the fill acts as a stack here, although it is prices that are represented in the historgram, we able to observe what portion of each bin is occupied by each of the cuts
+
+```{r}
+gf_histogram(~price, fill = ~cut, data = diamonds, bins=100) %>%
+  gf_labs(title = "Plot 3A: Diamond Prices", caption = "ggformula")
+```
+
+```{r}
+diamonds %>%
+  gf_histogram(~price|cut, fill = ~cut, color = "black", alpha = 0.3) %>%
+  gf_labs(
+    title = "Plot 3C: Prices by Filled and Facetted by Cut",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x = element_text(
+      angle = 45, ## the angle at which the word should be placed.
+      hjust = 1 ## the incremanting space from the x axis
+    )
+  ))
+```
+
+using this, we can observe the price range of each individual cut as different graphs, but very low values (in comparison to high values of ideal) such as those in fair and good. We can make them have ranges of values in y axis based on their individual values by setting scales to be free y.
+
+```{r}
+## the nrow, defines the number of rows 
+diamonds %>%
+  gf_histogram(~price, fill = ~cut, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~cut, scales = "free_y", nrow = 2) %>%
+  gf_labs(
+    title = "Plot 3D: Prices Filled and Facetted by Cut",
+    subtitle = "Free y-scale",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+Price ranges are the same regardless of cut and so that must not be the only parameter in dermeining the price
+
+### **Does a price distribution vary based upon type of** clarity?
+
+```{r}
+gf_histogram(~price, fill = ~clarity, data = diamonds) %>%
+  gf_labs(title = "Plot 3A: Diamond Prices spereated by clarity")
+```
+
+```{r}
+diamonds %>%
+  gf_histogram(~price, fill = ~clarity, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~clarity) %>%
+  gf_labs(
+    title = "Plot 4A: Prices Filled and Facetted by Clarity",
+    subtitle = "Free y-scale",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+```{r}
+## the nrow, defines the number of rows 
+diamonds %>%
+  gf_histogram(~price, fill = ~clarity, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~clarity, scales = "free_y", nrow = 2) %>%
+  gf_labs(
+    title = "Plot 4A: Prices Filled and Facetted by Clarity",
+    subtitle = "Free y-scale",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+Price ranges are the same regardless of clarity and so that must not be the only parameter in determining the price but SI1 appease to have the most in high prices
+
+### **Does a price distribution vary based upon type of** colour?
+
+```{r}
+gf_histogram(~price, fill = ~color, data = diamonds) %>%
+  gf_labs(title = "Plot: Diamond Prices spereated by color")
+```
+
+```{r}
+diamonds %>%
+  gf_histogram(~price, fill = ~color, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~color) %>%
+  gf_labs(
+    title = "Plot: Prices Filled and Facetted by Color",
+    subtitle = "Free y-scale",
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+```{r}
+diamonds %>%
+  gf_histogram(~price, fill = ~color, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~color, scales = "free_y", nrow = 2) %>%
+  gf_labs(
+    title = "Plot: Prices Filled and Facetted by Color",
+    subtitle = "Free y-scale",
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+## The Race data-set
+
+```{r}
+race_df <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/race.csv")
+race_df
+rank_df <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/ultra_rankings.csv")
+rank_df
+```
+
+```{r}
+glimpse(race_df)
+```
+
+```{r}
+glimpse(rank_df)
+```
+
+> mosaic::favstats returns a data frame with several common summary statistics, such as:
+>
+> -   **min**: Minimum value
+>
+> -   **Q1**: First quartile (25th percentile)
+>
+> -   **median**: Median (50th percentile)
+>
+> -   **Q3**: Third quartile (75th percentile)
+>
+> -   **max**: Maximum value
+>
+> -   **mean**: Arithmetic mean
+>
+> -   **sd**: Standard deviation
+>
+> -   **n**: Number of non-missing observations
+>
+> -   **missing**: Number of missing values
+>
+> -   **IQR**: Interquartile range (Q3 - Q1)
+
+```{r}
+race_df %>%
+  favstats(~distance, data = .)
+```
+
+```{r}
+race_df %>%
+  favstats(~participants, data = .)
+```
+
+```{r}
+rank_df %>%
+  drop_na() %>%
+  favstats(time_in_seconds ~ gender, data = .)
+```
+
+> On occasion we may need to see summaries of several Quant variables, over levels of Qual variables. This is where the package crosstable is so effective. Therefore, crosstable is useful when you need to generate summary statistics of **quantitative (numeric)** variables, broken down by levels of **qualitative (categorical)** variables.
+
+```{r}
+crosstable(time_in_seconds + age ~ gender, data = rank_df) %>%
+  crosstable::as_flextable()
+```
+
+Men participating are generally older than women. When it comes to time in seconds, while the overall central tendency (mean) remains consistent, the distribution of the data has some variation as shown by (std) and (median) but not the average - it's the same.
+
+### Which countries host the maximum number of races? Which countries send the maximum number of participants??
+
+```{r}
+race_df %>%
+  count(country) %>%
+  arrange(desc(n))
+```
+
+```{r}
+rank_df %>%
+  count(nationality) %>%
+  arrange(desc(n))
+```
+
+The United states hosts the most number of games and send the most number of players.
+
+### Which country wins the most?
+
+```{r}
+rank_df %>%
+  filter(rank %in% c(1, 2, 3)) %>%
+  count(nationality) %>%
+  arrange(desc(n))
+```
+
+To no surprise, United states wins the most too. Would it be the same case if compared the ratio of players to wins?
+
+### Analyze the nationality of the top 10 participants in the longest races
+
+> -   slice() allows you to select, remove, and duplicate rows. slice_min() and `slice_max()` select rows with the smallest or largest values of a variable.
+> -   The `filter()` function is used to subset a data frame, retaining all rows that satisfy your conditions.
+> -   **`left_join()`** is a function from the **`dplyr`** package used to combine two data frames by joining them based on a common column (or columns).
+
+```{r}
+longest_races <- race_df %>%
+  slice_max(n = 5, order_by = distance) # Longest distance races
+longest_races
+longest_races %>%
+  left_join(., rank_df, by = "race_year_id") %>% # total participants in longest 4 races
+  filter(rank %in% c(1:10)) %>% # Top 10 ranks
+  count(nationality) %>%
+  arrange(desc(n))
+```
+
+> We get 2 tables - one with the joined data set, the other with the nationality and count of the amount of wins (top 10 rank among the longest races).
+
+These quantities show that even though USA has the most number of wins, for the longest races, france has the most participents among everyone the top 10 rank.
+
+### **What is the distribution of the finishing times?**
+
+```{r}
+rank_df %>%
+  gf_histogram(~time_in_seconds, bins = 75) %>%
+  gf_labs(title = "Histogram of Race Times")
+```
+
+Most people finished the race at 1e+05. The histogram shows three bumps (is this a result of the difference in distance?)
+
+### **What is the distribution of race distances?**
+
+```{r}
+race_df %>%
+  gf_histogram(~distance, bins = 50) %>%
+  gf_labs(title = "Histogram of Race Distances")
+```
+
+How are there multiple races at 0 distance, is this a glitch in the data? There are very few races between 0-150. Most races seem to be set at a distance from 150 -180.
+
+```{r}
+race_df %>%
+  filter(distance == 0)
+```
+
+Even though there are so many races registerd as 100 mile races, non of the distances are 100 in the histogram.
+
+### **What is the distribution of finishing times for race distance around 150 faceted by time of day?**
+
+A count of start times:
+
+```{r}
+race_times <- race_df %>%
+  count(start_time) %>%
+  arrange(desc(n))
+race_times
+```
+
+We section a day into different groups of time: example morning, noon, evening and create a new column start_day_time with this information; since might and post midnight can be categorized as the same, we use fact_collapse to combine it to be the same. **`left_join()`** is used to merge `race_start_factor` with another data frame `rank_df` based on the `race_year_id` column, which is common between both. drop_na() removes any rows where `time_in_seconds` is `NA` (i.e., missing values). This ensures the plot only uses races with valid time data. hms- hour minute second.
+
+```{r}
+race_start_factor <- race_df %>%
+  filter(distance == 0) %>% # Races that actually took place
+  mutate(
+    ## start day time is a new column you are creating based on the values in
+    start_day_time =
+      case_when(
+        start_time > hms("02:00:00") &
+          start_time <= hms("06:00:00") ~ "early_morning",
+        start_time > hms("06:00:01") &
+          start_time <= hms("10:00:00") ~ "late_morning",
+        start_time > hms("10:00:01") &
+          start_time <= hms("14:00:00") ~ "mid_day",
+        start_time > hms("14:00:01") &
+          start_time <= hms("18:00:00") ~ "afternoon",
+        start_time > hms("18:00:01") &
+          start_time <= hms("22:00:00") ~ "evening",
+        start_time > hms("22:00:01") &
+          start_time <= hms("23:59:59") ~ "night",
+        start_time >= hms("00:00:00") &
+          start_time <= hms("02:00:00") ~ "postmidnight",
+        .default = "other"
+      )
+  ) %>%
+  mutate(
+    start_day_time =
+      as_factor(start_day_time) %>%
+        fct_collapse(
+          .f = .,
+          night = c("night", "postmidnight")
+        )
+  )
+##
+# Join with rank_df
+race_start_factor %>%
+  left_join(rank_df, by = "race_year_id") %>%
+  drop_na(time_in_seconds) %>%
+  gf_histogram(
+    ~time_in_seconds,
+    bins = 75,
+    fill = ~start_day_time,
+    color = ~start_day_time,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(vars(start_day_time), ncol = 2, scales = "free_y") %>%
+  gf_labs(title = "Race Times by Start-Time")
+```
+
+We see that finish times tend to be longer for afternoon and evening start races
+
+## Populations data-set
+
+```{r}
+pop <- read_delim("../../data/populations.csv")
+pop
+inspect(pop)
+```
+
+There are many countries with small populations and a few countries with very large populations. Such distributions are also called **“long tailed”** distributions.
+
+```{r}
+gf_histogram(~value, data = pop, title = "Long Tailed Histogram")
+##
+gf_density(~value, data = pop, title = "Long Tailed Density")
+```
+
+To develop better insights with this data, we should transform the variable concerned, using say a “log” transformation:
+
+```{r}
+gf_histogram(~ log10(value), data = pop, title = "Histogram with Log transformed x-variable")
+##
+gf_density(~ log10(value), data = pop, title = "Density with Log transformed x-variable")
+```
+
+## What does each distribution signify?
+
+![](images/clipboard-3215234528.png)
+
+> -   *Bimodal*: There could be two different underlying processes or populations contributing to the data.
+>
+> -   *Comb*: The data might have been processed in a way that grouped values together in regular intervals.A comb distribution could appear in data where ages are rounded to the nearest five years (e.g., 20, 25, 30).
+>
+> -   *Edge Peak*: Could even be a data entry artifact!! All unknown / unrecorded observations are recorded as 999 !!🙀
+>
+> -   *Normal*: The data follows a typical pattern where most values are close to the mean, and extremes are rare.
+This distribution occurs frequently in nature and in many datasets due to the Central Limit Theorem.
+>
+> -   *Skewed*: Right skew suggests that most values are clustered at the lower end, but there are some extreme high values.
+Left skew suggests that most values are clustered at the higher end, but there are some extreme low values.
+>
+> -   *Uniform*: This can suggest random or non-preferential selection of values.

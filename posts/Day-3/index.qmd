@@ -5,6 +5,10 @@ date: "2024-10-03"
 categories: [counts, Bar-graph,]
 ---
 
+## Introduction
+
+Today we worked on count of qualitative data. We also looked in creation of bar graph - data in lengths.
+
 ```{r}
 #| label: setup
 library(tidyverse)
@@ -12,6 +16,8 @@ library(mosaic)
 library(ggformula)
 library(skimr)
 ```
+
+## Taxi data-set
 
 ```{r}
 #| label: Read-the-data
@@ -74,6 +80,8 @@ gf_bar(~tip, data = taxi_modified) %>%
   gf_labs(title = "Plot 1A: Counts of Tips")
 ```
 
+Look that that! A vast majority of the lot are people who tip!
+
 ### **Does the tip depend upon whether the trip is local or not?**
 
 ```{r}
@@ -81,8 +89,164 @@ gf_bar(~tip, data = taxi_modified) %>%
 taxi_modified %>%
   gf_bar(~local,
     fill = ~tip,
+    position = "dodge"
+  ) %>%
+  gf_labs(title = "Plot 2A: Dodged Bar Chart" ,
+    subtitle = "Proof that i know how to write subtitles")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+```{r}
+taxi_modified %>%
+  gf_bar(~local,
+    fill = ~tip,
     position = "stack"
   ) %>%
-  gf_labs(title = "Plot 2A: Dodged Bar Chart")%>%
-  gf_refine(scale_fill_manual(values = c("salmon", "turquoise")))
+  gf_labs(
+    title = "Plot 2B: Stacked Bar Chart",
+    subtitle = "A sandwaiched version of the last one!"
+  )%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
+
+> But by looking at these, while we can spot the number of tips and lack of tips the locals and non-locals contributed, but we can't definitely say that more non-locals tip or otherwise. To find this, we will have to find the difference in ratios by using fill
+
+```{r}
+taxi_modified %>%
+  gf_bar(~local,
+    fill = ~tip,
+    position = "fill"
+  ) %>%
+  gf_labs(
+    title = "Plot 2C: Filled Bar Chart",
+    subtitle = "Shows Per group differences in Proportions!"
+  )%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+Therefore we can now deduce that locals tend to tip lesser than the non-locals.
+
+### **Do some cab companies get more tips than others?**
+
+```{r}
+taxi_modified %>%
+  gf_bar(~company, fill = ~tip, position = "dodge") %>%
+  gf_labs(title = "Plot 2A: Dodged Bar Chart") %>%
+  gf_theme(theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1)))%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+Other gets the most count of trips but do they get the most number of tips?
+
+```{r}
+taxi_modified %>%
+  gf_props(~company, fill = ~tip, position = "fill") %>%
+  gf_labs(
+    title = "Plot 2B: Filled Bar Chart",
+    subtitle = "Shows Per group differences in Proportions!"
+  ) %>%
+  gf_theme(theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1)))%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+It appears so that flash cabs is the company that gets the least amount of tips. While Chicago gets the most number of tips per-group proportion.
+
+### **Does a tip depend upon the** hour of the day? At which are are the tips highest and lowest?
+
+```{r}
+gf_bar(~hour, fill = ~tip, data = taxi_modified) %>%
+  gf_labs(title = "Plot A: Counts of Tips by Hour")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+The count of tips are highest are the 17th hour qhile lowest is at the 4th hour.
+
+```{r}
+gf_bar(~hour, fill = ~tip, position = "fill", data = taxi_modified) %>%
+  gf_labs(title = "Plot A: Counts of Tips by Hour")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+> just cause i wanted to know how this graph would look. hehe
+
+### **Does a tip depend upon the** day of the week? At which day are the tips highest and lowest?
+
+```{r}
+gf_bar(~dow, fill = ~tip, data = taxi_modified) %>%
+  gf_labs(title = "Plot C: Counts of Tips by Day of Week")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+The highest count of tips are on Thursdays and lowest is on Sundays.
+
+### At which Month are the tips highest and lowest among the 4 recorded?
+
+```{r}
+gf_bar(~month, fill = ~tip, data = taxi_modified) %>%
+  gf_labs(title = "Plot D: Counts of Tips by Month")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+The highest count of tips is on April and lowest is on January.
+
+### Counts of Tips by Day of Week and Month
+
+> Here, we are obtaining a total 7 graphs, each for a day week. Each graph has 4 bars each, with month as the x axis indicating- for each day, in what month, the count of tips is observed.
+
+```{r}
+gf_bar(~ month | dow, fill = ~tip, data = taxi_modified) %>%
+  gf_labs(title = "Plot E: Counts of Tips by Day of Week and Month")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+### Counts of Tips by Hour and Day of Week
+
+```{r}
+gf_bar(~ hour | dow, fill = ~tip, data = taxi_modified) %>%
+  gf_labs(
+    title = "Plot G: Counts of Tips by Hour and Day of Week"
+  )%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+## Addiction healthcare data-set
+
+```{r}
+data("HELPrct")
+HELPrct
+```
+
+### Obtaining the count of of each substance
+
+```{r}
+HELPrct %>% gf_bar(~substance) 
+
+```
+
+Based on this data, more people are addicted to alcohol than cocaine and heroin.
+
+### Plotting the count of substance based on gender
+
+```{r}
+HELPrct %>% gf_bar(~substance,fill = ~sex)%>% 
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+For all 3 substances, more men in count seem to be addicted than women.
+
+## Fertility data-set
+
+```{r}
+banned <- read_csv("../../data/banned-author-title.csv")
+banned
+```
+
+```{r}
+banned %>% dplyr::glimpse()
+```
+
+```{r}
+banned %>% mosaic::inspect()
+```
+
+> Type of ban, State, District, Date of challenge and origin of challenge can be declared as factors.
