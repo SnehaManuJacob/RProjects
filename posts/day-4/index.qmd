@@ -458,10 +458,8 @@ gf_density(~ log10(value), data = pop, title = "Density with Log transformed x-v
 >
 > -   *Edge Peak*: Could even be a data entry artifact!! All unknown / unrecorded observations are recorded as 999 !!🙀
 >
-> -   *Normal*: The data follows a typical pattern where most values are close to the mean, and extremes are rare.
-This distribution occurs frequently in nature and in many datasets due to the Central Limit Theorem.
+> -   *Normal*: The data follows a typical pattern where most values are close to the mean, and extremes are rare. This distribution occurs frequently in nature and in many datasets due to the Central Limit Theorem.
 >
-> -   *Skewed*: Right skew suggests that most values are clustered at the lower end, but there are some extreme high values.
-Left skew suggests that most values are clustered at the higher end, but there are some extreme low values.
+> -   *Skewed*: Right skew suggests that most values are clustered at the lower end, but there are some extreme high values. Left skew suggests that most values are clustered at the higher end, but there are some extreme low values.
 >
 > -   *Uniform*: This can suggest random or non-preferential selection of values.
