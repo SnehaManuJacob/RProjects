@@ -230,3 +230,20 @@ HELPrct %>% gf_bar(~substance,fill = ~sex)%>%
 ```
 
 For all 3 substances, more men in count seem to be addicted than women.
+
+## Banned Books data-set
+
+```{r}
+banned <- read_csv("../../data/banned-author-title.csv")
+banned
+```
+
+```{r}
+banned %>% dplyr::glimpse()
+```
+
+```{r}
+banned %>% mosaic::inspect()
+```
+
+> Type of ban, State, District, Date of challenge and origin of challenge can be declared as factors.
