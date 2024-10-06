@@ -41,6 +41,8 @@ taxi %>% mosaic::inspect()
 taxi %>% skimr::skim()
 ```
 
+### Table of Variables
+
 | Variable name | Description | Type of variable |
 |------------------------|------------------------|------------------------|
 | tip | Represents if the tip was given or not | Qualitative |
@@ -284,6 +286,8 @@ banned %>% dplyr::glimpse()
 ```{r}
  banned %>% mosaic::inspect()
 ```
+
+### Table of Variables
 
 | Variable name | Description | Type of variable |
 |------------------------|------------------------|------------------------|
