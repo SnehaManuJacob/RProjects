@@ -156,6 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Day 2</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">summaries</div>
+                <div class="quarto-category">mgp-data</div>
+                <div class="quarto-category">math-anxiety-data</div>
               </div>
                   </div>
   </div>
@@ -493,6 +495,77 @@ $ fl           &lt;chr&gt; "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p"
 $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact", "c…</code></pre>
 </div>
 </div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>manufacturer</td>
+<td>Represents the name of the company that produces the vehicle.</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>model</td>
+<td>This variable indicates the specific model of the vehicle produced by the manufacturer.</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>displ</td>
+<td>Engine Displacement: measures the engine’s size or capacity</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>year</td>
+<td>Indicates the year in which the vehicle model was manufactured.</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>cyl</td>
+<td>Specifies the number of cylinders in the vehicle’s engine.</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>trans</td>
+<td>Indicates the type of transmission system used in the vehicle</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>drv</td>
+<td>Describes how power is delivered to the wheels (e.g., front-wheel drive, rear-wheel drive, all-wheel drive)</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>cty</td>
+<td>Measures the fuel efficiency of the vehicle when driving in urban conditions</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>hwy</td>
+<td>Measures fuel efficiency on highways</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>fl</td>
+<td>Indicates the type of fuel used by the vehicle</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>class</td>
+<td>Categorizes vehicles into different classes based on their size, purpose, or design</td>
+<td>Qualitative</td>
+</tr>
+</tbody>
+</table>
 <blockquote class="blockquote">
 <p>Through this glimpse, i find that cylinder is encoded as an int, and so it is considered a quantitative variable. i need to change it.</p>
 </blockquote>
@@ -842,12 +915,11 @@ quantitative variables:
 </div>
 </div>
 </section>
-<section id="groups-within-columns--" class="level4">
-<h4 class="anchored" data-anchor-id="groups-within-columns--">Groups within columns -</h4>
+<section id="groups-within-columns--" class="level3">
+<h3 class="anchored" data-anchor-id="groups-within-columns--">Groups within columns -</h3>
 <p>We can group a quantitative data based on different qualitative data-sets.</p>
-<blockquote class="blockquote">
-<p>Here i am finding the separate means of highway mileage for every separate level of cyl.</p>
-</blockquote>
+<section id="here-i-am-finding-the-separate-means-of-highway-mileage-for-every-separate-level-of-cyl." class="level4">
+<h4 class="anchored" data-anchor-id="here-i-am-finding-the-separate-means-of-highway-mileage-for-every-separate-level-of-cyl.">Here i am finding the separate means of highway mileage for every separate level of cyl.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mpg_modified <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
@@ -862,9 +934,13 @@ quantitative variables:
 4 8            17.6    70</code></pre>
 </div>
 </div>
+<p>The most highway mileage is for 4 cylinders while the lowest is for 8 cylinders.</p>
 <blockquote class="blockquote">
 <p>You can find mean based on 2 or more factors i.e.&nbsp;permutations and combinations of all factors</p>
 </blockquote>
+</section>
+<section id="separate-means-of-highway-mileage-for-every-separate-level-of-cyl-and-fuel." class="level4">
+<h4 class="anchored" data-anchor-id="separate-means-of-highway-mileage-for-every-separate-level-of-cyl-and-fuel.">Separate means of highway mileage for every separate level of cyl and fuel.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>mpg_modified <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl, fl) <span class="sc">%&gt;%</span></span>
@@ -893,10 +969,46 @@ argument.</code></pre>
 13 8     d            17       1</code></pre>
 </div>
 </div>
+<p>The highest mean highway mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for electric cars with 6 cylinders.</p>
+</section>
+<section id="separate-means-of-city-mileage-for-every-separate-level-of-cyl-and-fuel." class="level4">
+<h4 class="anchored" data-anchor-id="separate-means-of-city-mileage-for-every-separate-level-of-cyl-and-fuel.">Separate means of city mileage for every separate level of cyl and fuel.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mpg_modified <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(manufacturer) <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_cty =</span> <span class="fu">mean</span>(cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl, fl) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_cty =</span> <span class="fu">mean</span>(cty), <span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'cyl'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 4
+# Groups:   cyl [4]
+   cyl   fl    average_cty count
+   &lt;fct&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;
+ 1 4     p           19.9     22
+ 2 4     r           20.8     55
+ 3 4     d           32.3      3
+ 4 4     c           24        1
+ 5 5     r           20.5      4
+ 6 6     p           16.8     17
+ 7 6     r           16.1     60
+ 8 6     e           11        1
+ 9 6     d           17        1
+10 8     p           13.8     13
+11 8     r           12.7     49
+12 8     e            9.57     7
+13 8     d           14        1</code></pre>
+</div>
+</div>
+<p>The highest mean city mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for cars with 8 cylinders and petrol fuel.</p>
+</section>
+<section id="separate-means-of-city-mileage-for-every-separate-level-of-cyl-and-fuel.-1" class="level4">
+<h4 class="anchored" data-anchor-id="separate-means-of-city-mileage-for-every-separate-level-of-cyl-and-fuel.-1">Separate means of city mileage for every separate level of cyl and fuel.</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mpg_modified <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(manufacturer) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_cty =</span> <span class="fu">mean</span>(cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 2
    manufacturer average_cty
@@ -918,12 +1030,14 @@ argument.</code></pre>
 15 volkswagen          20.9</code></pre>
 </div>
 </div>
+<p>The highest mean city mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for electric cars with 6 cylinders.</p>
+</section>
 </section>
 </section>
 <section id="math-anxiety-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="math-anxiety-data-set">Math Anxiety Data-Set:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>math_anx <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"../../data/MathAnxiety.csv"</span>, <span class="at">delim=</span><span class="st">";"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>math_anx <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"../../data/MathAnxiety.csv"</span>, <span class="at">delim=</span><span class="st">";"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 599 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -935,7 +1049,7 @@ num (1): Age
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>math_anx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>math_anx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 599 × 6
      Age Gender Grade      AMAS RCMAS Arith
@@ -953,11 +1067,9 @@ num (1): Age
 # ℹ 589 more rows</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>AMAS (Adult Manifest Anxiety Scale), RCMAS (Revised Children’s Manifest Anxiety Scale), Arith (Arithmetic Subtest of Intelligence Tests)</p>
-</blockquote>
+<p>###Glimpse the data to understand which we have to change to factors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>math_anx <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>math_anx <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 599
 Columns: 6
@@ -969,14 +1081,66 @@ $ RCMAS  &lt;dbl&gt; 20, 8, 26, 18, 20, 33, 23, 11, 32, 30, 10, 4, 23, 26, 24, 2
 $ Arith  &lt;dbl&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3, 8, …</code></pre>
 </div>
 </div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Age</td>
+<td>Represents the age of the individual</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td>Represents the gender of the individual(male/female)</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>Grade</td>
+<td>Represents the grade they study in</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>AMAS</td>
+<td>Adult Manifest Anxiety Scale</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>RCMAS</td>
+<td>Revised Children’s Manifest Anxiety Scale</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>Arith</td>
+<td>Arithmetic Subtest of Intelligence Tests</td>
+<td>Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p>Target Variable: AMAS, RCMAS and Arith Predictor Variables: Age, Gender and Grade</p>
+<section id="mutate-to-facors" class="level3">
+<h3 class="anchored" data-anchor-id="mutate-to-facors">Mutate to facors:</h3>
+<blockquote class="blockquote">
+<p>Among all variables, Gender, Grade and Arith must be turned into factors.</p>
+</blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="ot">&lt;-</span> math_anx <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">as_factor</span>(Gender),</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Grade =</span> <span class="fu">as_factor</span>(Grade),</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Arith =</span> <span class="fu">as_factor</span>(Arith)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(math_anx_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="ot">&lt;-</span> math_anx <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">as_factor</span>(Gender),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Grade =</span> <span class="fu">as_factor</span>(Grade),</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Arith =</span> <span class="fu">as_factor</span>(Arith)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(math_anx_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 599
 Columns: 6
@@ -988,8 +1152,11 @@ $ RCMAS  &lt;dbl&gt; 20, 8, 26, 18, 20, 33, 23, 11, 32, 30, 10, 4, 23, 26, 24, 2
 $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3, 8, …</code></pre>
 </div>
 </div>
+</section>
+<section id="summerising-the-data-with-skim" class="level3">
+<h3 class="anchored" data-anchor-id="summerising-the-data-with-skim">Summerising the data with skim:</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span> skimr<span class="sc">::</span><span class="fu">skim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span> skimr<span class="sc">::</span><span class="fu">skim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -1156,9 +1323,9 @@ $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3,
 <section id="anxiety-based-on-gender" class="level4">
 <h4 class="anchored" data-anchor-id="anxiety-based-on-gender">Anxiety based on Gender:</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Gender average_AMAS average_RCMAS count
@@ -1172,9 +1339,9 @@ $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3,
 <section id="anxiety-based-on-grade" class="level4">
 <h4 class="anchored" data-anchor-id="anxiety-based-on-grade">Anxiety based on Grade:</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Grade) <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Grade) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Grade     average_AMAS average_RCMAS count
@@ -1188,9 +1355,9 @@ $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3,
 <section id="anxiety-based-on-grade-and-gender" class="level4">
 <h4 class="anchored" data-anchor-id="anxiety-based-on-grade-and-gender">Anxiety based on Grade and Gender:</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Grade, Gender) <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Grade, Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Grade'. You can override using the
 `.groups` argument.</code></pre>
@@ -1211,9 +1378,9 @@ $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3,
 <section id="anxiety-based-on-arithmetic-subtest-of-intelligence-tests" class="level4">
 <h4 class="anchored" data-anchor-id="anxiety-based-on-arithmetic-subtest-of-intelligence-tests">Anxiety based on Arithmetic Subtest of Intelligence Tests:</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arith) <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>math_anx_modified <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arith) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_AMAS =</span> <span class="fu">mean</span>(AMAS), <span class="at">average_RCMAS =</span> <span class="fu">mean</span>(RCMAS), <span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 4
   Arith average_AMAS average_RCMAS count
@@ -1229,9 +1396,11 @@ $ Arith  &lt;fct&gt; 6, 6, 5, 7, 1, 1, 4, 7, 2, 6, 2, 5, 2, 6, 2, 7, 2, 4, 7, 3,
 9 8             20.5          18.5    94</code></pre>
 </div>
 </div>
+<p>I don’t really know how to read this last data.</p>
 <pre><code></code></pre>
 
 
+</section>
 </section>
 </section>
 

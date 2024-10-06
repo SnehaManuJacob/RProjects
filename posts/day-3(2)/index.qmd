@@ -2,7 +2,7 @@
 title: "Day 3"
 author: "Sneha Manu Jacob"
 date: "2024-10-03"
-categories: [counts, Bar-graph]
+categories: [counts, Bar-graph, taxi, addiction, banned-books]
 ---
 
 ## Introduction
@@ -22,15 +22,16 @@ library(skimr)
 ```{r}
 #| label: Read-the-data
 taxi <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/modeldata/taxi.csv")
-```
-
-```{r}
 taxi
 ```
+
+We first glimpse it to identify what variables need to be converted to factors.
 
 ```{r}
 taxi %>% dplyr::glimpse()
 ```
+
+Before we do mutate stuff into factors, it helps to know the number of levels of each variable, just to make sure. For do inspect and skim.
 
 ```{r}
 taxi %>% mosaic::inspect()
@@ -39,6 +40,22 @@ taxi %>% mosaic::inspect()
 ```{r}
 taxi %>% skimr::skim()
 ```
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| tip | Represents if the tip was given or not | Qualitative |
+| company | This variable indicates the taxi company or vendor that operates the vehicle. | Qualitative |
+| local | This variable may refer to whether the trip occurred within a local area or not | Qualitative |
+| dow | his variable represents the day of the week when the taxi ride took place | Qualitative |
+| month | This variable indicates the month during which the taxi ride occurred. | Qualitative |
+| distance | This variable measures the total distance traveled during the taxi ride, usually expressed in miles | Quantitative |
+| hour | This variable indicates the hour of the day when the trip started | Quantitative |
+
+Target Variable: tip
+
+Predictor Variables: company, dow, local, month, hour
+
+> And then we mutate. I feel like i scientist when i use the word mutate. We glimpse it again, cause why not.
 
 ```{r}
 taxi_modified <- taxi %>%
@@ -72,16 +89,18 @@ taxi_modified <- taxi %>%
 glimpse(taxi_modified)
 ```
 
-### **Do more people tip than not?**
+#### **q1. Do more people tip than not?**
 
 ```{r}
 gf_bar(~tip, data = taxi_modified) %>%
-  gf_labs(title = "Plot 1A: Counts of Tips")
+  gf_labs(title = "Counts of Tips")
 ```
 
-Look that that! A vast majority of the lot are people who tip!
+Look that that! A vast majority of the lot, are people who tip!
 
-### **Does the tip depend upon whether the trip is local or not?**
+#### **q2. Does the tip depend upon whether the trip is local or not?**
+
+In a dodged bar chart one variable is in the x- axis, but the y axis has the count of another variable. In this way we acquire counts of different levels of a qualitative data broken down by levels of another qualitative variable side by side, making it easy to compare.
 
 ```{r}
 taxi_modified %>%
@@ -94,6 +113,8 @@ taxi_modified %>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
+A stacked bar looks very similar to a dodged chart, but counts of both levels are on top of each other. I like this one better, it looks neater, but in my opinion if the counts of multiple levels of one paramter are closeby values, it would be more practical to use a dodged bar.
+
 ```{r}
 taxi_modified %>%
   gf_bar(~local,
@@ -102,12 +123,14 @@ taxi_modified %>%
   ) %>%
   gf_labs(
     title = "Stacked Bar Chart",
-    subtitle = "A sandwaiched version of the last one!"
+    subtitle = "A sandwiched version of the last one!"
   )%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-> But by looking at these, while we can spot the number of tips and lack of tips the locals and non-locals contributed, but we can't definitely say that more non-locals tip or otherwise. To find this, we will have to find the difference in ratios by using fill.
+Looking at these, while we can spot the number of tips and lack of tips the locals and non-locals contributed- there are a lot more non local tips than local ones and in quantity, they do get most of their tips from non-locals.
+
+> But we can't definitely say that non-locals tend to tip more certainly, it could only appear so beacuse the non-local trips are so much more. To find this, we will have to find the difference in ratios by using position = fill.
 
 ```{r}
 taxi_modified %>%
@@ -122,9 +145,9 @@ taxi_modified %>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-Therefore we can now deduce that locals tend to tip lesser than the non-locals.
+We can now observe that locals tend to tip lesser than the non-locals.
 
-### **Do some cab companies get more tips than others?**
+#### **q3. Do some cab companies get more tips than others?**
 
 ```{r}
 taxi_modified %>%
@@ -149,7 +172,7 @@ taxi_modified %>%
 
 It appears so that flash cabs is the company that gets the least amount of tips. While Chicago gets the most number of tips per-group proportion.
 
-### **Does a tip depend upon the** hour of the day? At which are are the tips highest and lowest?
+#### **q4. Does a tip depend upon the hour of the day? At which are are the tips highest and lowest?**
 
 ```{r}
 gf_bar(~hour, fill = ~tip, data = taxi_modified) %>%
@@ -157,52 +180,68 @@ gf_bar(~hour, fill = ~tip, data = taxi_modified) %>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-The count of tips are highest are the 17th hour qhile lowest is at the 4th hour.
+The count of tips are highest are the 17th hour while lowest is at the 4th hour.
 
 ```{r}
 gf_bar(~hour, fill = ~tip, position = "fill", data = taxi_modified) %>%
-  gf_labs(title = "Counts of Tips by Hour")%>%
+  gf_labs(title = "Counts of Tips by Hour in proportion")%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-> just cause i wanted to know how this graph would look. hehe
+People are most likely to tip at 2nd and 4th hour and least at 8th, 15th and 23rd hour.
 
-### **Does a tip depend upon the** day of the week? At which day are the tips highest and lowest?
+#### **q5. Does a tip depend upon the** day of the week? At which day are the tips highest and lowest?
 
 ```{r}
 gf_bar(~dow, fill = ~tip, data = taxi_modified) %>%
-  gf_labs(title = "Plot C: Counts of Tips by Day of Week")%>%
+  gf_labs(title = "Counts of Tips by Day of Week")%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-The highest count of tips are on Thursdays and lowest is on Sundays.
+The highest count of tips are on Thursdays and lowest is on Sundays. The count of tips thend to be the highest in weekdays and lesser in weekends
 
-### At which Month are the tips highest and lowest among the 4 recorded?
+```{r}
+gf_bar(~dow, fill = ~tip, data = taxi_modified, position = "fill") %>%
+  gf_labs(title = "Counts of Tips by Day of Week in proportion")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+People are most likely to tip on Sundays and least likely to tip on Fridays.
+
+#### q6. At which month are the tips highest and lowest among the 4 recorded?
 
 ```{r}
 gf_bar(~month, fill = ~tip, data = taxi_modified) %>%
-  gf_labs(title = "Plot D: Counts of Tips by Month")%>%
+  gf_labs(title = "Counts of Tips by Month")%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
 The highest count of tips is on April and lowest is on January.
 
-### Counts of Tips by Day of Week and Month
+```{r}
+gf_bar(~month, fill = ~tip, data = taxi_modified, position = "fill") %>%
+  gf_labs(title = "Counts of Tips by Month in proportion")%>%
+  gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
+```
+
+People are least likely to tip in April and most likely to tip in January.
+
+#### Counts of Tips by Day of Week and Month
 
 > Here, we are obtaining a total 7 graphs, each for a day week. Each graph has 4 bars each, with month as the x axis indicating- for each day, in what month, the count of tips is observed.
 
 ```{r}
 gf_bar(~ month | dow, fill = ~tip, data = taxi_modified) %>%
-  gf_labs(title = "Plot E: Counts of Tips by Day of Week and Month")%>%
+  gf_labs(title = "Counts of Tips by Day of Week and Month")%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
 
-### Counts of Tips by Hour and Day of Week
+#### Counts of Tips by Hour and Day of Week
 
 ```{r}
 gf_bar(~ hour | dow, fill = ~tip, data = taxi_modified) %>%
   gf_labs(
-    title = "Plot G: Counts of Tips by Hour and Day of Week"
+    title = "Counts of Tips by Hour and Day of Week"
   )%>%
   gf_refine(scale_fill_manual(values = c("turquoise", "salmon")))
 ```
@@ -211,18 +250,17 @@ gf_bar(~ hour | dow, fill = ~tip, data = taxi_modified) %>%
 
 ```{r}
 data("HELPrct")
-HELPrct
 ```
 
-### Obtaining the count of of each substance
+#### Obtaining the count of of each substance
 
 ```{r}
-HELPrct %>% gf_bar(~substance) 
+HELPrct %>% gf_bar(~substance)
 ```
 
-Based on this data, more people are addicted to alcohol than cocaine and heroin.
+Based on this data, more people are addicted to alcohol than cocaine or heroin.
 
-### Plotting the count of substance based on gender
+#### Plotting the count of substance based on gender
 
 ```{r}
 HELPrct %>% gf_bar(~substance,fill = ~sex)%>% 
@@ -231,9 +269,10 @@ HELPrct %>% gf_bar(~substance,fill = ~sex)%>%
 
 For all 3 substances, more men in count seem to be addicted than women.
 
-## Banned Books data-set
+## Banned Books data-set (Trying it myself)
 
 ```{r}
+#| label: Read-the-data2
 banned <- read_csv("../../data/banned-author-title.csv")
 banned
 ```
@@ -243,7 +282,263 @@ banned %>% dplyr::glimpse()
 ```
 
 ```{r}
-banned %>% mosaic::inspect()
+ banned %>% mosaic::inspect()
 ```
 
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| Author | Represents the name of the author of the book that has been challenged or banned | Qualitative |
+| Title | This variable indicates the title of the book that has faced challenges or bans. | Qualitative |
+| Type of Ban | Describes the context in which the book is banned | Qualitative |
+| State | Indicates the U.S. state where the challenge or ban occurred. | Qualitative |
+| District | This variable specifies the school district or library district involved in the challenge or ban. | Qualitative |
+| Date of Challenge/Removal | This variable records the date when the challenge was made or when the book was removed from circulation. | Qualitative |
+| Origin of Challenge | Indicates who initiated the challenge | Qualitative |
+
 > Type of ban, State, District, Date of challenge and origin of challenge can be declared as factors.
+
+#### What could the target variable be?
+
+I guess it could be type of ban - understanding it could help predict if a book will be fully banned, temporarily banned, or restricted or with State/district, we could understand which states or districts are more likely to challenge books.
+
+When it comes to predictor variables, everything except title, author and district (there way too many levels) could be predictor variables.
+
+```{r}
+banned_modified <- banned %>%
+  dplyr::mutate(
+    `Type of Ban` = as_factor(`Type of Ban`),
+    State = as_factor(State),
+    District = as_factor(District),
+    `Date of Challenge/Removal` = as_factor(`Date of Challenge/Removal`),
+    `Origin of Challenge` = as_factor(`Origin of Challenge`),
+  )
+glimpse(banned_modified)
+```
+
+```{r}
+banned_modified %>% mosaic::inspect()
+```
+
+```{r}
+banned_modified %>% skimr::skim()
+```
+
+### TARGET VARIABLE: State
+
+#### q1. Which state has the most amount of banned books?
+
+```{r}
+gf_bar(~State, data = banned_modified) %>%
+  gf_labs(title = "Counts of States")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+As expected, Texas leads the nation in the number of banned books, with Pennsylvania following in second place.
+
+> Since there is data on so many states, like we did on day 4, i want to filter it to be only 10 states with the most amount of banned books.
+
+```{r}
+top_states <- banned_modified %>%
+  group_by(State) %>%                   # Group by state
+  summarize(n = n()) %>%                # Count banned books per state
+  slice_max(n, n = 10) %>%                # Select the top 5 states
+  pull(State)                           # Extract the state names
+```
+
+```{r}
+top_10_states_data <- banned_modified %>%
+  filter(State %in% top_states)
+```
+
+```{r}
+top_10_states_data
+```
+
+Trying kskin again with this updated data-set to see if the amount of districts are small enough to be a facor
+
+```{r}
+top_10_states_data %>% skimr::skim()
+```
+
+> Nope, still too much. i guess i could try it tho.
+
+#### q2. What is the correlation between type of ban and the state it is challenged in?
+
+```{r}
+top_10_states_data %>%
+  gf_bar(~State,
+    fill = ~`Type of Ban`,
+    position = "stack"
+  ) %>%
+  gf_labs(title = "Type of ban by state" ,
+    subtitle = "Stacked Bar Chart")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+It seems that almost all books banned in Pennsylvania are banned in Classrooms and in Texas, while most of them are banned from a pending investigation, there is a significant section of it banned from libraries and classrooms
+
+#### q3. Does the ban depend on the Origin of Challenge?
+
+```{r}
+top_10_states_data %>%
+  gf_bar(~State,
+    fill = ~`Origin of Challenge`,
+    position = "stack"
+  ) %>%
+  gf_labs(title = "Origin of Challenge by state" ,
+    subtitle = "Stacked Bar Chart")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+Most bans everywhere were raised by the administration. Interestingly, all the books banned in Pennsylvania have been challenged by the administrator. In Texas, a large majority has been challenged by Administrator but there is still a portion of it challenged formally. All banned books in Missouri were challenged formally, how surprising!
+
+#### q4. Is there a correlation between the type of ban and the Origin of challenge?
+
+```{r}
+gf_bar(~`Origin of Challenge` | `Type of Ban`, fill = ~State, data = top_10_states_data) %>%
+  gf_labs(title = "Counts of Ban by type of ban and origin in states")
+```
+
+```{r}
+gf_bar(~`Origin of Challenge` | State, fill = ~`Type of Ban`, data = top_10_states_data) %>%
+  gf_labs(title = "Counts of Types of Ban by State and Origin")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+You would expect that only all books whose origin was formal would be the ones banned in classrooms (over protective parents exist all over the world) but surprising, From what i can see, in Texas, most books formally banned are banned from libraries (a few also banned from classrooms and libraries) and the ones banned in Missouri are mostly banned pending investigation.
+
+#### q5. In which month of which year were most bans challenged?
+
+```{r}
+gf_bar(~`Date of Challenge/Removal`, data = banned_modified) %>%
+  gf_labs(title = "Count of bans every month")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+Most books were banned during September and December.
+
+```{r}
+top_10_states_data %>%
+  gf_bar(~State,
+    fill = ~`Date of Challenge/Removal`,
+    position = "stack"
+  ) %>%
+  gf_labs(title = "Date of Challenge/Removal by State" ,
+    subtitle = "Stacked bar chart")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+From this bar, it is clear that every state has one month where most of there bans are imposed. For Texas it's mostly in December, some in January, fewer in March, fall and November. For Pennsylvania, it's moslty all in September. For Florida it's mostly in November.
+
+#### q6. Is there a correlation between the type of ban and when it was challenged?
+
+```{r}
+gf_bar(~`Type of Ban` | `Date of Challenge/Removal`, fill = ~State, data = top_10_states_data) %>%
+  gf_labs(title = "Counts of Types of Ban by State and Date of Challenge")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+To no surprise, there does not seem to be any correlation between type of ban and the month it was challenged in.
+
+#### q7. Is there a correlation between the origin of ban and when it was challenged?
+
+I know it's a long shot.
+
+```{r}
+gf_bar(~`Origin of Challenge` | State, fill = ~`Date of Challenge/Removal`, data = top_10_states_data) %>%
+  gf_labs(title = "Origin of challenge of State and Date of Challenge/Removal")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+There doesn't seem to be any clear correlation between origin of ban and when it was challenged except in Tennesse where most if not all administrator origins came at Winter 2021 and all formal challenges came of September 2021.
+
+#### q8. Which author has the honor of being the most banned?
+
+I know this doesn't really come under the bar graph theme we were going with in this post but i really wanted to know and when i did yry and make it a bar graph, i wasn;t getting one with all the same counts.
+
+```{r}
+top_author <- banned_modified %>%
+  count(Author) %>%
+  slice_max(n, n = 10)  
+
+top_author
+```
+
+Kobabe, Maia is the author with the most number of banned books, so proud of him or her!
+
+#### q9. Which District of Texas has raised the most challenges?
+
+```{r}
+top_1_state <- banned_modified %>%
+  group_by(State) %>%                   
+  summarize(n = n()) %>%                
+  slice_max(n, n = 1) %>%                
+  pull(State)
+
+top_1_states_data <- banned_modified %>%
+  filter(State %in% top_1_state)
+```
+
+```{r}
+gf_bar(~District, data = top_1_states_data, fill = "lightblue") %>%
+  gf_labs(title = "Counts of Districts in Texas")%>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+The North East District of Texas has the most number of challenges/ bans
+
+### The End of my A1.

@@ -2,7 +2,7 @@
 title: "Day 2"
 author: "Sneha Jacob"
 date: "2024-09-27"
-categories: [summaries]
+categories: [summaries, mgp-data, math-anxiety-data]
 ---
 
 ## Introduction
@@ -61,6 +61,20 @@ mpg %>%
 mpg %>% dplyr::glimpse()
 ```
 
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| manufacturer | Represents the name of the company that produces the vehicle. | Qualitative |
+| model | This variable indicates the specific model of the vehicle produced by the manufacturer. | Qualitative |
+| displ | Engine Displacement: measures the engine's size or capacity | Quantitative |
+| year | Indicates the year in which the vehicle model was manufactured. | Qualitative |
+| cyl | Specifies the number of cylinders in the vehicle's engine. | Qualitative |
+| trans | Indicates the type of transmission system used in the vehicle | Qualitative |
+| drv | Describes how power is delivered to the wheels (e.g., front-wheel drive, rear-wheel drive, all-wheel drive) | Qualitative |
+| cty | Measures the fuel efficiency of the vehicle when driving in urban conditions | Quantitative |
+| hwy | Measures fuel efficiency on highways | Quantitative |
+| fl | Indicates the type of fuel used by the vehicle | Qualitative |
+| class | Categorizes vehicles into different classes based on their size, purpose, or design | Qualitative |
+
 > Through this glimpse, i find that cylinder is encoded as an int, and so it is considered a quantitative variable. i need to change it.
 
 ```{r}
@@ -91,11 +105,11 @@ mpg_modified %>% mosaic::inspect()
 mpg_modified %>% skimr::skim()
 ```
 
-#### Groups within columns -
+### Groups within columns -
 
 We can group a quantitative data based on different qualitative data-sets.
 
-> Here i am finding the separate means of highway mileage for every separate level of cyl.
+#### Here i am finding the separate means of highway mileage for every separate level of cyl.
 
 ```{r}
 mpg_modified %>%
@@ -103,7 +117,11 @@ mpg_modified %>%
   summarize(average_hwy = mean(hwy), count = n())
 ```
 
+The most highway mileage is for 4 cylinders while the lowest is for 8 cylinders.
+
 > You can find mean based on 2 or more factors i.e. permutations and combinations of all factors
+
+#### Separate means of highway mileage for every separate level of cyl and fuel.
 
 ```{r}
 mpg_modified %>%
@@ -111,24 +129,56 @@ mpg_modified %>%
   summarize(average_hwy = mean(hwy), count = n())
 ```
 
+The highest mean highway mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for electric cars with 6 cylinders.
+
+#### Separate means of city mileage for every separate level of cyl and fuel.
+
+```{r}
+mpg_modified %>%
+  group_by(cyl, fl) %>%
+  summarize(average_cty = mean(cty), count = n())
+```
+
+The highest mean city mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for cars with 8 cylinders and petrol fuel.
+
+#### Separate means of city mileage for every separate level of cyl and fuel.
+
 ```{r}
 mpg_modified %>%
   group_by(manufacturer) %>%
   summarize(average_cty = mean(cty))
 ```
 
+The highest mean city mileage is for a cars with 4 cylinders with diesel fuel while the lowest is for electric cars with 6 cylinders.
+
 ## Math Anxiety Data-Set:
 
 ```{r}
+#| label: Read the data
 math_anx <- read_delim("../../data/MathAnxiety.csv", delim=";")
 math_anx
 ```
 
-> AMAS (Adult Manifest Anxiety Scale), RCMAS (Revised Children's Manifest Anxiety Scale), Arith (Arithmetic Subtest of Intelligence Tests)
+###Glimpse the data to understand which we have to change to factors.
 
 ```{r}
 math_anx %>% dplyr::glimpse()
 ```
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| Age | Represents the age of the individual | Qualitative |
+| Gender | Represents the gender of the individual(male/female) | Qualitative |
+| Grade | Represents the grade they study in | Qualitative |
+| AMAS | Adult Manifest Anxiety Scale | Quantitative |
+| RCMAS | Revised Children's Manifest Anxiety Scale | Quantitative |
+| Arith | Arithmetic Subtest of Intelligence Tests | Quantitative |
+
+Target Variable: AMAS, RCMAS and Arith Predictor Variables: Age, Gender and Grade
+
+### Mutate to facors:
+
+> Among all variables, Gender, Grade and Arith must be turned into factors.
 
 ```{r}
 math_anx_modified <- math_anx %>%
@@ -139,6 +189,8 @@ math_anx_modified <- math_anx %>%
   )
 glimpse(math_anx_modified)
 ```
+
+### Summerising the data with skim:
 
 ```{r}
 math_anx_modified %>% skimr::skim()
@@ -183,6 +235,8 @@ math_anx_modified %>%
   group_by(Arith) %>%
   summarize(average_AMAS = mean(AMAS), average_RCMAS = mean(RCMAS), count =n())
 ```
+
+I don't really know how to read this last data.
 
 ```         
 ```
