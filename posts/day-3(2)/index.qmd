@@ -44,7 +44,7 @@ taxi %>% skimr::skim()
 ### Table of Variables
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | tip | Represents if the tip was given or not | Qualitative |
 | company | This variable indicates the taxi company or vendor that operates the vehicle. | Qualitative |
 | local | This variable may refer to whether the trip occurred within a local area or not | Qualitative |
@@ -290,7 +290,7 @@ banned %>% dplyr::glimpse()
 ### Table of Variables
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Author | Represents the name of the author of the book that has been challenged or banned | Qualitative |
 | Title | This variable indicates the title of the book that has faced challenges or bans. | Qualitative |
 | Type of Ban | Describes the context in which the book is banned | Qualitative |
