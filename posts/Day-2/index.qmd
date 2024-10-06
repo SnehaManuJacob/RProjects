@@ -61,6 +61,8 @@ mpg %>%
 mpg %>% dplyr::glimpse()
 ```
 
+### Table of Variables
+
 | Variable name | Description | Type of variable |
 |------------------------|------------------------|------------------------|
 | manufacturer | Represents the name of the company that produces the vehicle. | Qualitative |
@@ -164,6 +166,8 @@ math_anx
 ```{r}
 math_anx %>% dplyr::glimpse()
 ```
+
+### Table of Variables
 
 | Variable name | Description | Type of variable |
 |------------------------|------------------------|------------------------|
