@@ -1,0 +1,141 @@
+---
+title: "Case Study 3"
+author: "Sneha Manu Jacob"
+date: "2024-10-14"
+categories: [A2, Antarctic-Sea-ice]
+---
+
+## Introduction
+
+This data-set pertains to the extent of Antarctic Sea Ice over time that is monitored by the National Snow and Ice Data Center
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+library(readxl)
+```
+
+## Playing with and understanding the data
+
+### Acquiring the data:
+
+```{r}
+#| label: Read-the-data
+ice <- read_excel("../../data/ice.xlsx", , sheet = "SH-Daily-Extent")
+ice
+```
+
+#### Observations (list of imperfections):
+
+1.  There is no data collected for 1978. For the next 9 years (till 1987), data has been entered every alternate day. Fom the mid of 1987, data has been entered every day but there by end ( from december 3rd) there is missing data till the end of that year.
+2.  On 1988- there is no data for the first few days of the week- first 12 days of January.
+3.  What am i supposed to do with the data on Feb 29 only every 4 years?
+4.  The month was only entered for the 1st day of every month, Making the value of every other data entry of each month NA
+
+### Data Dictionary:
+
+| Variable name | Description | Type of variable |
+|----------------------|-------------------------------|-------------------|
+| ..1 | Refers to the month the data was collected in | Qualitative |
+| ..2 | Refers to date of the month the data was collected in | Qualitative |
+| Year (1978, 1979 ... 2027) | Sea Ice Extent - the total area covered by sea ice, often measured in square kilometers based on the year, month and day | Quantitative |
+| 1981-2010 mean | This variable represents the average value for sea ice extent calculated over the 30-year period from 1981 to 2010. | Quantitative |
+| 1981-2010 median | This variable represents the median value for sea ice extent calculated over the 30-year period from 1981 to 2010. | Quantitative |
+
+### Target and Predictor Variables:
+
+Target variable could be daily sea ice levels across multiple years.
+
+Predictor Variables:
+
+-   Year: Trends over time can have a major impact on sea ice due to climate change.
+
+-   Month: Sea ice varies seasonally, so the month is a key predictor.
+
+-   Day: In daily data, day-to-day variations can be tracked.
+
+## Defining the Research Experiment:
+
+It could have been aimed at monitoring, measuring, and understanding changes in Antarctic sea ice over time. In order to do this, extensive data on sea ice coverage and its fluctuations have been collected over the span of many years.This would be used to identify trends in sea ice extent over the long-term (year-to-year trends) and short-term (daily or seasonal fluctuations).
+
+Use: Understanding the trend in Antarctic sea ice can provide critical insight into global climate change and its effects on the polar regions.
+
+Questions:
+
+1.  How has the Antarctic sea ice extent changed from 1978 to the present day?
+2.  Are there significant seasonal differences in sea ice over decades?
+3.  Has the extent of Antarctic sea ice significantly reduced over the past 40 years due to rising global temperatures?
+
+## Graph:
+
+![](images/clipboard-155025606.png)
+
+Type of graph: A box plot.
+
+### Defining the question:
+
+1.  What happened to Antarctic sea ice extent in 2023 compared to historical data from 1980 to 2022?
+2.  How did the Antarctic ice extent in 2023 differ from the historical norms?
+
+### Analyzing the data:
+
+Types of Variables: quantitative variables representing the ice extent that are stored unter mutiple columns seperated by the year the time they were collected in. Similar to my last case study, i need all the quantiative data i should plot in one column and so i creat a new data-set where a new row called series is created where the year is stored and the ice extent value under is stored in well... values.
+
+```{r}
+ice %>%
+  select("month" = ...1, "day" = ...2, c(4:49)) %>%
+  tidyr::fill(month) %>%
+  pivot_longer(
+    cols = -c(month, day),
+    names_to = "series",
+    values_to = "values"
+  ) %>%
+  mutate(
+    series = as.integer(series),
+    month = factor(month,
+      levels = month.name,
+      labels = month.name,
+      ordered = TRUE
+    ),
+  ) -> ice_prepared
+
+ice_prepared
+```
+
+### Replicating the graph:
+
+```{r}
+ice_prepared %>%
+  filter(is.finite(values)) %>%
+  gf_boxplot(values ~ month, color = "darkgrey") %>%  
+  gf_point(values ~ month, data = subset(ice_prepared, series == 2023), color = "salmon", size = 3, shape = 15) %>%  
+  gf_labs(title = "Antarctic Ice Area over the years 1980 to 2023")
+```
+
+Here, all values of the year 2023 are being plotted across the month they are inputted in. Can i put only the average value of ice extent each month?
+
+```{r}
+ice_avg_2023 <- ice_prepared %>%
+  filter(series == 2023) %>%
+  group_by(month) %>%                    
+  summarise(avg_value = mean(values, na.rm = TRUE))  
+ice_avg_2023
+```
+
+```{r}
+ice_prepared %>%
+  filter(is.finite(values)) %>%
+  gf_boxplot(values ~ month, color = "darkgrey") %>%  
+  gf_point(data = ice_avg_2023, avg_value ~ month, color = "salmon", size = 3, shape = 15) %>%  
+  gf_labs(title = "Antarctic Ice Area over the years 1980 to 2023", subtitle = "What happend in 2023?", x = "Month", y = "Ice Evtent in million square km", caption = "Data: National Snow and Ice data center")
+```
+
+#### Observations:
+
+1.  There is a **seasonal pattern** in the Antarctic ice extent, with ice reaching its **maximum** around **September** and its **minimum** around **February** . This pattern seems to be consistent with the natural annual cycle of ice melting and formation in the region.
+2.  For all months, the ice extent in 2023 is lower than the historical median. June through October seems to have it being far more lower than the median compared to the other months.
+
+## My Story: 

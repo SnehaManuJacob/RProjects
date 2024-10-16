@@ -1,0 +1,273 @@
+---
+title: "Case Study 2"
+author: "Sneha Manu Jacob"
+date: "2024-10-12"
+categories: [A2, school-scores]
+---
+
+## Introduction
+
+This dataset pertains to scores obtained by students in diverse subjects. Family Income is also part of this dataset.
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+library(GGally)
+library(easystats) 
+library(correlation)
+```
+
+## Playing with and understanding the data
+
+### Acquiring the data:
+
+```{r}
+#| label: Read the data
+scores <- read_csv("../../data/school-scores-data.csv")
+scores
+```
+
+```{r}
+glimpse(scores)
+```
+
+The data doesn't seem right. How are there 99 columns?
+
+> Use the `janitor` package here to clean up the variable names. Try to use the `big_camel` case name format for variables.
+
+```{r}
+library(janitor)
+```
+
+```{r}
+scores_cleaned <- clean_names(scores, case = "big_camel")
+scores_cleaned
+```
+
+```{r}
+glimpse(scores_cleaned)
+```
+
+```{r}
+skim(scores_cleaned)
+```
+
+### Data Dictionary:
+
+| Variable name | Description | Type of variable |
+|-----------------------------|-------------------------|------------------|
+| Year | Refers to the year the data was collected | Qualitative |
+| StateCode | Represent the standardized code for U.S. states | Qualitative |
+| TotalTestTakers | This column likely shows the total number of students who took the standardized test in each state for that year. | Quantitative |
+| Total"*Subject*" | This likely represents the average "*Subject*" score of students in each state, each year. | Quantitative |
+| AcademicSubjects"*Subject*"AverageGpa | This likely represents the average GPA (Grade Point Average) of students in a "*subject*" for each state, each year. | Quantitative |
+| AcademicSubjects*"Subject"*AverageYears | This column could represent the average number of years students spent studying "*subject*", possibly during high school for each state, each year. | Quantitative |
+| FamilyIncomeBetween*"Number1_Number2"*K*"Subject"* | The average "*Subject*" score of students whose family income falls between \$"*Number1*" thousand and \$"*Number2*" thousand annually each state, each year. | Quantitative |
+| FamilyIncomeBetween*"Number1_Number2"*KTestTakers | The number of students from families earning between \$"*Number1*" thousand and \$"*Number2*" thousand who took the test. | Quantitative |
+| FamilyIncome*"LessThan/MoreThan""Number"*KTestTakers | The number of students from families earning Less than or more than \$"*Number*" thousand anually | Quantitative |
+| FamilyIncome"*LessThan/MoreThan""Number"*K*"Subject"* | The average "*Subject*" score of students whose family income falls is less than or more than \$"*Number*" thousand annually | Quantitative |
+| Gpa*"Grade""Subject"* | The average *"Subject"* score of students with a GPA grade of *"Grade"*. | Quantitative |
+| Gpa*"Grade"*TestTakers | The number of students with a GPA of *"Grade"* who took the test. | Quantitative |
+| GpaDOrLower*"Subject"* | The average *"Subject"* score of students with a GPA grade of D or lower. | Quantitative |
+| GpaDOrLowerTestTakers | The number of students with a GPA of D or lower who took the test. | Quantitative |
+| GpaNoResponse*"Subject"* | The average *"Subject"* score of students who did not report their GPA. | Quantitative |
+| GpaNoResponseTestTakers | The number of students who did not report their GPA and took the test. | Quantitative |
+| Gender*"Gender""Subject"* | The average *"Subject"* score of *"Gender"* students. | Quantitative |
+| Gender*"Gender"*TestTakers | The number of *"Gender"* students who took the test. | Quantitative |
+| ScoreRangesBetween*"Number1"*To*"Number2""Subject""Gender"* | The number of *"Gender"* students whose *"Subject"* scores fall between *"Number1"* and *"Number2"*. | Quantitative |
+| ScoreRangesBetween*"Number1"*To*"Number2""Subject"*Total | The total number of students (both female and male) whose *"Subject"* scores fall between *"Number1"* and *"Number2"*. | Quantitative |
+
+I will admit i was over whelmed by the amount of data (in particular the amount of columns in this data set. But i think I've gotten a hand of it)
+
+#### Observations:
+
+1.  The variables Year, StateCode, and StateName are qualitative (categorical) data but they have a large number of unique levels, meaning they can't be treated as factors. Maybe Year can be? It only have 10 different levels.
+2.  Rest all variables are quantitative either representing average GPA, number of students or average score.
+3.  There are no missing values for any variable.
+
+### Target and Predictor Variables:
+
+The target variables could be either the **Math** score (TotalMath) or the **Verbal** score (TotalVerbal). You could treat them as separate target variables or focus on just one. Leaving the rest of the variables to be predictor variables.
+
+## Defining the Research Experiment:
+
+The primary goal of this research could be to predict **test scores** (in both math and verbal sections) based on various demographic, socioeconomic, and academic factors.
+
+**Demographics: To understand regional and gender-based differences in education outcomes.**
+
+-   `StateCode`, `StateName` (location-related factors)
+
+-   `GenderFemaleTestTakers`, `GenderMaleTestTakers` (gender of the test-takers)
+
+**Socioeconomic Variables: Assess how financial background impacts test performance.**
+
+-   `FamilyIncomeLessThan20KTestTakers`, `FamilyIncomeBetween20_40KTestTakers`, etc. (family income)
+
+-   `FamilyIncomeLessThan20KMath`, `FamilyIncomeBetween20_40KMath`, etc. (scores for different income levels)
+
+**Academic Background: To understand the relationship between day-to-day academic success and standardized testing success.**
+
+-   `GpaAMinusTestTakers`, `GpaBTestTakers`, etc. (number of test-takers with specific GPAs)
+
+-   `AcademicSubjectsArtsMusicAverageGpa` (average GPA in academic subjects)
+
+Why do it? To identify which factors have the most significant influence on standardized test scores.
+
+Use: By understanding the factors influencing standardized test performance could help education policymakers identify gaps in achievement and support more equitable access to resources.
+
+Questions:
+
+1.  Does a higher family income correlate with better test scores.
+2.  Do students with higher GPAs perform better on standardized tests.
+3.  Do certain states consistently outperform others. If yes, does this relate to it's socioeconomic status or educational policies.
+4.  Does gender plays a role in performance differences.
+
+## Graph 1:
+
+![](images/clipboard-2380202343.png)
+
+Type of graph: a Scatter Plot analyzing the visible relationships between different Quantitative variables using GGally.
+
+### Defining the question:
+
+1.  Are there patterns of performance consistency or variation between subjects?
+2.  What is the Correlation between the average GPA of different subjects? Is being good / bad in one subject mean they are good/bad at all?
+
+### Analyse the Data:
+
+Identifying the variables used: The quantitative values under all AcademicSubjects"*Subject*"AverageGpa's quantitative data are plotted against each other. There is no particular data transformation required other than changing the variable names and cleaning the data-set a little more to only have these variables (although neither of these are really necessary)
+
+```{r}
+#| label: Transforming the data
+scores_modified <- scores_cleaned %>%
+  rename(
+    ArtsMusic = AcademicSubjectsArtsMusicAverageGpa,
+    English = AcademicSubjectsEnglishAverageGpa,
+    ForeignLanguages = AcademicSubjectsForeignLanguagesAverageGpa,
+    Mathematics = AcademicSubjectsMathematicsAverageGpa,
+    NaturalSciences = AcademicSubjectsNaturalSciencesAverageGpa,
+    SocialSciencesHistory = AcademicSubjectsSocialSciencesHistoryAverageGpa
+    )%>%
+  select(ArtsMusic, English, ForeignLanguages, Mathematics,NaturalSciences, SocialSciencesHistory)
+scores_modified
+```
+
+### Replicating the graph:
+
+```{r}
+GGally::ggpairs(
+  scores_modified %>% drop_na(),
+  # Select Quant variables only for now
+  columns = c(
+    "ArtsMusic", "English", "ForeignLanguages", "Mathematics", "NaturalSciences", "SocialSciencesHistory"
+  ),
+  switch = "both",
+  progress = FALSE,
+  diag = list(continuous = "densityDiag"),
+  lower = list(continuous = wrap("smooth", alpha = 0.03, se = FALSE)),
+  title = "Academic Scores in Different Subjects"
+)
+```
+
+### **Doing a Correlation Test:**
+
+```{r}
+cor_results <- correlation::correlation(scores_modified)
+cor_results
+```
+
+#### Observations:
+
+All combination of subjects have a very small range of confidence intervals. Therefore, all correlation scores are valid i.e. all relationships are statistically significant, reliable, and consistent.
+
+### Observations:
+
+1.  There is a high positive correlation between all subjects.
+2.  This consistent positive correlation might indicate that students who perform well in one subject tend to perform well in others. This could suggest a general academic competence or factors like study habits, discipline, or access to resources influencing performance across all subjects.
+3.  The correlation between ArtsMusic and Mathematics is relatively lower (0.878) compared to the other subject pairs but still strong. This could highlight different skill sets, as Arts/Music may engage creativity, whereas Mathematics is more focused on logical reasoning
+4.  English and Foreign Languages (0.964): These subjects may require similar skills in language comprehension, grammar, and communication.
+5.  Social Sciences/History and English (0.982) & Natural Science and Social Sciences/History(0.985) & English and Natural Science(0.980): All 3 subjects subjects rely heavily on reading, writing, and critical analysis, which might explain the very high correlation.
+6.  With mathematics, the subject with highest correlation is NaturalSciences with a score of 0.977. Both subjects share analytical and logical reasoning skills, which could explain the strong link.
+
+## Graph 2:
+
+![](images/clipboard-12188771.png)
+
+Type of graph: A box plot.
+
+### Defining the question:
+
+Does a higher family income correlate with better test scores?
+
+### Analyse the Data:
+
+Type of variables: Where a quantitative data (math scores) is plotted as a box plot separated by "levels" of income earned by the family. In this existing data-set, all math scores categorized by income are in different rows (FamilyIncomeBetween"*Number1-Number2*"KMath). We need to make a new column called **IncomeCategory** with the different levels of income and another that corresponds with it called **Values** where the math score data is stored.
+
+```{r}
+income_data <- scores_cleaned %>%
+  select(
+    FamilyIncomeBetween20_40KMath,
+    FamilyIncomeLessThan20KMath,
+    FamilyIncomeBetween40_60KMath,
+    FamilyIncomeBetween60_80KMath,
+    FamilyIncomeBetween80_100KMath,
+    FamilyIncomeMoreThan100KMath
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "IncomeCategory",
+    values_to = "Value"
+  ) %>%
+  mutate(IncomeCategory = case_when(
+    IncomeCategory == "FamilyIncomeLessThan20KMath" ~ "LessThan20K",
+    IncomeCategory == "FamilyIncomeBetween20_40KMath" ~ "Between20_40K",
+    IncomeCategory == "FamilyIncomeBetween40_60KMath" ~ "Between40_60K",
+    IncomeCategory == "FamilyIncomeBetween60_80KMath" ~ "Between60_80K",
+    IncomeCategory == "FamilyIncomeBetween80_100KMath" ~ "Between80_100K",
+    IncomeCategory == "FamilyIncomeMoreThan100KMath" ~ "MoreThan100K",
+    TRUE ~ NA_character_,
+  )) %>%
+  select(IncomeCategory, Value)%>%
+  dplyr::mutate(
+    IncomeCategory = factor(IncomeCategory,
+      levels = c("LessThan20K", "Between20_40K", "Between40_60K","Between60_80K", "Between80_100K", "MoreThan100K" ),
+      labels = c("LessThan20K", "Between20_40K", "Between40_60K","Between60_80K", "Between80_100K", "MoreThan100K"),
+      ordered = TRUE
+    )
+  )
+
+income_data
+```
+
+> #### What is `pivot_longer()`?
+>
+> -   **Wide Format**: This format typically has multiple columns representing different variables. For example, each family income category might have its own column for math scores.
+>
+> -   **Long Format**: This format consolidates these variables into two columns: one for the variable names (e.g., income categories) and one for their corresponding values. This format is often easier to work with for data analysis and visualization.
+
+### Replicating the graph:
+
+```{r}
+income_data %>%
+  gf_boxplot(reorder(IncomeCategory, Value, FUN = median) ~ Value,
+    fill = ~IncomeCategory,
+    alpha = 0.2
+  ) %>%
+  gf_labs(title = "Math Scores vs Family Income",subtitle = "Chart 2" ) %>%
+  gf_labs(
+    x = "Scores in Math",
+    y = "Income Class"
+  )
+```
+
+#### Observations: 
+
+1.  There is a **positive correlation** between family income and math scores. As family income increases, median math scores also increase, showing that students from higher-income families tend to score better in math.
+2.  There are several **outliers** in the lower-income categories (especially for "LessThan20K" and "Between20_40K") with students scoring exceptionally higher than their peers.
+3.  "LessThan20K" seems to have a couple of outliers at 0. Did a lot of students not show up for tests? It's interesting to see that other than them, only "Between20_40K" and "MoreThan100K" have students with a score of 0.
+4.  The chart illustrates that higher family income is associated with better math scores, with less variation in performance as income increases. However, even in lower-income groups, some students perform as well as those from higher-income families.
+
+## My Story: 

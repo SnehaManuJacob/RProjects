@@ -2,6 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/cs3/index.html",
+      "/posts/cs2/index.html",
+      "/posts/CS1/index.html",
+      "/posts/day-5/index.html",
+      "/posts/Day-5(2)/index.html",
       "/posts/day-4/index.html",
       "/posts/day-3(2)/index.html",
       "/posts/Day-2/index.html",

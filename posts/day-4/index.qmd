@@ -463,3 +463,148 @@ gf_density(~ log10(value), data = pop, title = "Density with Log transformed x-v
 > -   *Skewed*: Right skew suggests that most values are clustered at the lower end, but there are some extreme high values. Left skew suggests that most values are clustered at the higher end, but there are some extreme low values.
 >
 > -   *Uniform*: This can suggest random or non-preferential selection of values.
+
+## Faithful Data-set (Trying it myself)
+
+Old Faithful is a geyser in Yellowstone National Park, and its eruption data is often used for statistical analysis and modeling in R. The dataset includes the durations of eruptions and the waiting time until the next eruption.
+
+```{r}
+faithful
+```
+
+```{r}
+glimpse(faithful)
+```
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| eruptions | Represents the duration of eruptions in minutes | Quantitative |
+| waiting | Represents the waiting time (in minutes) between the end of one eruption and the start of the next eruption | Quantitative |
+
+There is no qualitative data in this data-set. But we could mutate eruptions to be a factor?
+
+### Plotting Eruption Duration.
+
+```{r}
+gf_histogram(~eruptions,
+  data = faithful,
+  bins = 50
+) %>%
+  gf_labs(
+    title = "Eruption Durations",
+    caption = "ggformula"
+  )
+```
+
+We observe a binomial distribution which suggest that there could be two different underlying processes that lead to eruptions, leading to the 2 different kinds of eruptions, one lasting around 1.5 to 2 minutes and the other between 4 to 5 minutes.
+
+### Plotting Waiting Duration.
+
+```{r}
+gf_histogram(~waiting,
+  data = faithful,
+  bins = 50
+) %>%
+  gf_labs(
+    title = "Waiting Durations",
+    caption = "ggformula"
+  )
+```
+
+Similar to the eruption duration plot, we observe a binomial distribution for the waiting periods, reflecting a dual process pattern. Which leads us to the question...
+
+### How much does the eruption durations (long and short) effect the waiting time?
+
+```{r}
+eruption_factor <- faithful %>%
+  mutate(
+    eruption_kind = case_when(
+      eruptions > 0 & eruptions <= 3.25 ~ "short",
+      eruptions > 3.25 & eruptions <= 6 ~ "long",
+      TRUE ~ "other"
+    )
+  )
+eruption_factor
+```
+
+```{r}
+gf_histogram(~eruptions, fill = ~eruption_kind, data = eruption_factor) %>%
+  gf_labs(title = "Eruption durations seperated by the kind it is")
+```
+
+The most frequently occurring duration of short is around 2 minutes while for long it is 4.5 minutes.
+
+```{r}
+ eruption_factor %>%
+  count(eruption_kind)
+```
+
+While not too big a difference, the long duration eruptions do occur more frequently than the short duration ones.
+
+```{r}
+eruption_factor %>%
+  gf_histogram(~waiting, fill = ~eruption_kind, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~eruption_kind) %>%
+  gf_labs(
+    title = "Plot: Prices Filled and Facetted by Color",
+    subtitle = "Free y-scale",
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+
+```
+
+The **waiting time** between eruptions also reflect the dual-process pattern, as longer eruptions are typically followed by longer waiting periods (60-90 minutes), while shorter eruptions tend to be followed by shorter waits (40- 70 minutes). This correlation between eruption duration and waiting time further supports the hypothesis that Old Faithful operates in two distinct modes
+
+For long duration eruptions, the most common common waiting time appears to be 85 minutes followed by 78 minutes. There is a sudden dip in the the count of eruptions at 80 minutes. What could that be about?
+
+For short duration eruptions, the most common waiting time is at approximately 52 minutes followed by 60, 45 and 65 minutes.
+
+> Futher classifying the short and long duration eruptions:
+
+### Do the differences in time within the 2 different kinds durations we defined effect the waiting time? 
+
+```{r}
+eruption_factor_more <- faithful %>%
+  mutate(
+    eruption_kind = case_when(
+      eruptions > 1.5 & eruptions <= 2.0 ~ "short_short",
+      eruptions > 2.0 & eruptions <= 2.5 ~ "short_meduim",
+      eruptions > 2.5 & eruptions <= 3.25 ~ "short_long",
+      eruptions > 4.5 & eruptions <= 5.5 ~ "long_long",
+      eruptions > 3.75 & eruptions <= 4.5 ~ "long_medium",
+      eruptions > 3.25 & eruptions <= 3.75 ~ "long_short",
+      TRUE ~ "other"
+    )
+  )
+eruption_factor_more
+```
+
+```{r}
+gf_histogram(~eruptions, fill = ~eruption_kind, data = eruption_factor_more) %>%
+  gf_labs(title = "Eruption durations seperated by the kind it is")
+```
+
+```{r}
+eruption_factor_more %>%
+  gf_histogram(~waiting, fill = ~eruption_kind, color = "black", alpha = 0.3) %>%
+  gf_facet_wrap(~eruption_kind) %>%
+  gf_labs(
+    title = "Plot: Prices Filled and Facetted by Color",
+    subtitle = "Free y-scale",
+  ) %>%
+  gf_theme(theme(
+    axis.text.x =
+      element_text(
+        angle = 45,
+        hjust = 1
+      )
+  ))
+```
+
+We observe that a difference in time within the 2 different eruption durations- long and short, don't effect the waiting times (all graphs within the same family have similar graphs) .

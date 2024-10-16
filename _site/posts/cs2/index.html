@@ -1,0 +1,2776 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sneha Manu Jacob">
+<meta name="dcterms.date" content="2024-10-12">
+
+<title>Case Study 2 – Sneha’s Data Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sneha’s Data Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Case Study 2</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">A2</div>
+                <div class="quarto-category">school-scores</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sneha Manu Jacob </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 12, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This dataset pertains to scores obtained by students in diverse subjects. Family Income is also part of this dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'mosaic':
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+
+The 'mosaic' package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+
+Attaching package: 'mosaic'
+
+The following object is masked from 'package:Matrix':
+
+    mean
+
+The following objects are masked from 'package:dplyr':
+
+    count, do, tally
+
+The following object is masked from 'package:purrr':
+
+    cross
+
+The following object is masked from 'package:ggplot2':
+
+    stat
+
+The following objects are masked from 'package:stats':
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+
+The following objects are masked from 'package:base':
+
+    max, mean, min, prod, range, sample, sum</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'skimr'
+
+The following object is masked from 'package:mosaic':
+
+    n_missing</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'GGally':
+  method from   
+  +.gg   ggplot2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.7.3
+✔ bayestestR  0.14.0   ✔ correlation 0.8.5 
+✔ datawizard  0.13.0   ✔ effectsize  0.8.9 
+✔ insight     0.20.5   ✔ modelbased  0.8.8 
+✔ performance 0.12.3   ✔ parameters  0.22.2
+✔ report      0.5.9    ✔ see         0.9.0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(correlation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="playing-with-and-understanding-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="playing-with-and-understanding-the-data">Playing with and understanding the data</h2>
+<section id="acquiring-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="acquiring-the-data">Acquiring the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/school-scores-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 577 Columns: 99
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): State.Code, State.Name
+dbl (97): Year, Total.Math, Total.Test-takers, Total.Verbal, Academic Subjec...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 577 × 99
+    Year State.Code State.Name       Total.Math `Total.Test-takers` Total.Verbal
+   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt;               &lt;dbl&gt;        &lt;dbl&gt;
+ 1  2005 AL         Alabama                 559                3985          567
+ 2  2005 AK         Alaska                  519                3996          523
+ 3  2005 AZ         Arizona                 530               18184          526
+ 4  2005 AR         Arkansas                552                1600          563
+ 5  2005 CA         California              522              186552          504
+ 6  2005 CO         Colorado                560               11990          560
+ 7  2005 CT         Connecticut             517               34313          517
+ 8  2005 DE         Delaware                502                6257          503
+ 9  2005 DC         District Of Col…        478                3622          490
+10  2005 FL         Florida                 498               93505          498
+# ℹ 567 more rows
+# ℹ 93 more variables: `Academic Subjects.Arts/Music.Average GPA` &lt;dbl&gt;,
+#   `Academic Subjects.Arts/Music.Average Years` &lt;dbl&gt;,
+#   `Academic Subjects.English.Average GPA` &lt;dbl&gt;,
+#   `Academic Subjects.English.Average Years` &lt;dbl&gt;,
+#   `Academic Subjects.Foreign Languages.Average GPA` &lt;dbl&gt;,
+#   `Academic Subjects.Foreign Languages.Average Years` &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 577
+Columns: 99
+$ Year                                                      &lt;dbl&gt; 2005, 2005, …
+$ State.Code                                                &lt;chr&gt; "AL", "AK", …
+$ State.Name                                                &lt;chr&gt; "Alabama", "…
+$ Total.Math                                                &lt;dbl&gt; 559, 519, 53…
+$ `Total.Test-takers`                                       &lt;dbl&gt; 3985, 3996, …
+$ Total.Verbal                                              &lt;dbl&gt; 567, 523, 52…
+$ `Academic Subjects.Arts/Music.Average GPA`                &lt;dbl&gt; 3.92, 3.76, …
+$ `Academic Subjects.Arts/Music.Average Years`              &lt;dbl&gt; 2.2, 1.9, 2.…
+$ `Academic Subjects.English.Average GPA`                   &lt;dbl&gt; 3.53, 3.35, …
+$ `Academic Subjects.English.Average Years`                 &lt;dbl&gt; 3.9, 3.9, 3.…
+$ `Academic Subjects.Foreign Languages.Average GPA`         &lt;dbl&gt; 3.54, 3.34, …
+$ `Academic Subjects.Foreign Languages.Average Years`       &lt;dbl&gt; 2.6, 2.1, 2.…
+$ `Academic Subjects.Mathematics.Average GPA`               &lt;dbl&gt; 3.41, 3.06, …
+$ `Academic Subjects.Mathematics.Average Years`             &lt;dbl&gt; 4.0, 3.5, 3.…
+$ `Academic Subjects.Natural Sciences.Average GPA`          &lt;dbl&gt; 3.52, 3.25, …
+$ `Academic Subjects.Natural Sciences.Average Years`        &lt;dbl&gt; 3.9, 3.2, 3.…
+$ `Academic Subjects.Social Sciences/History.Average GPA`   &lt;dbl&gt; 3.59, 3.39, …
+$ `Academic Subjects.Social Sciences/History.Average Years` &lt;dbl&gt; 3.9, 3.4, 3.…
+$ `Family Income.Between 20-40k.Math`                       &lt;dbl&gt; 513, 492, 49…
+$ `Family Income.Between 20-40k.Test-takers`                &lt;dbl&gt; 324, 401, 21…
+$ `Family Income.Between 20-40k.Verbal`                     &lt;dbl&gt; 527, 500, 49…
+$ `Family Income.Between 40-60k.Math`                       &lt;dbl&gt; 539, 517, 52…
+$ `Family Income.Between 40-60k.Test-takers`                &lt;dbl&gt; 442, 539, 22…
+$ `Family Income.Between 40-60k.Verbal`                     &lt;dbl&gt; 551, 522, 51…
+$ `Family Income.Between 60-80k.Math`                       &lt;dbl&gt; 550, 513, 52…
+$ `Family Income.Between 60-80k.Test-takers`                &lt;dbl&gt; 473, 603, 23…
+$ `Family Income.Between 60-80k.Verbal`                     &lt;dbl&gt; 564, 519, 52…
+$ `Family Income.Between 80-100k.Math`                      &lt;dbl&gt; 566, 528, 53…
+$ `Family Income.Between 80-100k.Test-takers`               &lt;dbl&gt; 475, 444, 18…
+$ `Family Income.Between 80-100k.Verbal`                    &lt;dbl&gt; 577, 534, 53…
+$ `Family Income.Less than 20k.Math`                        &lt;dbl&gt; 462, 464, 48…
+$ `Family Income.Less than 20k.Test-takers`                 &lt;dbl&gt; 175, 191, 89…
+$ `Family Income.Less than 20k.Verbal`                      &lt;dbl&gt; 474, 467, 47…
+$ `Family Income.More than 100k.Math`                       &lt;dbl&gt; 588, 541, 55…
+$ `Family Income.More than 100k.Test-takers`                &lt;dbl&gt; 980, 540, 30…
+$ `Family Income.More than 100k.Verbal`                     &lt;dbl&gt; 590, 544, 54…
+$ `GPA.A minus.Math`                                        &lt;dbl&gt; 569, 544, 54…
+$ `GPA.A minus.Test-takers`                                 &lt;dbl&gt; 724, 673, 33…
+$ `GPA.A minus.Verbal`                                      &lt;dbl&gt; 575, 546, 53…
+$ `GPA.A plus.Math`                                         &lt;dbl&gt; 622, 600, 60…
+$ `GPA.A plus.Test-takers`                                  &lt;dbl&gt; 563, 173, 16…
+$ `GPA.A plus.Verbal`                                       &lt;dbl&gt; 623, 604, 59…
+$ GPA.A.Math                                                &lt;dbl&gt; 600, 580, 57…
+$ `GPA.A.Test-takers`                                       &lt;dbl&gt; 1032, 671, 3…
+$ GPA.A.Verbal                                              &lt;dbl&gt; 608, 578, 56…
+$ GPA.B.Math                                                &lt;dbl&gt; 514, 492, 49…
+$ `GPA.B.Test-takers`                                       &lt;dbl&gt; 1253, 1622, …
+$ GPA.B.Verbal                                              &lt;dbl&gt; 525, 499, 49…
+$ GPA.C.Math                                                &lt;dbl&gt; 436, 466, 45…
+$ `GPA.C.Test-takers`                                       &lt;dbl&gt; 188, 418, 11…
+$ GPA.C.Verbal                                              &lt;dbl&gt; 451, 472, 46…
+$ `GPA.D or lower.Math`                                     &lt;dbl&gt; 0, 424, 439,…
+$ `GPA.D or lower.Test-takers`                              &lt;dbl&gt; 0, 12, 16, 0…
+$ `GPA.D or lower.Verbal`                                   &lt;dbl&gt; 0, 466, 435,…
+$ `GPA.No response.Math`                                    &lt;dbl&gt; 0, 0, 0, 0, …
+$ `GPA.No response.Test-takers`                             &lt;dbl&gt; 225, 427, 91…
+$ `GPA.No response.Verbal`                                  &lt;dbl&gt; 0, 0, 0, 0, …
+$ Gender.Female.Math                                        &lt;dbl&gt; 538, 505, 51…
+$ `Gender.Female.Test-takers`                               &lt;dbl&gt; 2072, 2161, …
+$ Gender.Female.Verbal                                      &lt;dbl&gt; 561, 521, 52…
+$ Gender.Male.Math                                          &lt;dbl&gt; 582, 535, 54…
+$ `Gender.Male.Test-takers`                                 &lt;dbl&gt; 1913, 1835, …
+$ Gender.Male.Verbal                                        &lt;dbl&gt; 574, 526, 53…
+$ `Score Ranges.Between 200 to 300.Math.Females`            &lt;dbl&gt; 22, 30, 119,…
+$ `Score Ranges.Between 200 to 300.Math.Males`              &lt;dbl&gt; 10, 20, 72, …
+$ `Score Ranges.Between 200 to 300.Math.Total`              &lt;dbl&gt; 32, 50, 191,…
+$ `Score Ranges.Between 200 to 300.Verbal.Females`          &lt;dbl&gt; 14, 26, 115,…
+$ `Score Ranges.Between 200 to 300.Verbal.Males`            &lt;dbl&gt; 17, 26, 86, …
+$ `Score Ranges.Between 200 to 300.Verbal.Total`            &lt;dbl&gt; 31, 52, 201,…
+$ `Score Ranges.Between 300 to 400.Math.Females`            &lt;dbl&gt; 173, 233, 88…
+$ `Score Ranges.Between 300 to 400.Math.Males`              &lt;dbl&gt; 93, 153, 450…
+$ `Score Ranges.Between 300 to 400.Math.Total`              &lt;dbl&gt; 266, 386, 13…
+$ `Score Ranges.Between 300 to 400.Verbal.Females`          &lt;dbl&gt; 123, 218, 73…
+$ `Score Ranges.Between 300 to 400.Verbal.Males`            &lt;dbl&gt; 84, 171, 613…
+$ `Score Ranges.Between 300 to 400.Verbal.Total`            &lt;dbl&gt; 207, 389, 13…
+$ `Score Ranges.Between 400 to 500.Math.Females`            &lt;dbl&gt; 514, 696, 32…
+$ `Score Ranges.Between 400 to 500.Math.Males`              &lt;dbl&gt; 293, 485, 19…
+$ `Score Ranges.Between 400 to 500.Math.Total`              &lt;dbl&gt; 807, 1181, 5…
+$ `Score Ranges.Between 400 to 500.Verbal.Females`          &lt;dbl&gt; 430, 656, 30…
+$ `Score Ranges.Between 400 to 500.Verbal.Males`            &lt;dbl&gt; 332, 552, 23…
+$ `Score Ranges.Between 400 to 500.Verbal.Total`            &lt;dbl&gt; 762, 1208, 5…
+$ `Score Ranges.Between 500 to 600.Math.Females`            &lt;dbl&gt; 722, 813, 35…
+$ `Score Ranges.Between 500 to 600.Math.Males`              &lt;dbl&gt; 614, 616, 31…
+$ `Score Ranges.Between 500 to 600.Math.Total`              &lt;dbl&gt; 1336, 1429, …
+$ `Score Ranges.Between 500 to 600.Verbal.Females`          &lt;dbl&gt; 690, 729, 36…
+$ `Score Ranges.Between 500 to 600.Verbal.Males`            &lt;dbl&gt; 617, 596, 31…
+$ `Score Ranges.Between 500 to 600.Verbal.Total`            &lt;dbl&gt; 1307, 1325, …
+$ `Score Ranges.Between 600 to 700.Math.Females`            &lt;dbl&gt; 485, 342, 16…
+$ `Score Ranges.Between 600 to 700.Math.Males`              &lt;dbl&gt; 611, 445, 21…
+$ `Score Ranges.Between 600 to 700.Math.Total`              &lt;dbl&gt; 1096, 787, 3…
+$ `Score Ranges.Between 600 to 700.Verbal.Females`          &lt;dbl&gt; 596, 423, 18…
+$ `Score Ranges.Between 600 to 700.Verbal.Males`            &lt;dbl&gt; 613, 375, 16…
+$ `Score Ranges.Between 600 to 700.Verbal.Total`            &lt;dbl&gt; 1209, 798, 3…
+$ `Score Ranges.Between 700 to 800.Math.Females`            &lt;dbl&gt; 156, 47, 327…
+$ `Score Ranges.Between 700 to 800.Math.Males`              &lt;dbl&gt; 292, 116, 63…
+$ `Score Ranges.Between 700 to 800.Math.Total`              &lt;dbl&gt; 448, 163, 95…
+$ `Score Ranges.Between 700 to 800.Verbal.Females`          &lt;dbl&gt; 219, 109, 41…
+$ `Score Ranges.Between 700 to 800.Verbal.Males`            &lt;dbl&gt; 250, 115, 50…
+$ `Score Ranges.Between 700 to 800.Verbal.Total`            &lt;dbl&gt; 469, 224, 91…</code></pre>
+</div>
+</div>
+<p>The data doesn’t seem right. How are there 99 columns?</p>
+<blockquote class="blockquote">
+<p>Use the&nbsp;<code>janitor</code>&nbsp;package here to clean up the variable names. Try to use the&nbsp;<code>big_camel</code>&nbsp;case name format for variables.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'janitor'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:insight':
+
+    clean_names</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:datawizard':
+
+    remove_empty, remove_empty_rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>scores_cleaned <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(scores, <span class="at">case =</span> <span class="st">"big_camel"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>scores_cleaned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 577 × 99
+    Year StateCode StateName            TotalMath TotalTestTakers TotalVerbal
+   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;           &lt;dbl&gt;       &lt;dbl&gt;
+ 1  2005 AL        Alabama                    559            3985         567
+ 2  2005 AK        Alaska                     519            3996         523
+ 3  2005 AZ        Arizona                    530           18184         526
+ 4  2005 AR        Arkansas                   552            1600         563
+ 5  2005 CA        California                 522          186552         504
+ 6  2005 CO        Colorado                   560           11990         560
+ 7  2005 CT        Connecticut                517           34313         517
+ 8  2005 DE        Delaware                   502            6257         503
+ 9  2005 DC        District Of Columbia       478            3622         490
+10  2005 FL        Florida                    498           93505         498
+# ℹ 567 more rows
+# ℹ 93 more variables: AcademicSubjectsArtsMusicAverageGpa &lt;dbl&gt;,
+#   AcademicSubjectsArtsMusicAverageYears &lt;dbl&gt;,
+#   AcademicSubjectsEnglishAverageGpa &lt;dbl&gt;,
+#   AcademicSubjectsEnglishAverageYears &lt;dbl&gt;,
+#   AcademicSubjectsForeignLanguagesAverageGpa &lt;dbl&gt;,
+#   AcademicSubjectsForeignLanguagesAverageYears &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 577
+Columns: 99
+$ Year                                              &lt;dbl&gt; 2005, 2005, 2005, 20…
+$ StateCode                                         &lt;chr&gt; "AL", "AK", "AZ", "A…
+$ StateName                                         &lt;chr&gt; "Alabama", "Alaska",…
+$ TotalMath                                         &lt;dbl&gt; 559, 519, 530, 552, …
+$ TotalTestTakers                                   &lt;dbl&gt; 3985, 3996, 18184, 1…
+$ TotalVerbal                                       &lt;dbl&gt; 567, 523, 526, 563, …
+$ AcademicSubjectsArtsMusicAverageGpa               &lt;dbl&gt; 3.92, 3.76, 3.85, 3.…
+$ AcademicSubjectsArtsMusicAverageYears             &lt;dbl&gt; 2.2, 1.9, 2.1, 2.2, …
+$ AcademicSubjectsEnglishAverageGpa                 &lt;dbl&gt; 3.53, 3.35, 3.45, 3.…
+$ AcademicSubjectsEnglishAverageYears               &lt;dbl&gt; 3.9, 3.9, 3.9, 4.0, …
+$ AcademicSubjectsForeignLanguagesAverageGpa        &lt;dbl&gt; 3.54, 3.34, 3.41, 3.…
+$ AcademicSubjectsForeignLanguagesAverageYears      &lt;dbl&gt; 2.6, 2.1, 2.6, 2.6, …
+$ AcademicSubjectsMathematicsAverageGpa             &lt;dbl&gt; 3.41, 3.06, 3.25, 3.…
+$ AcademicSubjectsMathematicsAverageYears           &lt;dbl&gt; 4.0, 3.5, 3.9, 4.1, …
+$ AcademicSubjectsNaturalSciencesAverageGpa         &lt;dbl&gt; 3.52, 3.25, 3.43, 3.…
+$ AcademicSubjectsNaturalSciencesAverageYears       &lt;dbl&gt; 3.9, 3.2, 3.4, 3.7, …
+$ AcademicSubjectsSocialSciencesHistoryAverageGpa   &lt;dbl&gt; 3.59, 3.39, 3.55, 3.…
+$ AcademicSubjectsSocialSciencesHistoryAverageYears &lt;dbl&gt; 3.9, 3.4, 3.3, 3.6, …
+$ FamilyIncomeBetween20_40KMath                     &lt;dbl&gt; 513, 492, 498, 513, …
+$ FamilyIncomeBetween20_40KTestTakers               &lt;dbl&gt; 324, 401, 2121, 180,…
+$ FamilyIncomeBetween20_40KVerbal                   &lt;dbl&gt; 527, 500, 495, 526, …
+$ FamilyIncomeBetween40_60KMath                     &lt;dbl&gt; 539, 517, 520, 543, …
+$ FamilyIncomeBetween40_60KTestTakers               &lt;dbl&gt; 442, 539, 2270, 245,…
+$ FamilyIncomeBetween40_60KVerbal                   &lt;dbl&gt; 551, 522, 518, 555, …
+$ FamilyIncomeBetween60_80KMath                     &lt;dbl&gt; 550, 513, 524, 553, …
+$ FamilyIncomeBetween60_80KTestTakers               &lt;dbl&gt; 473, 603, 2372, 227,…
+$ FamilyIncomeBetween60_80KVerbal                   &lt;dbl&gt; 564, 519, 523, 570, …
+$ FamilyIncomeBetween80_100KMath                    &lt;dbl&gt; 566, 528, 534, 570, …
+$ FamilyIncomeBetween80_100KTestTakers              &lt;dbl&gt; 475, 444, 1866, 147,…
+$ FamilyIncomeBetween80_100KVerbal                  &lt;dbl&gt; 577, 534, 533, 580, …
+$ FamilyIncomeLessThan20KMath                       &lt;dbl&gt; 462, 464, 485, 489, …
+$ FamilyIncomeLessThan20KTestTakers                 &lt;dbl&gt; 175, 191, 891, 107, …
+$ FamilyIncomeLessThan20KVerbal                     &lt;dbl&gt; 474, 467, 474, 486, …
+$ FamilyIncomeMoreThan100KMath                      &lt;dbl&gt; 588, 541, 554, 572, …
+$ FamilyIncomeMoreThan100KTestTakers                &lt;dbl&gt; 980, 540, 3083, 314,…
+$ FamilyIncomeMoreThan100KVerbal                    &lt;dbl&gt; 590, 544, 546, 589, …
+$ GpaAMinusMath                                     &lt;dbl&gt; 569, 544, 541, 559, …
+$ GpaAMinusTestTakers                               &lt;dbl&gt; 724, 673, 3334, 298,…
+$ GpaAMinusVerbal                                   &lt;dbl&gt; 575, 546, 535, 572, …
+$ GpaAPlusMath                                      &lt;dbl&gt; 622, 600, 605, 629, …
+$ GpaAPlusTestTakers                                &lt;dbl&gt; 563, 173, 1684, 273,…
+$ GpaAPlusVerbal                                    &lt;dbl&gt; 623, 604, 593, 639, …
+$ GpaAMath                                          &lt;dbl&gt; 600, 580, 571, 579, …
+$ GpaATestTakers                                    &lt;dbl&gt; 1032, 671, 3854, 457…
+$ GpaAVerbal                                        &lt;dbl&gt; 608, 578, 563, 583, …
+$ GpaBMath                                          &lt;dbl&gt; 514, 492, 498, 492, …
+$ GpaBTestTakers                                    &lt;dbl&gt; 1253, 1622, 7193, 43…
+$ GpaBVerbal                                        &lt;dbl&gt; 525, 499, 499, 511, …
+$ GpaCMath                                          &lt;dbl&gt; 436, 466, 458, 419, …
+$ GpaCTestTakers                                    &lt;dbl&gt; 188, 418, 1184, 57, …
+$ GpaCVerbal                                        &lt;dbl&gt; 451, 472, 464, 436, …
+$ GpaDOrLowerMath                                   &lt;dbl&gt; 0, 424, 439, 0, 419,…
+$ GpaDOrLowerTestTakers                             &lt;dbl&gt; 0, 12, 16, 0, 240, 1…
+$ GpaDOrLowerVerbal                                 &lt;dbl&gt; 0, 466, 435, 0, 408,…
+$ GpaNoResponseMath                                 &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0,…
+$ GpaNoResponseTestTakers                           &lt;dbl&gt; 225, 427, 919, 78, 1…
+$ GpaNoResponseVerbal                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0,…
+$ GenderFemaleMath                                  &lt;dbl&gt; 538, 505, 513, 536, …
+$ GenderFemaleTestTakers                            &lt;dbl&gt; 2072, 2161, 9806, 85…
+$ GenderFemaleVerbal                                &lt;dbl&gt; 561, 521, 522, 558, …
+$ GenderMaleMath                                    &lt;dbl&gt; 582, 535, 549, 570, …
+$ GenderMaleTestTakers                              &lt;dbl&gt; 1913, 1835, 8378, 74…
+$ GenderMaleVerbal                                  &lt;dbl&gt; 574, 526, 531, 570, …
+$ ScoreRangesBetween200To300MathFemales             &lt;dbl&gt; 22, 30, 119, 12, 297…
+$ ScoreRangesBetween200To300MathMales               &lt;dbl&gt; 10, 20, 72, 7, 1453,…
+$ ScoreRangesBetween200To300MathTotal               &lt;dbl&gt; 32, 50, 191, 19, 443…
+$ ScoreRangesBetween200To300VerbalFemales           &lt;dbl&gt; 14, 26, 115, 9, 3382…
+$ ScoreRangesBetween200To300VerbalMales             &lt;dbl&gt; 17, 26, 86, 3, 2433,…
+$ ScoreRangesBetween200To300VerbalTotal             &lt;dbl&gt; 31, 52, 201, 12, 581…
+$ ScoreRangesBetween300To400MathFemales             &lt;dbl&gt; 173, 233, 881, 68, 1…
+$ ScoreRangesBetween300To400MathMales               &lt;dbl&gt; 93, 153, 450, 31, 71…
+$ ScoreRangesBetween300To400MathTotal               &lt;dbl&gt; 266, 386, 1331, 99, …
+$ ScoreRangesBetween300To400VerbalFemales           &lt;dbl&gt; 123, 218, 739, 46, 1…
+$ ScoreRangesBetween300To400VerbalMales             &lt;dbl&gt; 84, 171, 613, 42, 10…
+$ ScoreRangesBetween300To400VerbalTotal             &lt;dbl&gt; 207, 389, 1352, 88, …
+$ ScoreRangesBetween400To500MathFemales             &lt;dbl&gt; 514, 696, 3215, 210,…
+$ ScoreRangesBetween400To500MathMales               &lt;dbl&gt; 293, 485, 1948, 137,…
+$ ScoreRangesBetween400To500MathTotal               &lt;dbl&gt; 807, 1181, 5163, 347…
+$ ScoreRangesBetween400To500VerbalFemales           &lt;dbl&gt; 430, 656, 3048, 183,…
+$ ScoreRangesBetween400To500VerbalMales             &lt;dbl&gt; 332, 552, 2398, 141,…
+$ ScoreRangesBetween400To500VerbalTotal             &lt;dbl&gt; 762, 1208, 5446, 324…
+$ ScoreRangesBetween500To600MathFemales             &lt;dbl&gt; 722, 813, 3576, 316,…
+$ ScoreRangesBetween500To600MathMales               &lt;dbl&gt; 614, 616, 3152, 244,…
+$ ScoreRangesBetween500To600MathTotal               &lt;dbl&gt; 1336, 1429, 6728, 56…
+$ ScoreRangesBetween500To600VerbalFemales           &lt;dbl&gt; 690, 729, 3661, 302,…
+$ ScoreRangesBetween500To600VerbalMales             &lt;dbl&gt; 617, 596, 3101, 236,…
+$ ScoreRangesBetween500To600VerbalTotal             &lt;dbl&gt; 1307, 1325, 6762, 53…
+$ ScoreRangesBetween600To700MathFemales             &lt;dbl&gt; 485, 342, 1688, 204,…
+$ ScoreRangesBetween600To700MathMales               &lt;dbl&gt; 611, 445, 2126, 239,…
+$ ScoreRangesBetween600To700MathTotal               &lt;dbl&gt; 1096, 787, 3814, 443…
+$ ScoreRangesBetween600To700VerbalFemales           &lt;dbl&gt; 596, 423, 1831, 242,…
+$ ScoreRangesBetween600To700VerbalMales             &lt;dbl&gt; 613, 375, 1679, 226,…
+$ ScoreRangesBetween600To700VerbalTotal             &lt;dbl&gt; 1209, 798, 3510, 468…
+$ ScoreRangesBetween700To800MathFemales             &lt;dbl&gt; 156, 47, 327, 49, 54…
+$ ScoreRangesBetween700To800MathMales               &lt;dbl&gt; 292, 116, 630, 83, 8…
+$ ScoreRangesBetween700To800MathTotal               &lt;dbl&gt; 448, 163, 957, 132, …
+$ ScoreRangesBetween700To800VerbalFemales           &lt;dbl&gt; 219, 109, 412, 77, 5…
+$ ScoreRangesBetween700To800VerbalMales             &lt;dbl&gt; 250, 115, 501, 93, 4…
+$ ScoreRangesBetween700To800VerbalTotal             &lt;dbl&gt; 469, 224, 913, 170, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(scores_cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">scores_cleaned</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">577</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">97</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">StateCode</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">StateName</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2010.02</td>
+<td style="text-align: right;">3.17</td>
+<td style="text-align: right;">2005.00</td>
+<td style="text-align: right;">2007.00</td>
+<td style="text-align: right;">2010.00</td>
+<td style="text-align: right;">2013.00</td>
+<td style="text-align: right;">2015.00</td>
+<td style="text-align: left;">▇▅▅▆▆</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TotalMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">535.68</td>
+<td style="text-align: right;">46.17</td>
+<td style="text-align: right;">383.00</td>
+<td style="text-align: right;">504.00</td>
+<td style="text-align: right;">527.00</td>
+<td style="text-align: right;">571.00</td>
+<td style="text-align: right;">619.00</td>
+<td style="text-align: left;">▁▁▇▆▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TotalTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">27914.24</td>
+<td style="text-align: right;">45602.11</td>
+<td style="text-align: right;">134.00</td>
+<td style="text-align: right;">2536.00</td>
+<td style="text-align: right;">6468.00</td>
+<td style="text-align: right;">35799.00</td>
+<td style="text-align: right;">241553.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TotalVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">531.33</td>
+<td style="text-align: right;">44.32</td>
+<td style="text-align: right;">401.00</td>
+<td style="text-align: right;">496.00</td>
+<td style="text-align: right;">522.00</td>
+<td style="text-align: right;">572.00</td>
+<td style="text-align: right;">612.00</td>
+<td style="text-align: left;">▁▂▇▃▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsArtsMusicAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.82</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">3.43</td>
+<td style="text-align: right;">3.76</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">3.96</td>
+<td style="text-align: left;">▁▁▂▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsArtsMusicAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.29</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">2.10</td>
+<td style="text-align: right;">2.30</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.10</td>
+<td style="text-align: left;">▁▂▇▅▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsEnglishAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">3.03</td>
+<td style="text-align: right;">3.35</td>
+<td style="text-align: right;">3.51</td>
+<td style="text-align: right;">3.67</td>
+<td style="text-align: right;">3.88</td>
+<td style="text-align: left;">▂▆▇▇▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsEnglishAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.93</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: left;">▁▁▂▇▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsForeignLanguagesAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.45</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">3.03</td>
+<td style="text-align: right;">3.30</td>
+<td style="text-align: right;">3.46</td>
+<td style="text-align: right;">3.63</td>
+<td style="text-align: right;">3.79</td>
+<td style="text-align: left;">▃▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsForeignLanguagesAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">1.80</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">2.80</td>
+<td style="text-align: right;">3.10</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: left;">▁▅▆▇▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsMathematicsAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.31</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">3.12</td>
+<td style="text-align: right;">3.30</td>
+<td style="text-align: right;">3.51</td>
+<td style="text-align: right;">3.76</td>
+<td style="text-align: left;">▂▇▅▇▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsMathematicsAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.94</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">3.80</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: right;">4.40</td>
+<td style="text-align: left;">▁▁▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsNaturalSciencesAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.42</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2.87</td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">3.42</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">3.82</td>
+<td style="text-align: left;">▁▆▇▇▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsNaturalSciencesAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.63</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2.80</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">3.80</td>
+<td style="text-align: right;">4.20</td>
+<td style="text-align: left;">▁▁▇▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AcademicSubjectsSocialSciencesHistoryAverageGpa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.52</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">3.05</td>
+<td style="text-align: right;">3.38</td>
+<td style="text-align: right;">3.53</td>
+<td style="text-align: right;">3.68</td>
+<td style="text-align: right;">3.88</td>
+<td style="text-align: left;">▁▆▆▇▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AcademicSubjectsSocialSciencesHistoryAverageYears</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.62</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▁▃▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween20_40KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">500.24</td>
+<td style="text-align: right;">48.46</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">471.00</td>
+<td style="text-align: right;">495.00</td>
+<td style="text-align: right;">533.00</td>
+<td style="text-align: right;">643.00</td>
+<td style="text-align: left;">▁▁▁▇▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween20_40KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3234.18</td>
+<td style="text-align: right;">5935.05</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">214.00</td>
+<td style="text-align: right;">580.00</td>
+<td style="text-align: right;">3179.00</td>
+<td style="text-align: right;">35446.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween20_40KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">501.33</td>
+<td style="text-align: right;">43.81</td>
+<td style="text-align: right;">387.00</td>
+<td style="text-align: right;">466.00</td>
+<td style="text-align: right;">496.00</td>
+<td style="text-align: right;">536.00</td>
+<td style="text-align: right;">634.00</td>
+<td style="text-align: left;">▁▇▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween40_60KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">522.84</td>
+<td style="text-align: right;">43.08</td>
+<td style="text-align: right;">381.00</td>
+<td style="text-align: right;">493.00</td>
+<td style="text-align: right;">519.00</td>
+<td style="text-align: right;">554.00</td>
+<td style="text-align: right;">629.00</td>
+<td style="text-align: left;">▁▂▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween40_60KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2847.20</td>
+<td style="text-align: right;">4638.14</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">236.00</td>
+<td style="text-align: right;">636.00</td>
+<td style="text-align: right;">3386.00</td>
+<td style="text-align: right;">28124.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween40_60KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">523.08</td>
+<td style="text-align: right;">41.95</td>
+<td style="text-align: right;">414.00</td>
+<td style="text-align: right;">489.00</td>
+<td style="text-align: right;">517.00</td>
+<td style="text-align: right;">558.00</td>
+<td style="text-align: right;">628.00</td>
+<td style="text-align: left;">▁▇▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween60_80KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">533.61</td>
+<td style="text-align: right;">42.50</td>
+<td style="text-align: right;">249.00</td>
+<td style="text-align: right;">506.00</td>
+<td style="text-align: right;">531.00</td>
+<td style="text-align: right;">564.00</td>
+<td style="text-align: right;">630.00</td>
+<td style="text-align: left;">▁▁▁▇▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween60_80KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2269.76</td>
+<td style="text-align: right;">3535.33</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">199.00</td>
+<td style="text-align: right;">523.00</td>
+<td style="text-align: right;">2791.00</td>
+<td style="text-align: right;">17937.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween60_80KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">533.85</td>
+<td style="text-align: right;">43.42</td>
+<td style="text-align: right;">232.00</td>
+<td style="text-align: right;">501.00</td>
+<td style="text-align: right;">527.00</td>
+<td style="text-align: right;">571.00</td>
+<td style="text-align: right;">645.00</td>
+<td style="text-align: left;">▁▁▁▇▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween80_100KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">547.06</td>
+<td style="text-align: right;">38.37</td>
+<td style="text-align: right;">398.00</td>
+<td style="text-align: right;">519.00</td>
+<td style="text-align: right;">539.00</td>
+<td style="text-align: right;">575.00</td>
+<td style="text-align: right;">646.00</td>
+<td style="text-align: left;">▁▁▇▅▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeBetween80_100KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1803.63</td>
+<td style="text-align: right;">2855.65</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">164.00</td>
+<td style="text-align: right;">441.00</td>
+<td style="text-align: right;">2130.00</td>
+<td style="text-align: right;">15358.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeBetween80_100KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">544.58</td>
+<td style="text-align: right;">38.07</td>
+<td style="text-align: right;">433.00</td>
+<td style="text-align: right;">514.00</td>
+<td style="text-align: right;">536.00</td>
+<td style="text-align: right;">580.00</td>
+<td style="text-align: right;">651.00</td>
+<td style="text-align: left;">▁▇▇▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeLessThan20KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">461.73</td>
+<td style="text-align: right;">79.25</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">438.00</td>
+<td style="text-align: right;">465.00</td>
+<td style="text-align: right;">510.00</td>
+<td style="text-align: right;">589.00</td>
+<td style="text-align: left;">▁▁▁▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeLessThan20KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2433.32</td>
+<td style="text-align: right;">5254.03</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">124.00</td>
+<td style="text-align: right;">347.00</td>
+<td style="text-align: right;">2129.00</td>
+<td style="text-align: right;">42551.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeLessThan20KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">458.43</td>
+<td style="text-align: right;">67.02</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">429.00</td>
+<td style="text-align: right;">464.00</td>
+<td style="text-align: right;">501.00</td>
+<td style="text-align: right;">579.00</td>
+<td style="text-align: left;">▁▁▁▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeMoreThan100KMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">565.83</td>
+<td style="text-align: right;">42.14</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">548.00</td>
+<td style="text-align: right;">565.00</td>
+<td style="text-align: right;">587.00</td>
+<td style="text-align: right;">637.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FamilyIncomeMoreThan100KTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4141.35</td>
+<td style="text-align: right;">7004.94</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">427.00</td>
+<td style="text-align: right;">1000.00</td>
+<td style="text-align: right;">4405.00</td>
+<td style="text-align: right;">46127.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FamilyIncomeMoreThan100KVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">560.49</td>
+<td style="text-align: right;">42.59</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">538.00</td>
+<td style="text-align: right;">555.00</td>
+<td style="text-align: right;">590.00</td>
+<td style="text-align: right;">637.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaAMinusMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">550.03</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">532.00</td>
+<td style="text-align: right;">552.00</td>
+<td style="text-align: right;">569.00</td>
+<td style="text-align: right;">619.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaAMinusTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4954.84</td>
+<td style="text-align: right;">8126.75</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">460.00</td>
+<td style="text-align: right;">1217.00</td>
+<td style="text-align: right;">6372.00</td>
+<td style="text-align: right;">45869.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaAMinusVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">543.72</td>
+<td style="text-align: right;">36.54</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">526.00</td>
+<td style="text-align: right;">547.00</td>
+<td style="text-align: right;">566.00</td>
+<td style="text-align: right;">609.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaAPlusMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">621.70</td>
+<td style="text-align: right;">42.97</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">607.00</td>
+<td style="text-align: right;">624.00</td>
+<td style="text-align: right;">644.00</td>
+<td style="text-align: right;">683.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaAPlusTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1592.20</td>
+<td style="text-align: right;">2384.09</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">274.00</td>
+<td style="text-align: right;">524.00</td>
+<td style="text-align: right;">1792.00</td>
+<td style="text-align: right;">12184.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaAPlusVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">613.05</td>
+<td style="text-align: right;">41.44</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">595.00</td>
+<td style="text-align: right;">616.00</td>
+<td style="text-align: right;">637.00</td>
+<td style="text-align: right;">672.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaAMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">584.99</td>
+<td style="text-align: right;">41.79</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">565.00</td>
+<td style="text-align: right;">588.00</td>
+<td style="text-align: right;">605.00</td>
+<td style="text-align: right;">655.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaATestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4925.42</td>
+<td style="text-align: right;">7645.59</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">680.00</td>
+<td style="text-align: right;">1390.00</td>
+<td style="text-align: right;">6112.00</td>
+<td style="text-align: right;">42656.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaAVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">576.85</td>
+<td style="text-align: right;">39.54</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">556.00</td>
+<td style="text-align: right;">580.00</td>
+<td style="text-align: right;">600.00</td>
+<td style="text-align: right;">637.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaBMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">490.50</td>
+<td style="text-align: right;">37.77</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">472.00</td>
+<td style="text-align: right;">492.00</td>
+<td style="text-align: right;">511.00</td>
+<td style="text-align: right;">564.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaBTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11728.67</td>
+<td style="text-align: right;">19924.44</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">676.00</td>
+<td style="text-align: right;">2282.00</td>
+<td style="text-align: right;">14745.00</td>
+<td style="text-align: right;">104693.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaBVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">490.98</td>
+<td style="text-align: right;">36.59</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">470.00</td>
+<td style="text-align: right;">493.00</td>
+<td style="text-align: right;">517.00</td>
+<td style="text-align: right;">562.00</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaCMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">426.22</td>
+<td style="text-align: right;">70.60</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">413.00</td>
+<td style="text-align: right;">436.00</td>
+<td style="text-align: right;">457.00</td>
+<td style="text-align: right;">553.00</td>
+<td style="text-align: left;">▁▁▁▇▆</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaCTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2619.74</td>
+<td style="text-align: right;">4602.10</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">93.00</td>
+<td style="text-align: right;">445.00</td>
+<td style="text-align: right;">3060.00</td>
+<td style="text-align: right;">22802.00</td>
+<td style="text-align: left;">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaCVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">431.55</td>
+<td style="text-align: right;">71.62</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">415.00</td>
+<td style="text-align: right;">440.00</td>
+<td style="text-align: right;">464.00</td>
+<td style="text-align: right;">548.00</td>
+<td style="text-align: left;">▁▁▁▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaDOrLowerMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">266.64</td>
+<td style="text-align: right;">209.25</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">389.00</td>
+<td style="text-align: right;">428.00</td>
+<td style="text-align: right;">648.00</td>
+<td style="text-align: left;">▆▁▂▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaDOrLowerTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">90.76</td>
+<td style="text-align: right;">235.37</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">12.00</td>
+<td style="text-align: right;">90.00</td>
+<td style="text-align: right;">2061.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaDOrLowerVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">272.36</td>
+<td style="text-align: right;">211.13</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">394.00</td>
+<td style="text-align: right;">432.00</td>
+<td style="text-align: right;">632.00</td>
+<td style="text-align: left;">▆▁▁▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaNoResponseMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">304.01</td>
+<td style="text-align: right;">236.34</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">446.00</td>
+<td style="text-align: right;">496.00</td>
+<td style="text-align: right;">589.00</td>
+<td style="text-align: left;">▇▁▁▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GpaNoResponseTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1953.19</td>
+<td style="text-align: right;">3595.06</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">107.00</td>
+<td style="text-align: right;">399.00</td>
+<td style="text-align: right;">2206.00</td>
+<td style="text-align: right;">26744.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GpaNoResponseVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">315.56</td>
+<td style="text-align: right;">245.70</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">462.00</td>
+<td style="text-align: right;">510.00</td>
+<td style="text-align: right;">616.00</td>
+<td style="text-align: left;">▇▁▁▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GenderFemaleMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">518.42</td>
+<td style="text-align: right;">44.22</td>
+<td style="text-align: right;">368.00</td>
+<td style="text-align: right;">488.00</td>
+<td style="text-align: right;">510.00</td>
+<td style="text-align: right;">551.00</td>
+<td style="text-align: right;">611.00</td>
+<td style="text-align: left;">▁▁▇▅▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GenderFemaleTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">15011.61</td>
+<td style="text-align: right;">24667.80</td>
+<td style="text-align: right;">73.00</td>
+<td style="text-align: right;">1357.00</td>
+<td style="text-align: right;">3428.00</td>
+<td style="text-align: right;">18698.00</td>
+<td style="text-align: right;">133217.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GenderFemaleVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">528.35</td>
+<td style="text-align: right;">43.47</td>
+<td style="text-align: right;">399.00</td>
+<td style="text-align: right;">493.00</td>
+<td style="text-align: right;">519.00</td>
+<td style="text-align: right;">569.00</td>
+<td style="text-align: right;">611.00</td>
+<td style="text-align: left;">▁▂▇▃▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GenderMaleMath</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">553.91</td>
+<td style="text-align: right;">48.39</td>
+<td style="text-align: right;">394.00</td>
+<td style="text-align: right;">521.00</td>
+<td style="text-align: right;">546.00</td>
+<td style="text-align: right;">592.00</td>
+<td style="text-align: right;">640.00</td>
+<td style="text-align: left;">▁▁▇▆▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GenderMaleTestTakers</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12911.25</td>
+<td style="text-align: right;">20959.55</td>
+<td style="text-align: right;">61.00</td>
+<td style="text-align: right;">1177.00</td>
+<td style="text-align: right;">2979.00</td>
+<td style="text-align: right;">16718.00</td>
+<td style="text-align: right;">108336.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GenderMaleVerbal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">534.88</td>
+<td style="text-align: right;">45.41</td>
+<td style="text-align: right;">403.00</td>
+<td style="text-align: right;">499.00</td>
+<td style="text-align: right;">525.00</td>
+<td style="text-align: right;">577.00</td>
+<td style="text-align: right;">635.00</td>
+<td style="text-align: left;">▁▃▇▆▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween200To300MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">441.30</td>
+<td style="text-align: right;">779.45</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">12.00</td>
+<td style="text-align: right;">102.00</td>
+<td style="text-align: right;">518.00</td>
+<td style="text-align: right;">4294.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween200To300MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">308.42</td>
+<td style="text-align: right;">509.50</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">60.00</td>
+<td style="text-align: right;">468.00</td>
+<td style="text-align: right;">3034.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween200To300MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">705.21</td>
+<td style="text-align: right;">1281.79</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">20.00</td>
+<td style="text-align: right;">162.00</td>
+<td style="text-align: right;">628.00</td>
+<td style="text-align: right;">6772.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween200To300VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">387.74</td>
+<td style="text-align: right;">793.35</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">12.00</td>
+<td style="text-align: right;">46.00</td>
+<td style="text-align: right;">357.00</td>
+<td style="text-align: right;">5111.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween200To300VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">651.10</td>
+<td style="text-align: right;">1830.08</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">83.00</td>
+<td style="text-align: right;">570.00</td>
+<td style="text-align: right;">20348.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween200To300VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">752.66</td>
+<td style="text-align: right;">1514.44</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">26.00</td>
+<td style="text-align: right;">74.00</td>
+<td style="text-align: right;">790.00</td>
+<td style="text-align: right;">10603.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween300To400MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2180.50</td>
+<td style="text-align: right;">3961.85</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">95.00</td>
+<td style="text-align: right;">599.00</td>
+<td style="text-align: right;">1972.00</td>
+<td style="text-align: right;">24977.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween300To400MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1278.97</td>
+<td style="text-align: right;">2396.51</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">57.00</td>
+<td style="text-align: right;">144.00</td>
+<td style="text-align: right;">1389.00</td>
+<td style="text-align: right;">13740.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween300To400MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3450.22</td>
+<td style="text-align: right;">6353.18</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">149.00</td>
+<td style="text-align: right;">937.00</td>
+<td style="text-align: right;">3288.00</td>
+<td style="text-align: right;">38161.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween300To400VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2017.92</td>
+<td style="text-align: right;">4037.56</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">52.00</td>
+<td style="text-align: right;">206.00</td>
+<td style="text-align: right;">1827.00</td>
+<td style="text-align: right;">22544.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween300To400VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1956.98</td>
+<td style="text-align: right;">3578.36</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">74.00</td>
+<td style="text-align: right;">368.00</td>
+<td style="text-align: right;">2081.00</td>
+<td style="text-align: right;">26188.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween300To400VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3669.70</td>
+<td style="text-align: right;">7235.21</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">110.00</td>
+<td style="text-align: right;">394.00</td>
+<td style="text-align: right;">3530.00</td>
+<td style="text-align: right;">41262.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween400To500MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4597.65</td>
+<td style="text-align: right;">8104.31</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">333.00</td>
+<td style="text-align: right;">670.00</td>
+<td style="text-align: right;">5262.00</td>
+<td style="text-align: right;">43758.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween400To500MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3142.77</td>
+<td style="text-align: right;">5642.54</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">125.00</td>
+<td style="text-align: right;">442.00</td>
+<td style="text-align: right;">3412.00</td>
+<td style="text-align: right;">29254.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween400To500MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7737.70</td>
+<td style="text-align: right;">13748.63</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">493.00</td>
+<td style="text-align: right;">1096.00</td>
+<td style="text-align: right;">8698.00</td>
+<td style="text-align: right;">73012.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween400To500VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4538.66</td>
+<td style="text-align: right;">8240.61</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">198.00</td>
+<td style="text-align: right;">595.00</td>
+<td style="text-align: right;">5082.00</td>
+<td style="text-align: right;">45918.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween400To500VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5540.67</td>
+<td style="text-align: right;">13135.33</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">223.00</td>
+<td style="text-align: right;">892.00</td>
+<td style="text-align: right;">5351.00</td>
+<td style="text-align: right;">164622.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween400To500VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8190.33</td>
+<td style="text-align: right;">14833.61</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">354.00</td>
+<td style="text-align: right;">1063.00</td>
+<td style="text-align: right;">9280.00</td>
+<td style="text-align: right;">80535.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween500To600MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4332.81</td>
+<td style="text-align: right;">6939.66</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">369.00</td>
+<td style="text-align: right;">1006.00</td>
+<td style="text-align: right;">5593.00</td>
+<td style="text-align: right;">35778.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween500To600MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3790.29</td>
+<td style="text-align: right;">6212.88</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">292.00</td>
+<td style="text-align: right;">798.00</td>
+<td style="text-align: right;">5163.00</td>
+<td style="text-align: right;">31702.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween500To600MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8125.04</td>
+<td style="text-align: right;">13139.57</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">651.00</td>
+<td style="text-align: right;">1830.00</td>
+<td style="text-align: right;">10753.00</td>
+<td style="text-align: right;">67480.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween500To600VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4350.62</td>
+<td style="text-align: right;">6945.72</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">356.00</td>
+<td style="text-align: right;">995.00</td>
+<td style="text-align: right;">5835.00</td>
+<td style="text-align: right;">37455.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween500To600VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3760.08</td>
+<td style="text-align: right;">6010.78</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">318.00</td>
+<td style="text-align: right;">871.00</td>
+<td style="text-align: right;">5341.00</td>
+<td style="text-align: right;">31449.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween500To600VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8112.57</td>
+<td style="text-align: right;">12954.97</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">663.00</td>
+<td style="text-align: right;">1888.00</td>
+<td style="text-align: right;">11266.00</td>
+<td style="text-align: right;">68869.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween600To700MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2888.34</td>
+<td style="text-align: right;">5908.86</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">284.00</td>
+<td style="text-align: right;">699.00</td>
+<td style="text-align: right;">3242.00</td>
+<td style="text-align: right;">66431.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween600To700MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3166.88</td>
+<td style="text-align: right;">5530.24</td>
+<td style="text-align: right;">15.00</td>
+<td style="text-align: right;">328.00</td>
+<td style="text-align: right;">732.00</td>
+<td style="text-align: right;">4178.00</td>
+<td style="text-align: right;">49941.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween600To700MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6055.63</td>
+<td style="text-align: right;">11358.02</td>
+<td style="text-align: right;">26.00</td>
+<td style="text-align: right;">609.00</td>
+<td style="text-align: right;">1462.00</td>
+<td style="text-align: right;">7308.00</td>
+<td style="text-align: right;">116372.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween600To700VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2914.30</td>
+<td style="text-align: right;">5949.39</td>
+<td style="text-align: right;">13.00</td>
+<td style="text-align: right;">319.00</td>
+<td style="text-align: right;">718.00</td>
+<td style="text-align: right;">3329.00</td>
+<td style="text-align: right;">71360.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween600To700VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2677.58</td>
+<td style="text-align: right;">5129.55</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">302.00</td>
+<td style="text-align: right;">672.00</td>
+<td style="text-align: right;">3215.00</td>
+<td style="text-align: right;">56513.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween600To700VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5592.36</td>
+<td style="text-align: right;">11069.17</td>
+<td style="text-align: right;">23.00</td>
+<td style="text-align: right;">617.00</td>
+<td style="text-align: right;">1383.00</td>
+<td style="text-align: right;">6521.00</td>
+<td style="text-align: right;">127873.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween700To800MathFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">792.63</td>
+<td style="text-align: right;">1787.20</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">83.00</td>
+<td style="text-align: right;">223.00</td>
+<td style="text-align: right;">821.00</td>
+<td style="text-align: right;">24126.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween700To800MathMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1306.64</td>
+<td style="text-align: right;">2557.59</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">163.00</td>
+<td style="text-align: right;">406.00</td>
+<td style="text-align: right;">1475.00</td>
+<td style="text-align: right;">30815.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween700To800MathTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2099.26</td>
+<td style="text-align: right;">4334.33</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">251.00</td>
+<td style="text-align: right;">645.00</td>
+<td style="text-align: right;">2301.00</td>
+<td style="text-align: right;">54941.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween700To800VerbalFemales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">849.82</td>
+<td style="text-align: right;">1665.76</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">295.00</td>
+<td style="text-align: right;">987.00</td>
+<td style="text-align: right;">21826.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ScoreRangesBetween700To800VerbalMales</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">847.27</td>
+<td style="text-align: right;">1625.23</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">121.00</td>
+<td style="text-align: right;">295.00</td>
+<td style="text-align: right;">970.00</td>
+<td style="text-align: right;">20460.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ScoreRangesBetween700To800VerbalTotal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1697.12</td>
+<td style="text-align: right;">3289.67</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">246.00</td>
+<td style="text-align: right;">605.00</td>
+<td style="text-align: right;">1971.00</td>
+<td style="text-align: right;">42286.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary">Data Dictionary:</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 34%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Year</td>
+<td>Refers to the year the data was collected</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>StateCode</td>
+<td>Represent the standardized code for U.S. states</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>TotalTestTakers</td>
+<td>This column likely shows the total number of students who took the standardized test in each state for that year.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>Total”<em>Subject</em>”</td>
+<td>This likely represents the average “<em>Subject</em>” score of students in each state, each year.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>AcademicSubjects”<em>Subject</em>”AverageGpa</td>
+<td>This likely represents the average GPA (Grade Point Average) of students in a “<em>subject</em>” for each state, each year.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>AcademicSubjects<em>“Subject”</em>AverageYears</td>
+<td>This column could represent the average number of years students spent studying “<em>subject</em>”, possibly during high school for each state, each year.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>FamilyIncomeBetween<em>“Number1_Number2”</em>K<em>“Subject”</em></td>
+<td>The average “<em>Subject</em>” score of students whose family income falls between $“<em>Number1</em>” thousand and $“<em>Number2</em>” thousand annually each state, each year.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>FamilyIncomeBetween<em>“Number1_Number2”</em>KTestTakers</td>
+<td>The number of students from families earning between $“<em>Number1</em>” thousand and $“<em>Number2</em>” thousand who took the test.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>FamilyIncome<em>“LessThan/MoreThan”“Number”</em>KTestTakers</td>
+<td>The number of students from families earning Less than or more than $“<em>Number</em>” thousand anually</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>FamilyIncome”<em>LessThan/MoreThan”“Number”</em>K<em>“Subject”</em></td>
+<td>The average “<em>Subject</em>” score of students whose family income falls is less than or more than $“<em>Number</em>” thousand annually</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>Gpa<em>“Grade”“Subject”</em></td>
+<td>The average <em>“Subject”</em> score of students with a GPA grade of <em>“Grade”</em>.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>Gpa<em>“Grade”</em>TestTakers</td>
+<td>The number of students with a GPA of <em>“Grade”</em> who took the test.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>GpaDOrLower<em>“Subject”</em></td>
+<td>The average <em>“Subject”</em> score of students with a GPA grade of D or lower.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>GpaDOrLowerTestTakers</td>
+<td>The number of students with a GPA of D or lower who took the test.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>GpaNoResponse<em>“Subject”</em></td>
+<td>The average <em>“Subject”</em> score of students who did not report their GPA.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>GpaNoResponseTestTakers</td>
+<td>The number of students who did not report their GPA and took the test.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>Gender<em>“Gender”“Subject”</em></td>
+<td>The average <em>“Subject”</em> score of <em>“Gender”</em> students.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>Gender<em>“Gender”</em>TestTakers</td>
+<td>The number of <em>“Gender”</em> students who took the test.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td>ScoreRangesBetween<em>“Number1”</em>To<em>“Number2”“Subject”“Gender”</em></td>
+<td>The number of <em>“Gender”</em> students whose <em>“Subject”</em> scores fall between <em>“Number1”</em> and <em>“Number2”</em>.</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td>ScoreRangesBetween<em>“Number1”</em>To<em>“Number2”“Subject”</em>Total</td>
+<td>The total number of students (both female and male) whose <em>“Subject”</em> scores fall between <em>“Number1”</em> and <em>“Number2”</em>.</td>
+<td>Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p>I will admit i was over whelmed by the amount of data (in particular the amount of columns in this data set. But i think I’ve gotten a hand of it)</p>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations:</h4>
+<ol type="1">
+<li>The variables Year, StateCode, and StateName are qualitative (categorical) data but they have a large number of unique levels, meaning they can’t be treated as factors. Maybe Year can be? It only have 10 different levels.</li>
+<li>Rest all variables are quantitative either representing average GPA, number of students or average score.</li>
+<li>There are no missing values for any variable.</li>
+</ol>
+</section>
+</section>
+<section id="target-and-predictor-variables" class="level3">
+<h3 class="anchored" data-anchor-id="target-and-predictor-variables">Target and Predictor Variables:</h3>
+<p>The target variables could be either the <strong>Math</strong> score (TotalMath) or the <strong>Verbal</strong> score (TotalVerbal). You could treat them as separate target variables or focus on just one. Leaving the rest of the variables to be predictor variables.</p>
+</section>
+</section>
+<section id="defining-the-research-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-research-experiment">Defining the Research Experiment:</h2>
+<p>The primary goal of this research could be to predict <strong>test scores</strong> (in both math and verbal sections) based on various demographic, socioeconomic, and academic factors.</p>
+<p><strong>Demographics: To understand regional and gender-based differences in education outcomes.</strong></p>
+<ul>
+<li><p><code>StateCode</code>, <code>StateName</code> (location-related factors)</p></li>
+<li><p><code>GenderFemaleTestTakers</code>, <code>GenderMaleTestTakers</code> (gender of the test-takers)</p></li>
+</ul>
+<p><strong>Socioeconomic Variables: Assess how financial background impacts test performance.</strong></p>
+<ul>
+<li><p><code>FamilyIncomeLessThan20KTestTakers</code>, <code>FamilyIncomeBetween20_40KTestTakers</code>, etc. (family income)</p></li>
+<li><p><code>FamilyIncomeLessThan20KMath</code>, <code>FamilyIncomeBetween20_40KMath</code>, etc. (scores for different income levels)</p></li>
+</ul>
+<p><strong>Academic Background: To understand the relationship between day-to-day academic success and standardized testing success.</strong></p>
+<ul>
+<li><p><code>GpaAMinusTestTakers</code>, <code>GpaBTestTakers</code>, etc. (number of test-takers with specific GPAs)</p></li>
+<li><p><code>AcademicSubjectsArtsMusicAverageGpa</code> (average GPA in academic subjects)</p></li>
+</ul>
+<p>Why do it? To identify which factors have the most significant influence on standardized test scores.</p>
+<p>Use: By understanding the factors influencing standardized test performance could help education policymakers identify gaps in achievement and support more equitable access to resources.</p>
+<p>Questions:</p>
+<ol type="1">
+<li>Does a higher family income correlate with better test scores.</li>
+<li>Do students with higher GPAs perform better on standardized tests.</li>
+<li>Do certain states consistently outperform others. If yes, does this relate to it’s socioeconomic status or educational policies.</li>
+<li>Does gender plays a role in performance differences.</li>
+</ol>
+</section>
+<section id="graph-1" class="level2">
+<h2 class="anchored" data-anchor-id="graph-1">Graph 1:</h2>
+<p><img src="images/clipboard-2380202343.png" class="img-fluid"></p>
+<p>Type of graph: a Scatter Plot analyzing the visible relationships between different Quantitative variables using GGally.</p>
+<section id="defining-the-question" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-question">Defining the question:</h3>
+<ol type="1">
+<li>Are there patterns of performance consistency or variation between subjects?</li>
+<li>What is the Correlation between the average GPA of different subjects? Is being good / bad in one subject mean they are good/bad at all?</li>
+</ol>
+</section>
+<section id="analyse-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-the-data">Analyse the Data:</h3>
+<p>Identifying the variables used: The quantitative values under all AcademicSubjects”<em>Subject</em>”AverageGpa’s quantitative data are plotted against each other. There is no particular data transformation required other than changing the variable names and cleaning the data-set a little more to only have these variables (although neither of these are really necessary)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>scores_modified <span class="ot">&lt;-</span> scores_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ArtsMusic =</span> AcademicSubjectsArtsMusicAverageGpa,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">English =</span> AcademicSubjectsEnglishAverageGpa,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ForeignLanguages =</span> AcademicSubjectsForeignLanguagesAverageGpa,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mathematics =</span> AcademicSubjectsMathematicsAverageGpa,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">NaturalSciences =</span> AcademicSubjectsNaturalSciencesAverageGpa,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SocialSciencesHistory =</span> AcademicSubjectsSocialSciencesHistoryAverageGpa</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ArtsMusic, English, ForeignLanguages, Mathematics,NaturalSciences, SocialSciencesHistory)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>scores_modified</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 577 × 6
+   ArtsMusic English ForeignLanguages Mathematics NaturalSciences
+       &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
+ 1      3.92    3.53             3.54        3.41            3.52
+ 2      3.76    3.35             3.34        3.06            3.25
+ 3      3.85    3.45             3.41        3.25            3.43
+ 4      3.9     3.61             3.64        3.46            3.55
+ 5      3.76    3.32             3.29        3.05            3.2 
+ 6      3.88    3.49             3.41        3.33            3.43
+ 7      3.66    3.13             3.03        3               3.07
+ 8      3.71    3.21             3.18        3.07            3.19
+ 9      3.54    3.03             3.04        2.91            2.99
+10      3.77    3.29             3.3         3.07            3.27
+# ℹ 567 more rows
+# ℹ 1 more variable: SocialSciencesHistory &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="replicating-the-graph" class="level3">
+<h3 class="anchored" data-anchor-id="replicating-the-graph">Replicating the graph:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  scores_modified <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(),</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select Quant variables only for now</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="fu">c</span>(</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ArtsMusic"</span>, <span class="st">"English"</span>, <span class="st">"ForeignLanguages"</span>, <span class="st">"Mathematics"</span>, <span class="st">"NaturalSciences"</span>, <span class="st">"SocialSciencesHistory"</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">switch =</span> <span class="st">"both"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">diag =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">"densityDiag"</span>),</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">"smooth"</span>, <span class="at">alpha =</span> <span class="fl">0.03</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)),</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Academic Scores in Different Subjects"</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="doing-a-correlation-test" class="level3">
+<h3 class="anchored" data-anchor-id="doing-a-correlation-test"><strong>Doing a Correlation Test:</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cor_results <span class="ot">&lt;-</span> correlation<span class="sc">::</span><span class="fu">correlation</span>(scores_modified)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cor_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Parameter1       |            Parameter2 |    r |       95% CI | t(575) |         p
+-----------------------------------------------------------------------------------
+ArtsMusic        |               English | 0.91 | [0.90, 0.93] |  53.42 | &lt; .001***
+ArtsMusic        |      ForeignLanguages | 0.90 | [0.88, 0.91] |  49.12 | &lt; .001***
+ArtsMusic        |           Mathematics | 0.88 | [0.86, 0.90] |  43.96 | &lt; .001***
+ArtsMusic        |       NaturalSciences | 0.93 | [0.91, 0.94] |  58.45 | &lt; .001***
+ArtsMusic        | SocialSciencesHistory | 0.94 | [0.93, 0.95] |  66.89 | &lt; .001***
+English          |      ForeignLanguages | 0.96 | [0.96, 0.97] |  87.33 | &lt; .001***
+English          |           Mathematics | 0.96 | [0.95, 0.97] |  81.67 | &lt; .001***
+English          |       NaturalSciences | 0.98 | [0.98, 0.98] | 119.60 | &lt; .001***
+English          | SocialSciencesHistory | 0.98 | [0.98, 0.98] | 124.66 | &lt; .001***
+ForeignLanguages |           Mathematics | 0.94 | [0.93, 0.95] |  68.27 | &lt; .001***
+ForeignLanguages |       NaturalSciences | 0.97 | [0.96, 0.97] |  88.59 | &lt; .001***
+ForeignLanguages | SocialSciencesHistory | 0.96 | [0.95, 0.97] |  82.20 | &lt; .001***
+Mathematics      |       NaturalSciences | 0.98 | [0.97, 0.98] | 109.57 | &lt; .001***
+Mathematics      | SocialSciencesHistory | 0.96 | [0.95, 0.96] |  78.08 | &lt; .001***
+NaturalSciences  | SocialSciencesHistory | 0.99 | [0.98, 0.99] | 136.99 | &lt; .001***
+
+p-value adjustment method: Holm (1979)
+Observations: 577</code></pre>
+</div>
+</div>
+<section id="observations-1" class="level4">
+<h4 class="anchored" data-anchor-id="observations-1">Observations:</h4>
+<p>All combination of subjects have a very small range of confidence intervals. Therefore, all correlation scores are valid i.e.&nbsp;all relationships are statistically significant, reliable, and consistent.</p>
+</section>
+</section>
+<section id="observations-2" class="level3">
+<h3 class="anchored" data-anchor-id="observations-2">Observations:</h3>
+<ol type="1">
+<li>There is a high positive correlation between all subjects.</li>
+<li>This consistent positive correlation might indicate that students who perform well in one subject tend to perform well in others. This could suggest a general academic competence or factors like study habits, discipline, or access to resources influencing performance across all subjects.</li>
+<li>The correlation between ArtsMusic and Mathematics is relatively lower (0.878) compared to the other subject pairs but still strong. This could highlight different skill sets, as Arts/Music may engage creativity, whereas Mathematics is more focused on logical reasoning</li>
+<li>English and Foreign Languages (0.964): These subjects may require similar skills in language comprehension, grammar, and communication.</li>
+<li>Social Sciences/History and English (0.982) &amp; Natural Science and Social Sciences/History(0.985) &amp; English and Natural Science(0.980): All 3 subjects subjects rely heavily on reading, writing, and critical analysis, which might explain the very high correlation.</li>
+<li>With mathematics, the subject with highest correlation is NaturalSciences with a score of 0.977. Both subjects share analytical and logical reasoning skills, which could explain the strong link.</li>
+</ol>
+</section>
+</section>
+<section id="graph-2" class="level2">
+<h2 class="anchored" data-anchor-id="graph-2">Graph 2:</h2>
+<p><img src="images/clipboard-12188771.png" class="img-fluid"></p>
+<p>Type of graph: A box plot.</p>
+<section id="defining-the-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-question-1">Defining the question:</h3>
+<p>Does a higher family income correlate with better test scores?</p>
+</section>
+<section id="analyse-the-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-the-data-1">Analyse the Data:</h3>
+<p>Type of variables: Where a quantitative data (math scores) is plotted as a box plot separated by “levels” of income earned by the family. In this existing data-set, all math scores categorized by income are in different rows (FamilyIncomeBetween”<em>Number1-Number2</em>”KMath). We need to make a new column called <strong>IncomeCategory</strong> with the different levels of income and another that corresponds with it called <strong>Values</strong> where the math score data is stored.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>income_data <span class="ot">&lt;-</span> scores_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeBetween20_40KMath,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeLessThan20KMath,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeBetween40_60KMath,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeBetween60_80KMath,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeBetween80_100KMath,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    FamilyIncomeMoreThan100KMath</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"IncomeCategory"</span>,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Value"</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IncomeCategory =</span> <span class="fu">case_when</span>(</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeLessThan20KMath"</span> <span class="sc">~</span> <span class="st">"LessThan20K"</span>,</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeBetween20_40KMath"</span> <span class="sc">~</span> <span class="st">"Between20_40K"</span>,</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeBetween40_60KMath"</span> <span class="sc">~</span> <span class="st">"Between40_60K"</span>,</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeBetween60_80KMath"</span> <span class="sc">~</span> <span class="st">"Between60_80K"</span>,</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeBetween80_100KMath"</span> <span class="sc">~</span> <span class="st">"Between80_100K"</span>,</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    IncomeCategory <span class="sc">==</span> <span class="st">"FamilyIncomeMoreThan100KMath"</span> <span class="sc">~</span> <span class="st">"MoreThan100K"</span>,</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>,</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(IncomeCategory, Value)<span class="sc">%&gt;%</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">IncomeCategory =</span> <span class="fu">factor</span>(IncomeCategory,</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"LessThan20K"</span>, <span class="st">"Between20_40K"</span>, <span class="st">"Between40_60K"</span>,<span class="st">"Between60_80K"</span>, <span class="st">"Between80_100K"</span>, <span class="st">"MoreThan100K"</span> ),</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"LessThan20K"</span>, <span class="st">"Between20_40K"</span>, <span class="st">"Between40_60K"</span>,<span class="st">"Between60_80K"</span>, <span class="st">"Between80_100K"</span>, <span class="st">"MoreThan100K"</span>),</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>income_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,462 × 2
+   IncomeCategory Value
+   &lt;ord&gt;          &lt;dbl&gt;
+ 1 Between20_40K    513
+ 2 LessThan20K      462
+ 3 Between40_60K    539
+ 4 Between60_80K    550
+ 5 Between80_100K   566
+ 6 MoreThan100K     588
+ 7 Between20_40K    492
+ 8 LessThan20K      464
+ 9 Between40_60K    517
+10 Between60_80K    513
+# ℹ 3,452 more rows</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<h4 id="what-is-pivot_longer" class="anchored">What is <code>pivot_longer()</code>?</h4>
+<ul>
+<li><p><strong>Wide Format</strong>: This format typically has multiple columns representing different variables. For example, each family income category might have its own column for math scores.</p></li>
+<li><p><strong>Long Format</strong>: This format consolidates these variables into two columns: one for the variable names (e.g., income categories) and one for their corresponding values. This format is often easier to work with for data analysis and visualization.</p></li>
+</ul>
+</blockquote>
+</section>
+<section id="replicating-the-graph-1" class="level3">
+<h3 class="anchored" data-anchor-id="replicating-the-graph-1">Replicating the graph:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>income_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(<span class="fu">reorder</span>(IncomeCategory, Value, <span class="at">FUN =</span> median) <span class="sc">~</span> Value,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span>IncomeCategory,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.2</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Math Scores vs Family Income"</span>,<span class="at">subtitle =</span> <span class="st">"Chart 2"</span> ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Scores in Math"</span>,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Income Class"</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="observations-3" class="level4">
+<h4 class="anchored" data-anchor-id="observations-3">Observations:</h4>
+<ol type="1">
+<li>There is a <strong>positive correlation</strong> between family income and math scores. As family income increases, median math scores also increase, showing that students from higher-income families tend to score better in math.</li>
+<li>There are several <strong>outliers</strong> in the lower-income categories (especially for “LessThan20K” and “Between20_40K”) with students scoring exceptionally higher than their peers.</li>
+<li>“LessThan20K” seems to have a couple of outliers at 0. Did a lot of students not show up for tests? It’s interesting to see that other than them, only “Between20_40K” and “MoreThan100K” have students with a score of 0.</li>
+<li>The chart illustrates that higher family income is associated with better math scores, with less variation in performance as income increases. However, even in lower-income groups, some students perform as well as those from higher-income families.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="my-story" class="level2">
+<h2 class="anchored" data-anchor-id="my-story">My Story:</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

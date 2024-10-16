@@ -1,0 +1,269 @@
+---
+title: "Case Study 1"
+author: "Sneha Manu Jacob"
+date: "2024-10-11"
+categories: [A2, movie_profit]
+---
+
+## Introduction
+
+This is a dataset pertaining to movies and genres, modified for ease of analysis and plotting.
+
+## Playing with and understanding the data
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+```
+
+### Acquiring the data:
+
+```{r}
+#| label: Read the data
+movie_profit <- read_delim("../../data/movie_profit.csv", delim=";")
+movie_profit
+```
+
+```{r}
+glimpse(movie_profit)
+```
+
+```{r}
+skim(movie_profit)
+```
+
+### Data Dictionary:
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| movie | The title of the movie | Qualitative |
+| distributor | The company responsible for distributing the movie (e.g., Warner Bros., Disney) | Qualitative |
+| mpaa_rating | The movie's MPAA rating (e.g., G, PG, PG-13, R), which indicates the age-appropriateness of the content. | Qualitative |
+| genre | The type or category of the movie (e.g., Action, Comedy, Drama) | Qualitative |
+| release_date | The date when the movie was first released in theaters | Qualitative |
+| production_budget | The amount of money spent on producing the movie | Quantitative |
+| domestic_gross | The total earnings of the movie from domestic (usually U.S.) markets | Quantitative |
+| worldwide_gross | The total earnings of the movie from all markets worldwide | Quantitative |
+| profit_ratio | The ratio of profit earned relative to the production budget | Quantitative |
+| decade | The decade during which the movie was released | Qualitative |
+
+#### Observations:
+
+1.  The variables **mpaa_rating**, **genre**, and **distributor** are qualitative (categorical) data with a low enough number of unique levels that they could be treated as factors.
+2.  **Decade** is quantitative data but could also be treated as a factor.
+3.  There are missing values in the dataset for **mpaa_rating** and **distributor**.
+
+### Transforming the data
+
+```{r}
+movie_modified <- movie_profit %>%
+  dplyr::mutate(
+    mpaa_rating = as_factor(mpaa_rating),
+    genre = as_factor(genre),
+    distributor = as_factor(distributor),
+    decade = as_factor(decade)
+  )
+movie_modified
+```
+
+```{r}
+glimpse(movie_modified)
+```
+
+```{r}
+skim(movie_modified)
+```
+
+### Target and Predictor Variables:
+
+In the context of your movie_profit data-set, a potential target variable could be **profit_ratio** (the name of the data-set does suggest so anyway). Leaving the rest of the variables- distributor, mpaa_rating, genre, decade, release_date, production_budget, domestic_gross and worldwide_gross to be predictor variables.
+
+## Defining the Research Experiment:
+
+To analyze factors that might influence the profitability of movies. Using statistical techniques, researchers might examine the relationships between the predictor variables and the target variable (profit ratio) to determine what factors contribute to higher profitability in films.
+
+Use: The study’s findings could inform studios, distributors, and investors about what factors are most likely to lead to a movie being profitable, potentially influencing future decisions in movie production.
+
+### Analyzing the Predictor Variables:
+
+#### Distributors:
+
+```{r}
+movie_modified %>% count(distributor)
+```
+
+##### Observations:
+
+1.  "Other" Distributors: Largest group with 1,737 entries, suggesting many smaller or less-known distributors.
+2.  Top Distributors include Warner Bros. (360), Sony Pictures (332), Universal (299), 20th Century Fox (279), and Paramount Pictures (261).
+
+#### Mpaa Rating:
+
+```{r}
+movie_modified %>% count(mpaa_rating)
+```
+
+##### Observations:
+
+This indicates a higher prevalence of R-rated and PG-13 movies in the data-set, with fewer G-rated films.
+
+#### Genre:
+
+```{r}
+movie_modified %>% count(genre)
+```
+
+##### Observations:
+
+This distribution shows a preference for Drama and Comedy in the dataset, while Horror appears less often.
+
+#### Decade:
+
+```{r}
+movie_modified %>% count(decade)
+```
+
+##### Observations:
+
+The distribution indicates a clear trend of increasing movie releases from the 1930s to the 2000s, with a noticeable decline in earlier decades.
+
+#### Production Budget:
+
+```{r}
+movie_modified %>%
+  gf_histogram(~production_budget)
+```
+
+#### Domestic Gross:
+
+```{r}
+movie_modified %>%
+  gf_histogram(~domestic_gross)
+```
+
+#### Worldwide Gross:
+
+```{r}
+movie_modified %>%
+  gf_histogram(~worldwide_gross)
+```
+
+##### Observations:
+
+The histograms of all the quantitative predictor variables are similarly skewed to the right. A rightward skew indicates that a majority of the data points are concentrated on the lower end of the scale, with fewer high values. This could suggest that most movies in my data-set have lower production budgets or grosses, while only a few have significantly higher values.The uniform skewness across multiple variables suggests a consistent pattern in the data-set, which can indicate underlying trends or characteristics shared among the movies
+
+## Define the Question:
+
+Graph:
+
+![](images/clipboard-1930049740.png)
+
+Identifying the type of plot: A bar plot where a quantitative variable is plotted rather than a qualitative one.
+
+Questions:
+
+1.  How do the distributor and genre affect a movie's profitability?
+2.  Which genre is most likely to being the most profit for a distributor.
+3.  If i have a horror movie i want to bring to the theaters, which distributor would be my best bet?
+
+### Graph Replication:
+
+I examined the variables plotted- We are plotting a quantitative variable against 2 qualitative variables. Has the profit ratio been transformed in any way to be used as a bar graph- one where the count of qualitative variables are plotted? A histogram is used to plot continuous quantitative data that could be faceted by groups that are defined by levels of a qualitative data. But is it possible to plot it against 2 qulaitative variables? No, You cannot meaningfully divide categories into bins, which is the core concept behind a histogram.
+
+Maybe i could use groups to understand this data? The x axis of the graph does say median profit ratio. Using box-plots, i do find the different medians.
+
+```{r}
+#| label: Reordring genre to match the graph
+movie_modified_again <- movie_modified %>%
+  dplyr::mutate(
+    genre = factor(genre,
+      levels = c("Action", "Adventure", "Comedy", "Drama", "Horror" ),
+      labels = c("Action", "Adventure", "Comedy", "Drama", "Horror"),
+      ordered = TRUE
+    )
+  )
+```
+
+```{r}
+movie_modified_again %>%
+  drop_na() %>%
+  gf_boxplot(reorder(genre, profit_ratio) ~ profit_ratio,
+    fill = ~genre,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(vars(distributor)) %>%
+  gf_refine(scale_fill_brewer(palette = "Dark2")) %>%
+  gf_labs(
+    title = "Profits made by film distributors",
+    subtitle = "Ratio of profits to budgets",
+    x = "Median profit ratio",
+    y = "genre"
+  )
+```
+
+```{r}
+movie_modified_again %>%
+  drop_na() %>%
+  gf_boxplot(reorder(genre, profit_ratio) ~ log10(profit_ratio),
+    fill = ~genre,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(vars(distributor)) %>%
+  gf_refine(scale_fill_brewer(palette = "Dark2")) %>%
+  gf_labs(
+    title = "Profits made by film distributors",
+    subtitle = "Ratio of profits to budgets",
+    x = "Median profit ratio",
+    y = "genre"
+  )
+```
+
+Although bar graphs are commonly used to represent the count or frequency of qualitative (categorical) data. They can also be used to represent quantitative data if you summarize the data in some way (e.g., using means, sums, or other aggregates).
+
+```{r}
+ggplot(movie_modified_again, aes(x = genre, y = profit_ratio)) +
+  facet_wrap(vars(distributor))+
+  stat_summary(fun = "median", geom = "bar") +
+  labs(title = "Profits made by film distributors", subtitle = "Ratio of profits to budgets", x = "Genre", y = "Median Profit Ratio")+  
+  coord_flip()
+```
+
+I tried doing this with ggformula using stat = "summary" and fun = "median" but it didn't work for some reason to i tried it out with ggplot2 and it did work.
+
+I know that I am only required to make this graph, but I'm curious about how to graph would look if i plot the mean instead of the median. Would it be easier to pull out inferences from the mean plot?
+
+facet_wrap is used to obtain separate plots for each distributor.
+
+```{r}
+ggplot(movie_modified_again, aes(x = genre, y = profit_ratio)) +
+  facet_wrap(vars(distributor))+
+  stat_summary(fun = "mean", geom = "bar") +
+  labs(title = "Profits made by film distributors", subtitle = "Ratio of profits to budgets", x = "Genre", y = "Mean Profit Ratio")+  
+  coord_flip()
+```
+
+So after a little bit of research, I realise, **mean** is more sensitive to **outliers** and extreme values, so it works well when the data is **normally distributed** and without significant skewness while **Median** is more **robust** in the presence of **skewed data** or **outliers** because it represents the middle value.
+
+When i observe the box plot, there are couple of outliers present of both sides making the data skewed, in which case, it could mislead the interpretation.Therefore, the median often provides a better sense of the "typical" value, making it easier to draw meaningful inferences.
+
+### Inferences:
+
+1.  Paramount pictures, Warner Bros and Sony Pictures seem to most likely gain the highest profits through horror movies.
+2.  Almost all distributors seem to make the lest amount of profits through drama movies (it's a close second otherwise). This is interesting because if we looks at the count of all genres in the data-set, drama is the most. Is this a peculiarity of the data-set? If not, if it is most likely to bring in the least profit, why do they make it so much?
+
+This makes me curious about the count of genre by distributors.
+
+```{r}
+gf_bar(~ genre | distributor, fill = ~genre, data = movie_modified) %>%
+  gf_labs(title = "Counts of genre by distributors")
+```
+
+3.  This is interesting because even though Paramount pictures, Warner Bros and Sony Pictures are most likely to gain highest profits through horror movies, these movies are of the least count in their data-set.
+4.  For Universal Studio and 20th Century Fox, adventure is the genre that's most likely to bring in a high profit. Supporting this, 20th Century Fox does have a high count of adventure films, but Universal studio that has a higher median profit ratio for Adventure even compared to 20th Century fox, has a very low count (the second lowest they have) when it comes to adventure movies.
+5.  While comedy brings in a good profit ratio for Universal Studio and and 20th Century Fox, not so much for any of the other distributors. What might that be about? The count of comedy films seem to be similar for all distributors despite this.
+6.  If I were to invest in movie production ventures, which are the two best genres that you might decide to invest in? It would be either horror or adventure. I'm most likely to gain profits with these 2 options.
+
+## My Story:

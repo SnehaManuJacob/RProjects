@@ -1,0 +1,248 @@
+---
+title: "Day 5"
+author: "Sneha Manu Jacob"
+date: "2024-10-10"
+categories: [groups, box-plot]
+---
+
+## Introduction:
+
+Variables1: Quantitative, Variable 2: Qualitative
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+library(palmerpenguins)
+```
+
+```{r}
+wages <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/stevedata/gss_wages.csv")
+wages
+```
+
+```{r}
+glimpse(wages)
+```
+
+```{r}
+wages %>% skimr::skim()
+```
+
+```{r}
+inspect(wages)
+```
+
+1.  **year (`<dbl>`)**:
+
+    -   The year in which the survey was conducted. This is a numeric (double) variable representing the survey's year (e.g., 2010, 2015, etc.).
+
+2.  **realrinc (`<dbl>`)**:
+
+    -   This likely stands for **real income**. It's the respondent’s income adjusted for inflation, typically measured in constant dollars from a specific base year. This allows comparisons of income across different years by accounting for changes in the cost of living.
+
+3.  **age (`<dbl>`)**:
+
+    -   The age of the respondent in years. It's a numeric value.
+
+4.  **occ10 (`<dbl>`)**:
+
+    -   This is likely a **standard occupation code**, using the **2010 Occupational Classification System**. It's a numeric code representing the respondent's occupation according to a standardized system used by labor statistics agencies.
+
+5.  **occrecode (`<chr>`)**:
+
+    -   This likely refers to a **recoded occupation** variable. The occupation might have been simplified or recoded into broader categories to facilitate analysis. This is stored as a character string (text).
+
+6.  **prestg10 (`<dbl>`)**:
+
+    -   This likely stands for **occupational prestige score (2010)**. It is a numeric value that represents the societal prestige or status of the respondent’s occupation, based on surveys or expert ratings of different jobs.
+
+7.  **childs (`<dbl>`)**:
+
+    -   The number of children the respondent has. This is a numeric variable representing the count of children.
+
+8.  **wrkstat (`<chr>`)**:
+
+    -   Likely short for **work status**. It indicates the respondent’s current employment situation (e.g., "Employed full-time," "Unemployed," "Retired"). This is a categorical variable stored as a character string.
+
+9.  **gender (`<chr>`)**:
+
+    -   The respondent's gender, typically recorded as "Male" or "Female." This is a categorical (character) variable.
+
+10. **educcat (`<chr>`)**:
+
+-   This refers to **education category**, which classifies respondents into broad educational attainment groups (e.g., "Less than High School," "High School Graduate," "Some College," "College Graduate"). This is a categorical variable.
+
+11. **maritalcat (`<chr>`)**:
+
+-   This is a **marital status category**, which categorizes respondents into groups based on their marital status (e.g., "Married," "Single," "Divorced," "Widowed"). It’s a categorical variable stored as a character string.
+
+Since there are so many missing data in the target variable `realinc` *and* there is still enough data leftover, let us remove the rows containing missing data in that variable.
+
+```{r}
+wages_clean <-
+  wages %>%
+  tidyr::drop_na(realrinc) # choose column or leave blank to choose all
+```
+
+#### What is the basic distribution of Real Income?
+
+```{r}
+wages_clean %>%
+  gf_boxplot(realrinc ~ "Income") %>% ## There is nothing really to put on the x. 
+  gf_labs(
+    title = "Plot 1A: Income has a skewed distribution",
+    subtitle = "Many outliers on the high side"
+  )
+```
+
+Income is a very skewed distribution. There is a large population of people with low incomes and we observe a couple of outliers in higher incomes.
+
+#### Is Income effected by gender?
+
+```{r}
+wages_clean %>%
+  gf_boxplot(gender ~ realrinc) %>%
+  gf_labs(title = "Plot 2A: Income by Gender")
+```
+
+To understand this better, we take the log10 of the Realinc and we add colour to the 2 groups we are seperating it by
+
+```{r}
+wages_clean %>%
+  gf_boxplot(gender ~ realrinc, fill = ~gender) %>%
+  gf_refine(scale_x_log10()) %>%
+  gf_labs(title = "Plot 2C: Income filled by Gender, log scale")
+```
+
+The IQR for `male`s is smaller than the IQR for `female`s. There is less variation in the middle ranges of `realrinc` for men. log10 transformation helps to view and understand the regions of low `realrinc`. There median of both genders suggests that there may be a disparity in pay. We can only confirm this by looking at the mean value.
+
+#### Is income effected by Education?
+
+```{r}
+wages_clean %>%
+  gf_boxplot(educcat ~ realrinc) %>%
+  gf_labs(title = "Plot 3A: Income by Education Category")
+```
+
+```{r}
+wages_clean %>%
+  gf_boxplot(educcat ~ log10(realrinc)) %>%
+  gf_labs(title = "Plot 3B: Log(Income) by Education Category")
+```
+
+```{r}
+wages_clean %>%
+  gf_boxplot(
+    reorder(educcat, realrinc, FUN = median) ~ log(realrinc),
+    fill = ~educcat,
+    alpha = 0.3
+  ) %>%
+  gf_labs(title = "Plot 3C: Log(Income) by Education Category, sorted") %>%
+  gf_labs(
+    x = "Log Income",
+    y = "Education Category"
+  )
+```
+
+**`reorder(educcat, realrinc, FUN = median)`**: Reorders the `educcat` (education category) based on the median of `realrinc` (income). This means the education categories will be ordered in the plot from lowest to highest median income.
+
+```{r}
+wages_clean %>%
+  gf_boxplot(reorder(educcat, realrinc, FUN = median) ~ realrinc,
+    fill = ~educcat,
+    alpha = 0.5
+  ) %>%
+  gf_refine(scale_x_log10()) %>%
+  gf_labs(
+    title = "Plot 3D: Income by Education Category, sorted",
+    subtitle = "Log Income"
+  ) %>%
+  gf_labs(
+    x = "Income",
+    y = "Education Category"
+  )
+```
+
+The second code uses `gf_refine(scale_x_log10())`, which transforms the **x-axis scale** into a logarithmic scale (base 10) **after** the plot is created. This means the log transformation is purely for the axis labels and the scaling of the plot, not for the underlying data in the plot.
+
+Conclutions?
+
+There an increase in the median of income as the qualifications increase as expected. There are people with *very low* and *very high* income in all categories of education.
+
+### **Is the target variable `realrinc` affected by combinations of Qual factors `gender`, `educcat`, `maritalcat` and `childs`?**
+
+```{r}
+wages %>%
+  drop_na() %>%
+  gf_boxplot(reorder(educcat, realrinc) ~ log10(realrinc),
+    fill = ~educcat,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(vars(childs)) %>%
+  gf_refine(scale_fill_brewer(type = "qual", palette = "Dark2")) %>%
+  gf_labs(
+    title = "Plot 4A: Log Income by Education Category and Family Size",
+    x = "Log income",
+    y = "No. of Children"
+  )
+```
+
+Family size does not seem to play a role in income while the education does.
+
+```{r}
+wages %>%
+  drop_na() %>%
+  mutate(childs = as_factor(childs)) %>%
+  gf_boxplot(childs ~ log10(realrinc),
+    group = ~childs,
+    fill = ~childs,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(~gender) %>%
+  gf_refine(scale_fill_brewer(type = "qual", palette = "Set3")) %>%
+  gf_labs(
+    title = "Plot 4B: Log Income by Gender and Family Size",
+    x = "Log income",
+    y = "No. of Children"
+  )
+```
+
+```{r}
+wages %>%
+  drop_na() %>%
+  mutate(gender = as_factor(gender)) %>%
+  gf_boxplot(gender ~ log10(realrinc),
+    group = ~gender,
+    fill = ~gender,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(~childs) %>%
+  gf_refine(scale_fill_brewer(type = "qual", palette = "Set3")) %>%
+  gf_labs(
+    title = "Plot 4B: Log Income by Gender and Family Size",
+    x = "Log income",
+    y = "No. of Children"
+  )
+```
+
+```{r}
+wages %>%
+  drop_na() %>%
+  mutate(gender = as_factor(gender)) %>%
+  gf_boxplot(gender ~ log10(realrinc),
+    group = ~gender,
+    fill = ~gender,
+    alpha = 0.5
+  ) %>%
+  gf_facet_wrap(~educcat) %>%
+  gf_refine(scale_fill_brewer(type = "qual", palette = "Set3")) %>%
+  gf_labs(
+    title = "Plot 4B: Log Income by Gender and Qualification",
+    x = "Log income",
+    y = "No. of Children"
+  )
+```
+
+## 
