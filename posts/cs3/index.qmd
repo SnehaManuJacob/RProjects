@@ -2,7 +2,7 @@
 title: "Case Study 3"
 author: "Sneha Manu Jacob"
 date: "2024-10-14"
-categories: [A2, Antarctic-Sea-ice]
+categories: [A2, Antarctic-Sea-ice, box-plot]
 ---
 
 ## Introduction
@@ -138,4 +138,10 @@ ice_prepared %>%
 1.  There is a **seasonal pattern** in the Antarctic ice extent, with ice reaching its **maximum** around **September** and its **minimum** around **February** . This pattern seems to be consistent with the natural annual cycle of ice melting and formation in the region.
 2.  For all months, the ice extent in 2023 is lower than the historical median. June through October seems to have it being far more lower than the median compared to the other months.
 
-## My Story: 
+## My Story:
+
+Since the analysing and transforming the data was so similar to the last case study i did, it was not too hard for me to comprehend. One part that i did need to figure out and had to take some time doing was how to highlight the 2023 value in the bx-plot. It's only after i finished figuring it out and plotting it that i realised i don't need every value under 2023 plotted, only the average of every month. It took some time for me to grasp that, the fact that even though I'm plotting a box plot for one data set, i can plot points within it defined in another data-set.
+
+Completing A2 was a completely different experience compared to A1. I have to admit, it took me a lot of time to figure out even the smallest details—it took me a total of three days to get it done. Every few seconds, I found myself wondering how anyone ever made it through college without tools like ChatGPT to help. But as I worked through the challenges and eventually figured things out, I realized that I was gradually improving and figuring things out. The whole "figuring it out" was, in fact, what this assignment was all about.
+
+Looking back, I’m actually really proud of myself for getting through it. Each new challenge taught me something, and the process of struggling, learning, and ultimately succeeding was incredibly rewarding.

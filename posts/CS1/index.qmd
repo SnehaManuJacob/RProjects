@@ -2,7 +2,7 @@
 title: "Case Study 1"
 author: "Sneha Manu Jacob"
 date: "2024-10-11"
-categories: [A2, movie_profit]
+categories: [A2, movie_profit, bar-plot]
 ---
 
 ## Introduction
@@ -267,3 +267,11 @@ gf_bar(~ genre | distributor, fill = ~genre, data = movie_modified) %>%
 6.  If I were to invest in movie production ventures, which are the two best genres that you might decide to invest in? It would be either horror or adventure. I'm most likely to gain profits with these 2 options.
 
 ## My Story:
+
+I have gone through the Case Studies provided in Arvind's websites before the specifications of A2 came through. At that point we were two classes down and I remember feeling like everything was way out of my ballpark. I never looked at it again. So when we did get our A2 assignment, I panicked a little. When i did open case studies again, as i glimpsed through the preview images within each document, i jumped at clicking this movies profits one cause it looks like a bar plot. How hard could it possibly be?
+
+It's only when I finished analyzing all the variables and transformed the data that took another look at the graph and realized i don't actually know how to do it. In a bar plot, for what i had known until that point, i could only show count of qualitative data. Not the mean or median of quantitative data like we were supposed to. I spent the next 2 hours scratching my head. Bugging chatgtp until I reached my limit for the day. I then did the next best thing- what i wanted to acquire were the median values of profit ratios for all levels of distributors- i could just as well create a box plot to find how to medians differ and pull inferences from that.
+
+The next day when i looked into it again, i realised there must be a method to plot with bar plot. And suprisingly i was able to figure out how to do it - Set stat as summary and fun as median. When i tried it with ggformula it didn't work and so i went ahead and did it with ggplot2. 
+
+Pulling inferences and tying to understand the plot is something i enjoyed doing. 

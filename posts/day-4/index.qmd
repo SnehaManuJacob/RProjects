@@ -466,7 +466,7 @@ gf_density(~ log10(value), data = pop, title = "Density with Log transformed x-v
 
 ## Faithful Data-set (Trying it myself)
 
-Old Faithful is a geyser in Yellowstone National Park, and its eruption data is often used for statistical analysis and modeling in R. The dataset includes the durations of eruptions and the waiting time until the next eruption.
+Old Faithful is a geyser in Yellowstone National Park, and its eruption data is often used for statistical analysis and modeling in R. The data-set includes the durations of eruptions and the waiting time until the next eruption.
 
 ```{r}
 faithful
@@ -477,7 +477,7 @@ glimpse(faithful)
 ```
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | eruptions | Represents the duration of eruptions in minutes | Quantitative |
 | waiting | Represents the waiting time (in minutes) between the end of one eruption and the start of the next eruption | Quantitative |
 
@@ -567,7 +567,7 @@ For short duration eruptions, the most common waiting time is at approximately 5
 
 > Futher classifying the short and long duration eruptions:
 
-### Do the differences in time within the 2 different kinds durations we defined effect the waiting time? 
+### Do the differences in time within the 2 different kinds durations we defined effect the waiting time?
 
 ```{r}
 eruption_factor_more <- faithful %>%

@@ -1,0 +1,421 @@
+---
+title: "Day 6"
+author: "Sneha Manu Jacob"
+date: "2024-10-17"
+categories: [ Central Limit Theorem, randamoisation ]
+---
+
+```{r}
+library(tidyverse) # Data Processing in R
+library(mosaic) # Our workhorse for stats, sampling
+library(skimr) # Good to Examine data
+library(ggformula) # Formula interface for graphs
+
+# load the NHANES data library
+library(NHANES)
+library(infer)
+library(broom) # Clean test results in tibble form
+library(resampledata) # Datasets from Chihara and Hesterberg's book
+library(openintro) # More datasets
+```
+
+```{r}
+data("NHANES")
+glimpse(NHANES)
+```
+
+## Introduction:
+
+Sample of data is taken and theoretically all means are normally distributed. Can we take that distributed and pretend that out data is also normally distributed. 
+
+### Populations and sampling.
+
+The population is the whole of your target audience but considering that it's kind of impossible to get observations for all of them, we take the next best thing- a sample. The sample population are representative of the entire population. Using sample, we can calculate and figure out a sample statistic using which we can derive observations on the population
+
+```{r}
+NHANES_adult <-
+  NHANES %>%
+  distinct(ID, .keep_all = TRUE) %>%
+  filter(Age >= 18) %>%
+  select(Height) %>%
+  drop_na(Height)
+NHANES_adult
+```
+
+#### Population mean and standard deviation
+
+```{r}
+pop_mean <- mosaic::mean(~Height, data = NHANES_adult)
+
+pop_sd <- mosaic::sd(~Height, data = NHANES_adult)
+
+pop_mean
+
+pop_sd 
+```
+
+#### Collecting a random sample.
+
+```{r}
+sample_50 <- mosaic::sample(NHANES_adult, size = 50) %>%
+  select(Height)
+sample_50
+sample_mean_50 <- mean(~Height, data = sample_50)
+sample_mean_50
+```
+
+#### Comparing the Sample Mean and Popolation mean
+
+```{r}
+sample_50 %>%
+  gf_histogram(~Height, bins = 10) %>%
+  gf_vline(
+    xintercept = ~sample_mean_50,
+    color = "purple"
+  ) %>%
+  gf_vline(
+    xintercept = ~pop_mean,
+    colour = "black"
+  ) %>%
+  gf_label(7 ~ (pop_mean + 8),
+    label = "Population Mean",
+    color = "black"
+  ) %>%
+  gf_label(7 ~ (sample_mean_50 - 8),
+    label = "Sample Mean", color = "purple"
+  ) %>%
+  gf_labs(
+    title = "Distribution and Mean of a Single Sample",
+    subtitle = "Sample Size = 50"
+  )
+```
+
+#### Collecting the sample of the same size, randomely mutiple times
+
+```{r}
+sample_50_500 <- do(500) * {
+  sample(NHANES_adult, size = 50) %>%
+    select(Height) %>% # drop sampling related column "orig.id"
+    summarise(
+      sample_mean = mean(Height),
+      sample_sd = sd(Height),
+      sample_min = min(Height),
+      sample_max = max(Height)
+    )
+}
+sample_50_500
+dim(sample_50_500)
+```
+
+getting the estimate of all mean values obtained from individual samples to get a more accurate value of sample mean.
+
+```{r}
+sample_50_500 %>%
+  gf_point(.index ~ sample_mean,
+    color = "purple",
+    title = "Sample Means are close to the Population Mean",
+    subtitle = "Sample Means are Random!",
+    caption = "Grey lines represent our 500 samples"
+  ) %>%
+  gf_segment(
+    .index + .index ~ sample_min + sample_max,
+    color = "grey",
+    linewidth = 0.3,
+    alpha = 0.3,
+    ylab = "Sample Index (1-500)",
+    xlab = "Sample Means"
+  ) %>%
+  gf_vline(
+    xintercept = ~pop_mean,
+    color = "black"
+  ) %>%
+  gf_label(-25 ~ pop_mean,
+    label = "Population Mean",
+    color = "black"
+  )
+```
+
+Any mean can be more or less, therefore it is fair. i can trust the mean. A sample mean is a good point to estimate the data.
+
+```{r}
+sample_50_500 %>%
+  gf_point(.index ~ sample_sd,
+    color = "purple",
+    title = "Sample SDs are close to the Population Sd",
+    subtitle = "Sample SDs are Random!",
+  ) %>%
+  gf_vline(
+    xintercept = ~pop_sd,
+    color = "black"
+  ) %>%
+  gf_label(-25 ~ pop_sd,
+    label = "Population SD",
+    color = "black"
+  ) %>%
+  gf_refine(lims(x = c(4, 16)))
+```
+
+```{r}
+sample_50_500 %>%
+  gf_dhistogram(~sample_mean, bins = 30, xlab = "Height") %>%
+  gf_vline(
+    xintercept = pop_mean,
+    color = "blue"
+  ) %>%
+  gf_label(0.01 ~ pop_mean,
+    label = "Population Mean",
+    color = "blue"
+  ) %>%
+  gf_labs(
+    title = "Sampling Mean Distribution",
+    subtitle = "500 means"
+  )
+
+```
+
+```{r}
+# How does this **distribution of sample-means** compare with the
+# overall distribution of the population?
+#
+sample_50_500 %>%
+  gf_dhistogram(~sample_mean, bins = 30, xlab = "Height") %>%
+  gf_vline(
+    xintercept = pop_mean,
+    color = "blue"
+  ) %>%
+  gf_label(0.01 ~ pop_mean,
+    label = "Population Mean",
+    color = "blue"
+  ) %>%
+  ## Add the population histogram
+  gf_histogram(~Height,
+    data = NHANES_adult,
+    alpha = 0.2, fill = "blue",
+    bins = 30
+  ) %>%
+  gf_label(0.025 ~ (pop_mean + 20),
+    label = "Population Distribution", color = "blue"
+  ) %>%
+  gf_labs(title = "Sampling Mean Distribution", subtitle = "Original Population overlay")
+```
+
+## **Deriving the Central Limit Theorem (CLT)**
+
+As sample lenght increases, the density graph becomes narrower.
+
+let's test this out:
+
+```{r}
+samples_08_1000 <- do(1000) * mean(resample(NHANES_adult$Height, size = 08))
+
+samples_16_1000 <- do(1000) * mean(resample(NHANES_adult$Height, size = 16))
+
+samples_32_1000 <- do(1000) * mean(resample(NHANES_adult$Height, size = 32))
+
+samples_64_1000 <- do(1000) * mean(resample(NHANES_adult$Height, size = 64))
+
+# samples_128_1000 <- do(1000) * mean(resample(NHANES_adult$Height, size = 128))
+```
+
+I will receive 1000 values for each sample size
+
+The plotting of the 1000 values each seperately
+
+```{r}
+# Let us overlay their individual histograms to compare them:
+p5 <- gf_dhistogram(~mean,
+  data = samples_08_1000,
+  color = "grey",
+  fill = "dodgerblue", title = "N = 8"
+) %>%
+  gf_fitdistr(linewidth = 1) %>%
+  gf_vline(
+    xintercept = pop_mean, inherit = FALSE,
+    color = "blue"
+  ) %>%
+  gf_label(-0.025 ~ pop_mean,
+    label = "Population Mean",
+    color = "blue"
+  ) %>%
+  gf_theme(scale_y_continuous(expand = expansion(mult = c(0.08, 0.02))))
+##
+p6 <- gf_dhistogram(~mean,
+  data = samples_16_1000,
+  color = "grey",
+  fill = "sienna", title = "N = 16"
+) %>%
+  gf_fitdistr(linewidth = 1) %>%
+  gf_vline(
+    xintercept = pop_mean,
+    color = "blue"
+  ) %>%
+  gf_label(-.025 ~ pop_mean,
+    label = "Population Mean",
+    color = "blue"
+  ) %>%
+  gf_theme(scale_y_continuous(expand = expansion(mult = c(0.08, 0.02))))
+##
+p7 <- gf_dhistogram(~mean,
+  data = samples_32_1000,
+  na.rm = TRUE,
+  color = "grey",
+  fill = "palegreen", title = "N = 32"
+) %>%
+  gf_fitdistr(linewidth = 1) %>%
+  gf_vline(
+    xintercept = pop_mean,
+    color = "blue"
+  ) %>%
+  gf_label(-.025 ~ pop_mean,
+    label = "Population Mean", color = "blue"
+  ) %>%
+  gf_theme(scale_y_continuous(expand = expansion(mult = c(0.08, 0.02))))
+
+p8 <- gf_dhistogram(~mean,
+  data = samples_64_1000,
+  na.rm = TRUE,
+  color = "grey",
+  fill = "violetred", title = "N = 64"
+) %>%
+  gf_fitdistr(linewidth = 1) %>%
+  gf_vline(
+    xintercept = pop_mean,
+    color = "blue"
+  ) %>%
+  gf_label(-.025 ~ pop_mean,
+    label = "Population Mean", color = "blue"
+  ) %>%
+  gf_theme(scale_y_continuous(expand = expansion(mult = c(0.08, 0.02))))
+
+# patchwork::wrap_plots(p5,p6,p7,p8)
+p5
+p6
+p7
+p8
+```
+
+The range in the x axis, reduces as the sample size reduces.Despite this, the mean values are very similar values.
+
+Therefore,
+
+-   the sample-means are normally distributed around the *population mean*. So any mean of a **single sample** is a good, **unbiased estimate** for the `pop_mean`
+
+-   the **sample-mean distributions** narrow with sample length, i.e their `sd` decreases with increasing sample size.
+
+-   This is regardless of the distribution of the *population* itself. It does not matter if it is skewed or not
+
+The standard deviation of all sample means of a size is called the **standard error**
+
+the *Standard Error* can be computed from **a single sample** as:
+
+```{r}
+pop_sd <- sd(~Height, data = NHANES_adult)
+pop_sd
+sd(~Height, data = sample_08) / sqrt(8)
+sd(~Height, data = sample_16) / sqrt(16)
+sd(~Height, data = sample_32) / sqrt(32)
+sd(~Height, data = sample_64) / sqrt(64)
+```
+
+The population mean will be around the (sample mean +\_ 2 \*standard error(of a sample with a large size))
+
+Since Standard Error decreases with sample size, we need to make our sample of adequate size. Never make n less than 30.
+
+This is 95% accurate.
+
+### **Confidence intervals**
+
+If the confidence interval is lesser, the uncertainty is lesser.
+
+## Randomization:
+
+We don't belive anything is happening and we want data to prove us wrong.
+
+**Let’s figure out how hard it is to get 9 out of 10 by guessing**. If it’s not so hard to do, then perhaps that’s just what happened ( that she was guessing ), so we won’t be too impressed with the lady’s tea tasting ability. On the other hand, if it is really unusual to get 9 out of 10 correct by guessing, then we will have some evidence that she must be able to tell something ( and has an unusual Skill).
+
+Seeing what the chances are that the data concluded the way it did by chance? More typically, we will use randomization to create new simulated data sets ( “Parallel Worlds”) that are like our original data in some ways, but make the null hypothesis true. For each simulated data set, we calculate our test statistic, just as we did for the original sample. Together, this collection of test statistics computed from the simulated samples constitute our randomization distribution.
+
+## Inference for a single mean
+
+### Toy Data
+
+Statistical Inference is almost an Attitude!
+
+There are 2 conclutions you can come to:
+
+a.  there is really nothing happening with our research question, and that anything we see in the data is the outcome of random chance.
+
+b.  the value/statistic indicated by the data is off the mark and ought to be something else.
+
+```{r}
+set.seed(40)  # for replication
+# Data as individual vectors ( for t.tests etc)
+y <- rnorm(50, mean = 2, sd = 2)
+
+# And as tibble too
+mydata <- tibble(y = y)
+mydata
+```
+
+The code I provided is generating random data from a normal distribution and storing it both as a numeric vector and as a tibble (a type of data frame in R). The argument `40` is the seed value. If someone else runs this code with the same seed, they will generate the exact same random values for `y`. The random numbers will have a mean (average) of 2, the standard deviation of the random numbers will be 2.
+
+```{r}
+mydata %>%
+    gf_density(~y) %>%
+    gf_fitdistr(dist = "dnorm") %>%
+    gf_labs(title = "Densities of Original Data Variables", subtitle = "Compared with Normal Density")
+```
+
+Observations: It's not a normal distribition. As specifies, the values center around 2.
+
+### Assumptions
+
+The assumption is that mean i 0.But also alternatively create a hypothesis that it is not 0. 
+
+the fact that the districbution is not normal will affect the test we can use to make inferences about the population mean. Regardless, let's do the same. 
+
+#### T-test:
+
+one-sample t-test on the variable y to test whether the mean of y differs significantly from a specified population mean in this case out first assumption: 0. 
+
+```{r}
+# t-test
+t1 <- mosaic::t_test(
+          y, # Name of variable
+          mu = 0, # belief of population mean
+          alternative = "two.sided") %>% # Check both sides
+  
+  broom::tidy() # Make results presentable, and plottable!!
+t1
+```
+It tests both sides of the distribution, meaning that it checks if the mean of y is significantly greater than or less than 0. It does not assume a specific direction for the difference.
+
+Observations:
+
+1. The p-value, indicates the significance of the result. It's extremely small, indicating that the difference between the sample mean and 0 is statistically significant. Essentially, this means there's a very low probability that the sample mean of 2.04 is due to random chance if the true mean were 0.
+2. The confidence interval [1.4399, 2.6515] provides a range for where the true mean likely lies.Since 0 is not within this range, the test confirms that the population mean is very likely not 0.
+
+#### Wilcoxon’s Signed-Rank Test
+
+If our assumption about normality has been invalidated, the data is used in rank-transformed sense/order. In some cases the signed-rank of the data values is used instead of the data itself. The signed ranks are then tested to see if there are more of one polarity than the other, roughly speaking, and how probable this could be.
+
+1. Take the absolute value of each observation in a sample
+2. Place the ranks in order of (absolute magnitude). The smallest number has rank = 1 and so on.
+3. Give each of the ranks the sign of the original observation ( + or -)
+
+```{r}
+signed_rank <- function(x) {
+    sign(x) * rank(abs(x))
+}
+```
+```{r}
+# Standard Wilcoxon Signed_Rank Test
+t2 <- wilcox.test(y, # variable name
+                  mu = 0, # belief
+                  alternative = "two.sided",
+                  conf.int = TRUE,
+                  conf.level = 0.95) %>% 
+  broom::tidy()
+t2
+```
+Start with the belift that a mean is nothing special.Permutations of signs. 50000 new fictiotios samples are created and plot it. if the mean of the histogram is the same as the estimate. It's nothing special. 

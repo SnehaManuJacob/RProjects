@@ -2,12 +2,12 @@
 title: "Case Study 2"
 author: "Sneha Manu Jacob"
 date: "2024-10-12"
-categories: [A2, school-scores]
+categories: [A2, school-scores, scatter-plot, box-plot]
 ---
 
 ## Introduction
 
-This dataset pertains to scores obtained by students in diverse subjects. Family Income is also part of this dataset.
+This data-set pertains to scores obtained by students in diverse subjects. Family Income is also part of this data-set.
 
 ```{r}
 #| label: setup
@@ -80,7 +80,7 @@ skim(scores_cleaned)
 | ScoreRangesBetween*"Number1"*To*"Number2""Subject""Gender"* | The number of *"Gender"* students whose *"Subject"* scores fall between *"Number1"* and *"Number2"*. | Quantitative |
 | ScoreRangesBetween*"Number1"*To*"Number2""Subject"*Total | The total number of students (both female and male) whose *"Subject"* scores fall between *"Number1"* and *"Number2"*. | Quantitative |
 
-I will admit i was over whelmed by the amount of data (in particular the amount of columns in this data set. But i think I've gotten a hand of it)
+Should i try plotting histograms? There are way too many variables to do it for tho.
 
 #### Observations:
 
@@ -154,6 +154,30 @@ scores_modified <- scores_cleaned %>%
   select(ArtsMusic, English, ForeignLanguages, Mathematics,NaturalSciences, SocialSciencesHistory)
 scores_modified
 ```
+
+Analyzing it:
+
+```{r}
+scores_modified %>%
+  gf_histogram(~ArtsMusic)
+
+scores_modified %>%
+  gf_histogram(~English)
+
+scores_modified %>%
+  gf_histogram(~ForeignLanguages)
+
+scores_modified %>%
+  gf_histogram(~Mathematics)
+
+scores_modified %>%
+  gf_histogram(~NaturalSciences)
+
+scores_modified %>%
+  gf_histogram(~SocialSciencesHistory)
+```
+
+All graphs have a kind of a bimodial dirstibution. Art and music seems to have a very left skewed. Majority of the data points are concentrated on the lower end of the scale, with fewer high values. Natual science and Social science and history seems to have very similar distributions, which English and Foreign languages seem to have similar ones.
 
 ### Replicating the graph:
 
@@ -248,6 +272,14 @@ income_data
 >
 > -   **Long Format**: This format consolidates these variables into two columns: one for the variable names (e.g., income categories) and one for their corresponding values. This format is often easier to work with for data analysis and visualization.
 
+Analyzing the variables:
+
+```{r}
+income_data %>% count(IncomeCategory)
+```
+
+It was dumb of my to not realize it before, obviously they are going to have the same count of values for each, they were individual columns before.
+
 ### Replicating the graph:
 
 ```{r}
@@ -263,11 +295,19 @@ income_data %>%
   )
 ```
 
-#### Observations: 
+#### Observations:
 
 1.  There is a **positive correlation** between family income and math scores. As family income increases, median math scores also increase, showing that students from higher-income families tend to score better in math.
 2.  There are several **outliers** in the lower-income categories (especially for "LessThan20K" and "Between20_40K") with students scoring exceptionally higher than their peers.
 3.  "LessThan20K" seems to have a couple of outliers at 0. Did a lot of students not show up for tests? It's interesting to see that other than them, only "Between20_40K" and "MoreThan100K" have students with a score of 0.
 4.  The chart illustrates that higher family income is associated with better math scores, with less variation in performance as income increases. However, even in lower-income groups, some students perform as well as those from higher-income families.
 
-## My Story: 
+## My Story:
+
+I will admit i was overwhelmed by the amount of data (in particular the amount of columns in this data set. After a small panic, when i did do through all of it. I realized it was not as scary as it looked, it was more or less comrehendable and i did get the hang of it.
+
+Thank you so much for the clues on how i could clean the data. I don't think i would have been able to move forward without it. After i figured that out, doing the correlation graph was pretty straight forward. Now that i think about it, maybe i didn't really have to change the column names for it to appear the same as in your graph, maybe there was another way to go about doing it.
+
+The second graph that was a lot more tricky compared to the first. While not the plot itself, it was more the preparing and transforming the data (like creating a new column called **IncomeCategory** with the different levels of income and another that corresponds with it called **Values** where the math score data is stored) that was hard. I didn't know a lot of things i used to do it, before i did it - like pivot_long and even select. I realised how much you can learn by simply trying.
+
+And like always i enjoyed finding inferences. I think this will always be my favorite part.
