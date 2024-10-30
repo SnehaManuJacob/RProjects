@@ -45,7 +45,7 @@ glimpse(pocket_money)
 ```
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Name | The name of the participant | Qualitative |
 | Gender | The Gender (Male/Female) of the participant | Qualitative |
 | Money_spent | The amount of money spent by the participant on 23rd October, 2024 | Quantitative |
