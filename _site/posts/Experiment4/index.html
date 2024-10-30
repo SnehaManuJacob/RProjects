@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sneha Manu Jacob">
+<meta name="dcterms.date" content="2024-10-29">
+
+<title>Experiment 4 – Sneha’s Data Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="../../site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sneha’s Data Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Experiment 4</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">A3</div>
+                <div class="quarto-category">Cartoons!</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sneha Manu Jacob </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 29, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'mosaic':
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+
+The 'mosaic' package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+
+Attaching package: 'mosaic'
+
+The following object is masked from 'package:Matrix':
+
+    mean
+
+The following objects are masked from 'package:dplyr':
+
+    count, do, tally
+
+The following object is masked from 'package:purrr':
+
+    cross
+
+The following object is masked from 'package:ggplot2':
+
+    stat
+
+The following objects are masked from 'package:stats':
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+
+The following objects are masked from 'package:base':
+
+    max, mean, min, prod, range, sample, sum</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'skimr'
+
+The following object is masked from 'package:mosaic':
+
+    n_missing</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(crosstable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'crosstable'
+
+The following object is masked from 'package:purrr':
+
+    compact</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'infer'
+
+The following objects are masked from 'package:mosaic':
+
+    prop_test, t_test</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggprism)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(supernova) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="defining-the-research-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-research-experiment">Defining the Research Experiment:</h2>
+<p><strong>Goal of the Experiment:</strong></p>
+<p>The purpose of this research experiment is to understand the nostalgic value of certain childhood cartoons among young adults who have “aged out” of the target demographic. By evaluating three popular cartoons (Doraemon, Chhota Bheem, and Dragon Tales), the experiment aims to identify which show holds the most cherished place in the hearts of these individuals, as reflected by their ratings on a scale of 10.</p>
+<section id="methodology" class="level3">
+<h3 class="anchored" data-anchor-id="methodology"><strong>Methodology</strong></h3>
+<p><strong>Sampling</strong>: The population consists of all people between the ages of 19-22. The sample population is a randomly choosen group of students in a college campus ensuring a hopefully balanced set of participants that is a true representation of the population. Each participant was asked to rate one of the cartoon in a scale of 10. Every participant was not asked to rate all 3 to remove any bias regarding each other- so that their opinion is not clouded by their opinion of another- which would make it a</p>
+<p>Method Followed- To ensure a lack of bias, a coin was tossed to even determine of data would be collected from a person or not. This lead to random sampling ensure diversity in age and socioeconomic background.</p>
+<p>Sample Size: We had a total of 90 participants 30 Chota Bheem and 30 Doremon and 30 Dragon Tales.</p>
+<p><strong>Why could knowing this be useful?</strong></p>
+<ol type="1">
+<li>Companies in media and entertainment can use the data to gauge the staying power of their content, particularly if they are considering reboots, merchandise, or spin-offs aimed at older audiences</li>
+<li>The experiment can offer insights into how nostalgia shapes media preferences and emotional connections to shows viewed in childhood, contributing to studies in psychology and media studies.</li>
+</ol>
+</section>
+<section id="reading-and-analyzing-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="reading-and-analyzing-the-data">Reading and Analyzing the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cartoon_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../../data/cartoons.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cartoon_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Participant.ID Gender      Cartoon Rating
+1              P1   Male  Chota Bheem    8.5
+2              P2   Male  Chota Bheem    6.0
+3              P3   Male  Chota Bheem    8.0
+4              P4   Male  Chota Bheem    7.0
+5              P5   Male  Chota Bheem    8.0
+6              P6   Male  Chota Bheem   10.0
+7              P7   Male  Chota Bheem    5.0
+8              P8   Male  Chota Bheem    7.8
+9              P9   Male  Chota Bheem    8.5
+10            P10   Male  Chota Bheem    5.0
+11            P11   Male  Chota Bheem    7.0
+12            P12   Male  Chota Bheem    6.0
+13            P13   Male  Chota Bheem    6.0
+14            P14   Male  Chota Bheem    6.0
+15            P15   Male  Chota Bheem    6.0
+16            P16 Female  Chota Bheem    8.0
+17            P17 Female  Chota Bheem    6.8
+18            P18 Female  Chota Bheem    4.0
+19            P19 Female  Chota Bheem    7.5
+20            P20 Female  Chota Bheem    7.0
+21            P21 Female  Chota Bheem    6.0
+22            P22 Female  Chota Bheem    6.0
+23            P23 Female  Chota Bheem    8.0
+24            P24 Female  Chota Bheem    6.0
+25            P25 Female  Chota Bheem    6.0
+26            P26 Female  Chota Bheem    8.0
+27            P27 Female  Chota Bheem    8.0
+28            P28 Female  Chota Bheem    6.0
+29            P29 Female  Chota Bheem    5.0
+30            P30 Female  Chota Bheem    3.0
+31            P31 Female     Doraemon    8.0
+32            P32 Female     Doraemon    8.0
+33            P33 Female     Doraemon    9.0
+34            P34 Female     Doraemon    7.0
+35            P35 Female     Doraemon    5.0
+36            P36 Female     Doraemon   10.0
+37            P37 Female     Doraemon    9.0
+38            P38 Female     Doraemon    4.0
+39            P39 Female     Doraemon    6.0
+40            P40 Female     Doraemon    6.0
+41            P41 Female     Doraemon   10.0
+42            P42 Female     Doraemon    6.0
+43            P43 Female     Doraemon    7.0
+44            P44 Female     Doraemon    8.0
+45            P45 Female     Doraemon    6.0
+46            P46   Male     Doraemon    8.0
+47            P47   Male     Doraemon    8.0
+48            P48   Male     Doraemon    7.0
+49            P49   Male     Doraemon    8.0
+50            P50   Male     Doraemon   10.0
+51            P51   Male     Doraemon    6.5
+52            P52   Male     Doraemon    9.0
+53            P53   Male     Doraemon    2.0
+54            P54   Male     Doraemon    5.0
+55            P55   Male     Doraemon    6.0
+56            P56   Male     Doraemon   10.0
+57            P57   Male     Doraemon    9.0
+58            P58   Male     Doraemon    9.0
+59            P59   Male     Doraemon    1.0
+60            P60   Male     Doraemon   10.0
+61            P61   Male Dragon Tales   10.0
+62            P62   Male Dragon Tales    4.0
+63            P63   Male Dragon Tales    7.0
+64            P64   Male Dragon Tales   10.0
+65            P65   Male Dragon Tales    7.0
+66            P66   Male Dragon Tales    5.0
+67            P67   Male Dragon Tales    9.0
+68            P68   Male Dragon Tales    8.5
+69            P69   Male Dragon Tales    7.0
+70            P70   Male Dragon Tales    7.0
+71            P71   Male Dragon Tales    6.0
+72            P72   Male Dragon Tales    5.0
+73            P73   Male Dragon Tales    1.0
+74            P74   Male Dragon Tales    7.0
+75            P75   Male Dragon Tales    6.0
+76            P76 Female Dragon Tales    8.0
+77            P77 Female Dragon Tales    9.0
+78            P78 Female Dragon Tales   10.0
+79            P79 Female Dragon Tales    8.0
+80            P80 Female Dragon Tales    9.0
+81            P81 Female Dragon Tales    8.0
+82            P82 Female Dragon Tales   10.0
+83            P83 Female Dragon Tales    6.0
+84            P84 Female Dragon Tales    8.0
+85            P85 Female Dragon Tales    8.0
+86            P86 Female Dragon Tales    6.5
+87            P87 Female Dragon Tales    7.0
+88            P88 Female Dragon Tales    8.0
+89            P89 Female Dragon Tales    7.0
+90            P90 Female Dragon Tales    6.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(cartoon_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 90
+Columns: 4
+$ Participant.ID &lt;chr&gt; "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "…
+$ Gender         &lt;chr&gt; "Male", "Male", "Male", "Male", "Male", "Male", "Male",…
+$ Cartoon        &lt;chr&gt; "Chota Bheem", "Chota Bheem", "Chota Bheem", "Chota Bhe…
+$ Rating         &lt;dbl&gt; 8.5, 6.0, 8.0, 7.0, 8.0, 10.0, 5.0, 7.8, 8.5, 5.0, 7.0,…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cartoon_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">cartoon_data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Participant.ID</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cartoon</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rating</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.06</td>
+<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">▁▁▆▇▅</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="defining-the-data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-data-dictionary">Defining the Data Dictionary:</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Participant.ID</td>
+<td>a unique identifier for each participant in the study</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td>This variable records the gender of each participant, typically represented as categorical values</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>Cartoon</td>
+<td>Indicates the specific cartoon each participant rated.</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Rating</td>
+<td>Represents the participant’s rating of the cartoon on a scale of 10. This is an Opinion score.</td>
+<td>Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Participant.ID is not a required column- it does not play any role in the what the data says.</li>
+<li>There are no missing values in the data set.</li>
+<li>Gender and Cartoon need to be transformed into factors.</li>
+</ol>
+</section>
+<section id="transforming-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-the-data">Transforming the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="ot">&lt;-</span> cartoon_data <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">as_factor</span>(Gender),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cartoon =</span> <span class="fu">as_factor</span>(Cartoon)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cartoon , Gender, Rating)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>cartoons_modified</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Cartoon Gender Rating
+1   Chota Bheem   Male    8.5
+2   Chota Bheem   Male    6.0
+3   Chota Bheem   Male    8.0
+4   Chota Bheem   Male    7.0
+5   Chota Bheem   Male    8.0
+6   Chota Bheem   Male   10.0
+7   Chota Bheem   Male    5.0
+8   Chota Bheem   Male    7.8
+9   Chota Bheem   Male    8.5
+10  Chota Bheem   Male    5.0
+11  Chota Bheem   Male    7.0
+12  Chota Bheem   Male    6.0
+13  Chota Bheem   Male    6.0
+14  Chota Bheem   Male    6.0
+15  Chota Bheem   Male    6.0
+16  Chota Bheem Female    8.0
+17  Chota Bheem Female    6.8
+18  Chota Bheem Female    4.0
+19  Chota Bheem Female    7.5
+20  Chota Bheem Female    7.0
+21  Chota Bheem Female    6.0
+22  Chota Bheem Female    6.0
+23  Chota Bheem Female    8.0
+24  Chota Bheem Female    6.0
+25  Chota Bheem Female    6.0
+26  Chota Bheem Female    8.0
+27  Chota Bheem Female    8.0
+28  Chota Bheem Female    6.0
+29  Chota Bheem Female    5.0
+30  Chota Bheem Female    3.0
+31     Doraemon Female    8.0
+32     Doraemon Female    8.0
+33     Doraemon Female    9.0
+34     Doraemon Female    7.0
+35     Doraemon Female    5.0
+36     Doraemon Female   10.0
+37     Doraemon Female    9.0
+38     Doraemon Female    4.0
+39     Doraemon Female    6.0
+40     Doraemon Female    6.0
+41     Doraemon Female   10.0
+42     Doraemon Female    6.0
+43     Doraemon Female    7.0
+44     Doraemon Female    8.0
+45     Doraemon Female    6.0
+46     Doraemon   Male    8.0
+47     Doraemon   Male    8.0
+48     Doraemon   Male    7.0
+49     Doraemon   Male    8.0
+50     Doraemon   Male   10.0
+51     Doraemon   Male    6.5
+52     Doraemon   Male    9.0
+53     Doraemon   Male    2.0
+54     Doraemon   Male    5.0
+55     Doraemon   Male    6.0
+56     Doraemon   Male   10.0
+57     Doraemon   Male    9.0
+58     Doraemon   Male    9.0
+59     Doraemon   Male    1.0
+60     Doraemon   Male   10.0
+61 Dragon Tales   Male   10.0
+62 Dragon Tales   Male    4.0
+63 Dragon Tales   Male    7.0
+64 Dragon Tales   Male   10.0
+65 Dragon Tales   Male    7.0
+66 Dragon Tales   Male    5.0
+67 Dragon Tales   Male    9.0
+68 Dragon Tales   Male    8.5
+69 Dragon Tales   Male    7.0
+70 Dragon Tales   Male    7.0
+71 Dragon Tales   Male    6.0
+72 Dragon Tales   Male    5.0
+73 Dragon Tales   Male    1.0
+74 Dragon Tales   Male    7.0
+75 Dragon Tales   Male    6.0
+76 Dragon Tales Female    8.0
+77 Dragon Tales Female    9.0
+78 Dragon Tales Female   10.0
+79 Dragon Tales Female    8.0
+80 Dragon Tales Female    9.0
+81 Dragon Tales Female    8.0
+82 Dragon Tales Female   10.0
+83 Dragon Tales Female    6.0
+84 Dragon Tales Female    8.0
+85 Dragon Tales Female    8.0
+86 Dragon Tales Female    6.5
+87 Dragon Tales Female    7.0
+88 Dragon Tales Female    8.0
+89 Dragon Tales Female    7.0
+90 Dragon Tales Female    6.0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="desciptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="desciptive-analysis">Desciptive Analysis:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(cartoons_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 90
+Columns: 3
+$ Cartoon &lt;fct&gt; Chota Bheem, Chota Bheem, Chota Bheem, Chota Bheem, Chota Bhee…
+$ Gender  &lt;fct&gt; Male, Male, Male, Male, Male, Male, Male, Male, Male, Male, Ma…
+$ Rating  &lt;dbl&gt; 8.5, 6.0, 8.0, 7.0, 8.0, 10.0, 5.0, 7.8, 8.5, 5.0, 7.0, 6.0, 6…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cartoons_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">cartoons_modified</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cartoon</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Cho: 30, Dor: 30, Dra: 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Mal: 45, Fem: 45</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rating</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.06</td>
+<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">▁▁▆▇▅</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Observation:</strong></p>
+<ol type="1">
+<li>I noticed that there is only a column called top_counts in the variables declared as factors, i can’t believe I’m just seeing this now!</li>
+<li>There are 30 entries of each cartoon and 45 for each gender. Was the data collection done in way where there are 15 entries from each gender for every cartoon? If so it could have been with the intent of eliminating gender bias in the analysis of the data. Regardless, it gives me another factor! I can try and find out which gender group remembers cartoon more fondly if i do have to time for it.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Cartoon, Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Cartoon'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   Cartoon [3]
+  Cartoon      Gender count
+  &lt;fct&gt;        &lt;fct&gt;  &lt;int&gt;
+1 Chota Bheem  Male      15
+2 Chota Bheem  Female    15
+3 Doraemon     Male      15
+4 Doraemon     Female    15
+5 Dragon Tales Male      15
+6 Dragon Tales Female    15</code></pre>
+</div>
+</div>
+<p>My guess was right! There are 15 entries each from Males and Females for each Cartoon which removes gender bias from our analysis of this data!</p>
+<section id="distribution-of-all-ratings" class="level4">
+<h4 class="anchored" data-anchor-id="distribution-of-all-ratings">Distribution of all ratings!</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The lowest rating given is 1, showing that at least one participant rated a cartoon at the lowest end of the scale.</li>
+<li>p50 from skim is 7, which suggests that The median rating is 7, meaning that half of the ratings are 7 or lower. This suggests a central tendency toward higher ratings.</li>
+<li>There is a high concentration of ratings around 6 and 8!</li>
+</ol>
+<p><strong>Ratings faceted by Cartoons</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>Rating, <span class="at">fill =</span> <span class="sc">~</span>Cartoon, <span class="at">data =</span> cartoons_modified, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Ratings faceted by Cartoons"</span>, <span class="at">caption =</span> <span class="st">"ggformula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Rating<span class="sc">|</span>Cartoon, <span class="at">fill =</span> <span class="sc">~</span>Cartoon, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ratings faceted by Cartoons"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"ggformula"</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_theme</span>(<span class="fu">theme</span>(</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span> </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Rating,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Cartoon,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Rating Densities by different cartoons"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Chota Bheem vs Doraemon us Dragon Tales"</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The ratings of Chota Bheem had a bimodial distribution clustered around 6 and 8 approximately.</li>
+<li>From what i observe, Doremon and Dragon Tale Ratings have a normal distribution.</li>
+<li>Among the 3, i think Chota Bheem is th least “liked” among people- It has the lowest distribution of high values, but it has the highest for approximately middle of the distribution.</li>
+<li>Dragon Tales’ distribution peaks at approximately 7, while Doremon’s peaks at 8.5.</li>
+<li>When it comes to the lows, surprisingly, it’s Chota Bheem that has the least lows while comparatively Doremon has the most. Doremon has the highest highs and the highest lows but the number of lows are very less comapred to the number of highs.</li>
+</ol>
+</section>
+<section id="crosstables" class="level4">
+<h4 class="anchored" data-anchor-id="crosstables">Crosstables:</h4>
+<p>I can get a better idea of the accuracy of my hunches by doing crosstables to better understand my data!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstable</span>(Rating <span class="sc">~</span> Cartoon, <span class="at">data =</span> cartoons_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  crosstable<span class="sc">::</span><span class="fu">as_flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-7aac67b4{table-layout:auto;}.cl-7a9cd196{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7a9cd1b4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7aa1ae8c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7aa1aea0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7aa1eb9a{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa1ebb8{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa1ebc2{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa1ebc3{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7aa1ebcc{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7aac67b4"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-7aa1eb9a"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">label</span></p></th><th rowspan="2" class="cl-7aa1eb9a"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">variable</span></p></th><th colspan="3" class="cl-7aa1ebb8"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">Cartoon</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-7aa1ebc2"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">Chota Bheem</span></p></th><th class="cl-7aa1ebc2"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">Doraemon</span></p></th><th class="cl-7aa1ebc2"><p class="cl-7aa1ae8c"><span class="cl-7a9cd196">Dragon Tales</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-7aa1ebc3"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">Rating</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">Min / Max</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">3.0 / 10.0</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">1.0 / 10.0</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">1.0 / 10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">Med [IQR]</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">6.4 [6.0;8.0]</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">8.0 [6.0;9.0]</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">7.0 [6.1;8.4]</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">Mean (std)</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">6.7 (1.5)</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">7.2 (2.3)</span></p></td><td class="cl-7aa1ebcc"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">7.3 (2.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7aa1ebc3"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">N (NA)</span></p></td><td class="cl-7aa1ebc3"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">30 (0)</span></p></td><td class="cl-7aa1ebc3"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">30 (0)</span></p></td><td class="cl-7aa1ebc3"><p class="cl-7aa1aea0"><span class="cl-7a9cd1b4">30 (0)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p><strong>Visualisation of the median and IQR</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(Cartoon <span class="sc">~</span> Rating, <span class="at">fill =</span> <span class="sc">~</span>Cartoon, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Box plot of Ratings by Cartoon"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>I think i was right in my inferences on the distribution of data!</li>
+<li>Chota Bheem has the least mean (6.4) and median(6.7) with a narrow IQR range.</li>
+<li>While Doraemon has a higher median than Dragon tales, it has a slightly lower mean- this aligns with my analysis that while Doraemon has the highest number of highs, it also has the highest number of lows- making it’s median higher and mean lower. Supporting this, while it’s IQR range starts right along with Dragon Tales’, It’s whiskers are much longer to the left(lower side) and the IQR range lasts longer for Doraemon. The distribution of values to the left of the median of doremon is more spread out than the other 2, and more concentrated to the right compared to the other’s.<br>
+</li>
+<li>Basically, Doraemon and Dragon Tales have higher mean and median ratings than Chhota Bheem, suggesting they are more positively regarded by participants overall.</li>
+<li>Chota Bheem shows less variability and is clustered around a lower average rating, suggesting a mixed appeal among it’s audience and an “it’s not too great but it’s not bad either” kind of opinion i think.</li>
+</ol>
+</section>
+<section id="forming-my-hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="forming-my-hypothesis">Forming my Hypothesis:</h3>
+<p>Null Hypothesis: There is no difference in the average ratings given by young adults to the three cartoons.</p>
+<p>Alternative Hypothesis: Chota Bheem is the least cherished by young adults compared to the the other 2.</p>
+<p><em>I cant really say for the most cherished one since I don’t think there is much a difference in the young adults view Dragon Tales and Doremon</em></p>
+<p>I think my alternate hypothesis is true among the two. Let’s see if my data says the same!</p>
+</section>
+</section>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis:</h2>
+<section id="anova" class="level3">
+<h3 class="anchored" data-anchor-id="anova">ANOVA:</h3>
+<p>Assumptions: 1. Data (and standard errors) are normally distributed. 2. Variances in rating between all groups (Doraemon, Chota Bheem, and Dragon Tale) are equal. 3. Observations are independent.</p>
+<p>ANOVA is used to test hypotheses related to differences in the mean ratings among the three cartoons (Doraemon, Chota Bheem, and Dragon Tales).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cartoons_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rating <span class="sc">~</span> Cartoon, <span class="at">data =</span> cartoons_modified) </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cartoons_supernova <span class="ot">&lt;-</span> supernova<span class="sc">::</span><span class="fu">pairwise</span>(cartoons_anova,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">correction =</span> <span class="st">"Bonferroni"</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="co"># 95% CI calculation</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_equal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The confidence interval for the difference between all the pairs of cartoons include 0 which indicates that we cannot conclude to state there is a significant difference in rating between the 3 cartoons. We cannot reject the null hypothesis.</li>
+</ol>
+<p>Evaluating the extent of effect!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>cartoons_supernova</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Pairwise t-tests with Bonferroni correction ─────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Model: Rating ~ Cartoon</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Cartoon</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Levels: 3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Family-wise error-rate: 0.049</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  group_1      group_2      diff pooled_se     t    df  lower upper  p_adj
+  &lt;chr&gt;        &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 Doraemon     Chota Bheem 0.580     0.354 1.636    87 -0.186 1.346  .3161
+2 Dragon Tales Chota Bheem 0.597     0.354 1.683    87 -0.170 1.363  .2877
+3 Dragon Tales Doraemon    0.017     0.354 0.047    87 -0.750 0.783 1.0000</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<p>1.Non of the 3 p-values are less than 0.05 which suggest that we cannot reject the null hypothesis.</p>
+<p>What if any of my assumptions about the data/groups that wrong? They are crucial to the accuracy of ANOVA!</p>
+<section id="test-for-normality" class="level4">
+<h4 class="anchored" data-anchor-id="test-for-normality">Test for Normality:</h4>
+<p>The null hypothesis: All 3 distributions of ratings are normal- bell-shaped.</p>
+<p><strong>Overall Distribution of ratings</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> cartoons_modified<span class="sc">$</span>Rating) <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic  p.value method                     
+      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                      
+1     0.935 0.000227 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong> The high statistic value (&gt;0.9) and very low p-value (&lt;0.05) suggest that the overall distribution of ratings are normal.</p>
+<p><strong>Distribution of ratings faceted by cartoon</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Cartoon) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_modify</span>(<span class="sc">~</span> .x <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Rating) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_vector</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shapiro.test</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+# Groups:   Cartoon [3]
+  Cartoon      statistic p.value method                     
+  &lt;fct&gt;            &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                      
+1 Chota Bheem      0.951  0.185  Shapiro-Wilk normality test
+2 Doraemon         0.909  0.0139 Shapiro-Wilk normality test
+3 Dragon Tales     0.918  0.0240 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>Let’s visualize this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>( <span class="sc">~</span> Rating,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="sc">~</span> Cartoon,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Rating of Cartoon vs normal distribution"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_grid</span>(<span class="sc">~</span> Cartoon) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_fitdistr</span>(<span class="at">dist =</span> <span class="st">"dnorm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Doraemon and Dragon Tales’ ratings are normally distributed with a p value &lt;0.05 and a w &gt; 0.9.</li>
+<li>While Chota Bheem’s is more confusing, while i has a large w value- 0.93, it’s p-value is not less than 0.05- it’s 0.18. I think it means that this distribution is mostly normal, but there is not enough evidence to confirm it- it could have happen by chance.</li>
+</ol>
+</section>
+<section id="test-for-varaince" class="level4">
+<h4 class="anchored" data-anchor-id="test-for-varaince">Test for Varaince:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Cartoon) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">variance =</span> <span class="fu">var</span>(Rating))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Cartoon      variance
+  &lt;fct&gt;           &lt;dbl&gt;
+1 Chota Bheem      2.21
+2 Doraemon         5.25
+3 Dragon Tales     3.84</code></pre>
+</div>
+</div>
+<p>While there is not too much of a difference between Chota Bheem and Dragon Tales- There is a larger difference in varince for Doremon comapritivly.</p>
+<p>Does the fligner test say the same?</p>
+<p>null hypothesis: he variances between the groups are similar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Rating <span class="sc">~</span> Cartoon, <span class="at">data =</span> cartoons_modified)<span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  statistic p.value parameter method                                          
+      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                           
+1      1.81   0.404         2 Fligner-Killeen test of homogeneity of variances</code></pre>
+</div>
+</div>
+<p>Since the p-value (0.40) is greater than 0.05, I do not have sufficient evidence to reject the null hypothesis. This means that the variances across the groups (by Cartoons) are not significantly different, so we can reasonably assume homogeneity of variances.</p>
+<p>Considering we could not prove the presence of a normal distribution when it comes to Chota Bheem’s distribution, it proves our assumption required for ANOVA to be accurate false. Therefore, we will conduct a permutation test to reach a conclusion!</p>
+</section>
+</section>
+<section id="anova-using-permutation-tests" class="level3">
+<h3 class="anchored" data-anchor-id="anova-using-permutation-tests">ANOVA using Permutation Tests</h3>
+<p>Permutation tests are distribution-free, meaning they don’t rely on specific assumptions about the underlying data distribution, including normality.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>observed_infer <span class="ot">&lt;-</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(Rating <span class="sc">~</span> Cartoon) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"F"</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>observed_infer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Rating (numeric)
+Explanatory: Cartoon (factor)
+Null Hypothesis: independence
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1 0.919</code></pre>
+</div>
+</div>
+<p>The observed variability in scores- f value is a small number: 0.9189246. Therefore, the between-group variance is not much larger than the within-group variance for my sample data.</p>
+<p><strong>The null distribution of f-values obtained by permutation</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>null_dist_infer <span class="ot">&lt;-</span> cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(Rating <span class="sc">~</span> Cartoon) <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">4999</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"F"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>null_dist_infer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Rating (numeric)
+Explanatory: Cartoon (factor)
+Null Hypothesis: independence
+# A tibble: 4,999 × 2
+   replicate  stat
+       &lt;int&gt; &lt;dbl&gt;
+ 1         1 0.124
+ 2         2 0.111
+ 3         3 0.282
+ 4         4 2.38 
+ 5         5 1.88 
+ 6         6 2.43 
+ 7         7 1.39 
+ 8         8 1.49 
+ 9         9 0.408
+10        10 0.413
+# ℹ 4,989 more rows</code></pre>
+</div>
+</div>
+<p><strong>Visualizing the presence of observed f value in the null distribution</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>null_dist_infer <span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>(<span class="at">method =</span> <span class="st">"simulation"</span>) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> observed_infer<span class="sc">$</span>stat, <span class="at">direction =</span> <span class="st">"right"</span>) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="dv">500</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_logticks</span>(<span class="at">outside =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in transformation$transform(x): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in scale_x_continuous(trans = "log10", expand = c(0, 0)): log-10
+transformation introduced infinite values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Since your observed F statistic (0.91) is at the lower end of this distribution, this suggests that it’s quite common to get an F value around 0.91 (or even higher) due to random chance. Therefore, we don’t have any evidence of to state that there is a difference in people’s reaction to all 3 cartoons.</li>
+</ol>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion:</h3>
+<p>There is no statistically significant different between the opinion scores for the 3 cartoon! The sample population says they are all the similar when it comes to likability which I assume is the reality of the population as well!</p>
+<hr>
+<p><strong>ANALYSIS OF OPNION SCORES OF CARTOONS BASED ON GENDER:</strong></p>
+<p>I’m not really sure i can do it for all this because the ratings taken given for 3 different cartoons to answer the question of people of which gender cherish cartoons more than the other. I’m going to go ahead and do it tho, because my statistical analysis based on cartoons concluded saying that there is no significant difference in opinion scores between the 3. Therefore, I assume i can generalise these scores to apply for all cartoons.</p>
+</section>
+</section>
+<section id="descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis">Descriptive Analysis:</h2>
+<section id="distribution-of-all-ratings-faceted-by-gender." class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-all-ratings-faceted-by-gender.">Distribution of all ratings faceted by gender.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>Rating, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">data =</span> cartoons_modified, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Ratings faceted by Gender"</span>, <span class="at">caption =</span> <span class="st">"ggformula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Rating<span class="sc">|</span>Gender, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ratings faceted by Gender"</span>,</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"ggformula"</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_theme</span>(<span class="fu">theme</span>(</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span> </span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Rating,</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Gender,</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Rating Densities by Gender"</span>,</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Male vs Female"</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Both of them are left skewed. At first glace, there does not seem to be much a difference in the 2 distributions.</li>
+<li>The male distribution peaks at approximately 7. It has a number of a score of 10 compared to females and also a higher number of 1 score compared to females.</li>
+<li>The female distribution peaks at 8 and there are lesser number of lower scores in it compared to the male distribution.</li>
+<li>When it comes to the average mean, i think females will have a higher mean than males.</li>
+</ol>
+</section>
+<section id="crosstables-1" class="level3">
+<h3 class="anchored" data-anchor-id="crosstables-1">Crosstables:</h3>
+<p>Does the summation of the data support my hunch?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstable</span>(Rating <span class="sc">~</span> Gender, <span class="at">data =</span> cartoons_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  crosstable<span class="sc">::</span><span class="fu">as_flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-82f3432a{table-layout:auto;}.cl-82e7f2ae{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-82e7f2c2{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-82ed1072{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-82ed1086{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-82ed2f80{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82ed2f8a{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82ed2f8b{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82ed2f94{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82ed2f95{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-82f3432a"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-82ed2f80"><p class="cl-82ed1072"><span class="cl-82e7f2ae">label</span></p></th><th rowspan="2" class="cl-82ed2f80"><p class="cl-82ed1072"><span class="cl-82e7f2ae">variable</span></p></th><th colspan="2" class="cl-82ed2f8a"><p class="cl-82ed1072"><span class="cl-82e7f2ae">Gender</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-82ed2f8b"><p class="cl-82ed1072"><span class="cl-82e7f2ae">Male</span></p></th><th class="cl-82ed2f8b"><p class="cl-82ed1072"><span class="cl-82e7f2ae">Female</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-82ed2f94"><p class="cl-82ed1086"><span class="cl-82e7f2c2">Rating</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">Min / Max</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">1.0 / 10.0</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">3.0 / 10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">Med [IQR]</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">7.0 [6.0;8.5]</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">7.0 [6.0;8.0]</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">Mean (std)</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">7.0 (2.2)</span></p></td><td class="cl-82ed2f95"><p class="cl-82ed1086"><span class="cl-82e7f2c2">7.2 (1.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-82ed2f94"><p class="cl-82ed1086"><span class="cl-82e7f2c2">N (NA)</span></p></td><td class="cl-82ed2f94"><p class="cl-82ed1086"><span class="cl-82e7f2c2">45 (0)</span></p></td><td class="cl-82ed2f94"><p class="cl-82ed1086"><span class="cl-82e7f2c2">45 (0)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Visualizing the median and IQR ranges.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(Gender <span class="sc">~</span> Rating, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Box plot of Rating filled with Gender"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Both males and females gave an average (mean) rating close to 7, with females slightly higher at 7.2 compared to 7.0 for males.</li>
+<li>The median rating for both groups is also 7, suggesting that 7 is a common rating across genders. This similarity in mean and median ratings implies that, overall, both genders rate similarly.</li>
+<li>The standard deviation for males (2.2) is slightly higher than that for females (1.6). This aligns with my previous hunches that that male ratings are more spread out, with some participants giving ratings much lower or higher than the average. There are outliers present in the male ratings (below 5), as indicated by the dots outside the whiskers. These lower outlier values suggest that a few male participants rated significantly lower than the rest which could explain the larger standard deviation.</li>
+<li>Both groups have similar IQRs, meaning that the middle 50% of their ratings fall within a close range (6 to 8.5 for males and 6 to 8 for females) aligning with the hunch that both distributions are similar.</li>
+</ol>
+</section>
+<section id="forming-my-hypothesis-1" class="level3">
+<h3 class="anchored" data-anchor-id="forming-my-hypothesis-1">Forming My Hypothesis:</h3>
+<p>Null Hypothesis: There is no difference in opinion scores for cartoons between males and females.</p>
+<p>Alternative Hypothesis: Females tend give larger values as opinion scores than Males.</p>
+</section>
+</section>
+<section id="statistical-analysis-hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis-hypothesis-testing">Statistical Analysis: Hypothesis Testing</h2>
+<section id="a-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-t-test">A t-test:</h3>
+<p>Assumptions: 1. The distribution for each group - male and female is normal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(Rating <span class="sc">~</span> Gender, <span class="at">data =</span> cartoons_modified)<span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 10
+  estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1   -0.222      6.95      7.17    -0.541   0.590      80.8    -1.04     0.595
+# ℹ 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The estimate suggests that females, on average, give 0.22 more value of score than males in our sample data set.</li>
+<li>The high p-value of 0.5, greater than the typical significance level of 0.05, suggests that there is no statistically significant difference in the average tip amounts between males and females.The result could just be random, so I don’t have strong evidence that something is happening.</li>
+<li>0- which indicates that there is no difference on the average tip, falls within the confidence interval (-7.2 to 11.9) which suggest the same.</li>
+<li>Therefore we cannot reject the null hypothesis.</li>
+</ol>
+<p>But what if my assumption of the tips being distributed normally is not accurate?</p>
+<p>First we transform our data set to be 2 different ones- one with all the Male values and the other with all the Female values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>filtered_Male <span class="ot">&lt;-</span> cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>filtered_Female <span class="ot">&lt;-</span> cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>filtered_Male</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Cartoon Gender Rating
+1   Chota Bheem   Male    8.5
+2   Chota Bheem   Male    6.0
+3   Chota Bheem   Male    8.0
+4   Chota Bheem   Male    7.0
+5   Chota Bheem   Male    8.0
+6   Chota Bheem   Male   10.0
+7   Chota Bheem   Male    5.0
+8   Chota Bheem   Male    7.8
+9   Chota Bheem   Male    8.5
+10  Chota Bheem   Male    5.0
+11  Chota Bheem   Male    7.0
+12  Chota Bheem   Male    6.0
+13  Chota Bheem   Male    6.0
+14  Chota Bheem   Male    6.0
+15  Chota Bheem   Male    6.0
+16     Doraemon   Male    8.0
+17     Doraemon   Male    8.0
+18     Doraemon   Male    7.0
+19     Doraemon   Male    8.0
+20     Doraemon   Male   10.0
+21     Doraemon   Male    6.5
+22     Doraemon   Male    9.0
+23     Doraemon   Male    2.0
+24     Doraemon   Male    5.0
+25     Doraemon   Male    6.0
+26     Doraemon   Male   10.0
+27     Doraemon   Male    9.0
+28     Doraemon   Male    9.0
+29     Doraemon   Male    1.0
+30     Doraemon   Male   10.0
+31 Dragon Tales   Male   10.0
+32 Dragon Tales   Male    4.0
+33 Dragon Tales   Male    7.0
+34 Dragon Tales   Male   10.0
+35 Dragon Tales   Male    7.0
+36 Dragon Tales   Male    5.0
+37 Dragon Tales   Male    9.0
+38 Dragon Tales   Male    8.5
+39 Dragon Tales   Male    7.0
+40 Dragon Tales   Male    7.0
+41 Dragon Tales   Male    6.0
+42 Dragon Tales   Male    5.0
+43 Dragon Tales   Male    1.0
+44 Dragon Tales   Male    7.0
+45 Dragon Tales   Male    6.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>filtered_Female</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Cartoon Gender Rating
+1   Chota Bheem Female    8.0
+2   Chota Bheem Female    6.8
+3   Chota Bheem Female    4.0
+4   Chota Bheem Female    7.5
+5   Chota Bheem Female    7.0
+6   Chota Bheem Female    6.0
+7   Chota Bheem Female    6.0
+8   Chota Bheem Female    8.0
+9   Chota Bheem Female    6.0
+10  Chota Bheem Female    6.0
+11  Chota Bheem Female    8.0
+12  Chota Bheem Female    8.0
+13  Chota Bheem Female    6.0
+14  Chota Bheem Female    5.0
+15  Chota Bheem Female    3.0
+16     Doraemon Female    8.0
+17     Doraemon Female    8.0
+18     Doraemon Female    9.0
+19     Doraemon Female    7.0
+20     Doraemon Female    5.0
+21     Doraemon Female   10.0
+22     Doraemon Female    9.0
+23     Doraemon Female    4.0
+24     Doraemon Female    6.0
+25     Doraemon Female    6.0
+26     Doraemon Female   10.0
+27     Doraemon Female    6.0
+28     Doraemon Female    7.0
+29     Doraemon Female    8.0
+30     Doraemon Female    6.0
+31 Dragon Tales Female    8.0
+32 Dragon Tales Female    9.0
+33 Dragon Tales Female   10.0
+34 Dragon Tales Female    8.0
+35 Dragon Tales Female    9.0
+36 Dragon Tales Female    8.0
+37 Dragon Tales Female   10.0
+38 Dragon Tales Female    6.0
+39 Dragon Tales Female    8.0
+40 Dragon Tales Female    8.0
+41 Dragon Tales Female    6.5
+42 Dragon Tales Female    7.0
+43 Dragon Tales Female    8.0
+44 Dragon Tales Female    7.0
+45 Dragon Tales Female    6.0</code></pre>
+</div>
+</div>
+<p>Visualizing the distribution we acquire vs a normal distribution for each group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>cartoons_modified <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>( <span class="sc">~</span> Rating,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="sc">~</span> Gender,</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Opinion Score given"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_grid</span>(<span class="sc">~</span> Gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_fitdistr</span>(<span class="at">dist =</span> <span class="st">"dnorm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The distribution of female ratings seems to be a bimodial distribution while the male one seems mostly normal.</p>
+</section>
+<section id="a-shapiro-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-shapiro-test">A shapiro test:</h3>
+<p>Shapiro test is one used to determine if a sample comes from a normally distributed population or not.</p>
+<section id="for-males" class="level4">
+<h4 class="anchored" data-anchor-id="for-males">For Males:</h4>
+<p>Null hypothesis: The Rating by Males is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Male<span class="sc">$</span>Rating)<span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic p.value method                     
+      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                      
+1     0.922 0.00492 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>With a w value as high : 0.92 (&gt;0.9), we can accept the null hypothesis that it is normally distributed. The p-value suggests the same- it’s less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.</p>
+<p>Rating given by males is normally distributed.</p>
+</section>
+<section id="for-females" class="level4">
+<h4 class="anchored" data-anchor-id="for-females">For Females:</h4>
+<p>Null hypothesis: The Rating by Females is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Female<span class="sc">$</span>Rating)<span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic p.value method                     
+      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                      
+1     0.949  0.0474 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>With a w value as high : 0.94 (&gt;0.9), we can accept the null hypothesis that it is normally distributed. The p-value suggests the same- it’s less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.</p>
+<p>Rating given by females is normally distributed.</p>
+<p>Therefore, our assumption is right, but just to confirm, I’ll conduct a permutation test do confirm.</p>
+</section>
+</section>
+<section id="permutation-test" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-test">Permutation Test</h3>
+<p>The permutation test is very flexible and requires minimal assumptions. It doesn’t assume normality or equal variances, making it useful for small or skewed data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>obs_diff_gender <span class="ot">&lt;-</span> <span class="fu">diffmean</span>(Rating <span class="sc">~</span> Gender, </span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> cartoons_modified) </span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>obs_diff_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> diffmean 
+0.2222222 </code></pre>
+</div>
+</div>
+<p>Female mean - Male mean = 0.2</p>
+<p>In my sample data, females, on average, give 0.2 more score than males.</p>
+<p><strong>Creating the Null Distribution by Permutation</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>null_dist_ratings <span class="ot">&lt;-</span> </span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="dv">4999</span>) <span class="sc">*</span> <span class="fu">diffmean</span>(<span class="at">data =</span>cartoons_modified, </span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>                      Rating <span class="sc">~</span> <span class="fu">shuffle</span>(Gender))</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="do">##null_dist_ratings , it appears too long when i render it!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Visualizing this:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="at">data =</span> null_dist_ratings, <span class="sc">~</span> diffmean, </span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> obs_diff_gender, </span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"darkred"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">title =</span> <span class="st">"Null Distribution by Permutation"</span>, </span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"Histogram"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Difference in Means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Acquiring the p-value:</strong></p>
+<p>The p-value is calculated by comparing the obs_diff_gender (from the actual data) to the null distribution acquired through permutation. It represents the proportion of times a difference as extreme as the observed one occurs by random chance alone.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop1</span>(<span class="sc">~</span> diffmean <span class="sc">&lt;=</span> obs_diff_gender, <span class="at">data =</span> null_dist_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>prop_TRUE 
+   0.7076 </code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The p-value observed through the permutation test is 0.71. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in case of a higher value like 0.7, we cannot reject the null hypothesis: There is no difference in opinion scores for cartoons between males and females.</li>
+<li>The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same. The observed mean difference is observed around the middle of our null distribution - I can easily mimic nature here - Nothing special is happening - I cannot reject the null hypothesis.</li>
+</ol>
+</section>
+<section id="conclusion-1" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-1">Conclusion:</h3>
+<p>In the assumption that my sample population is a true representation of my population-there is no difference in opinion scores for cartoons between males and females.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

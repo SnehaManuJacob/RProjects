@@ -64,7 +64,7 @@ mpg %>% dplyr::glimpse()
 ### Table of Variables
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | manufacturer | Represents the name of the company that produces the vehicle. | Qualitative |
 | model | This variable indicates the specific model of the vehicle produced by the manufacturer. | Qualitative |
 | displ | Engine Displacement: measures the engine's size or capacity | Quantitative |
@@ -170,7 +170,7 @@ math_anx %>% dplyr::glimpse()
 ### Table of Variables
 
 | Variable name | Description | Type of variable |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Age | Represents the age of the individual | Qualitative |
 | Gender | Represents the gender of the individual(male/female) | Qualitative |
 | Grade | Represents the grade they study in | Qualitative |

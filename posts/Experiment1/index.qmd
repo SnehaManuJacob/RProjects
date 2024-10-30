@@ -1,0 +1,320 @@
+---
+title: "Experiment 1"
+author: "Sneha Manu Jacob"
+date: "2024-10-24"
+categories: [A3, Pocket Money]
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+library(crosstable)
+```
+
+## Defining the Research Experiment:
+
+Goal of the Experiment: To determine if there is a significant difference in the amount of money spent by male and female students on a college campus on a random day of the month, in this case, 23rd October- 2024. This could speak for the amount of money each group receives to spend i.e. the pocket money they receive.
+
+**Methodology**
+
+Sampling: A representative sample of students from Manipal Academy of Higher Education, ensuring a hopefully balanced number of male and female participants to avoid bias.
+
+Method Followed- To ensure a lack of bias, a coin was tossed to determine if data would be collected from a person or not. This lead to random sampling ensuring diversity in age, year of study, and socioeconomic background.
+
+Sample Size: We had a total of 82 participants 41 males and 41 females.
+
+**Why could knowing this be useful?**
+
+1.  It can reflect how parents or guardians may perceive the financial needs of each gender, potentially revealing implicit biases or expectations.
+2.  If data shows a discrepancy in pocket money that isn’t based on actual need, it could encourage families to reconsider their allocation practices.
+3.  For institutions, knowing whether one group typically receives less financial support could inform the design of need-based programs, financial aid, or scholarships.
+
+## Reading and Analyzing the data:
+
+```{r}
+#| label: Read the data
+pocket_money <- read.csv("../../data/Pocket_Money.csv")
+pocket_money
+```
+
+```{r}
+glimpse(pocket_money)
+```
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| Name | The name of the participant | Qualitative |
+| Gender | The Gender (Male/Female) of the participant | Qualitative |
+| Money_spent | The amount of money spent by the participant on 23rd October, 2024 | Quantitative |
+| X | NA | \- |
+
+**Observations:**
+
+The variable gender needs to be mutated to be a factor, and there seems to be a column called 'X' that has no data in it.
+
+### Tansforming the data:
+
+```{r}
+pockets_modified <- pocket_money %>%
+  dplyr::mutate(
+    Gender = as_factor(Gender)
+  )%>%
+  select(Name, Gender, Money_spent)
+pockets_modified
+```
+
+## Descriptive Analysis:
+
+```{r}
+skim(pockets_modified)
+```
+
+**Observations**:
+
+1.  There are 41 data entries each for males and females.
+2.  The lowest money spent on 23rd October is 0 while the highest is 13,000.
+3.  The mean amount spent is 720.96
+
+### Visualising Money Spent:
+
+**Plotting a histogram to see a distribution of the money spent:**
+
+```{r}
+pockets_modified %>%
+  gf_histogram(~Money_spent)
+```
+
+Plotting a histogram to see a distribution of the money spent faceted by gender:
+
+```{r}
+gf_histogram(~Money_spent, fill = ~Gender, data = pockets_modified, bins=100) %>%
+  gf_labs(title = "Money spent faceted by gender", caption = "ggformula")
+```
+
+```{r}
+pockets_modified %>%
+  gf_histogram(~Money_spent|Gender, fill = ~Gender, color = "black", alpha = 0.3) %>%
+  gf_labs(
+    title = "Money spent faceted by gender",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x = element_text(
+      angle = 45, ## the angle at which the word should be placed.
+      hjust = 1 ## the incremanting space from the x axis
+    )
+  ))
+```
+
+```{r}
+pockets_modified %>%
+  gf_density(
+    ~ Money_spent,
+    fill = ~ Gender,
+    alpha = 0.5,
+    title = "Money Spent Densities",
+    subtitle = "Boys vs Girls"
+  )
+```
+
+**Observations:** It seems like the distribution of money spent are similar for boys and girls. Both distributions show a heavy concentration toward the lower end, suggesting that most students spent small amounts of money, regardless of gender. However, there are some cases with much higher expenditures on both sides.
+
+### Summerising the data:
+
+Trying to find the difference in means and medians of money spent based on the difference in gender within the sample population:
+
+```{r}
+crosstable(Money_spent ~ Gender, data = pockets_modified) %>%
+  crosstable::as_flextable()
+```
+
+I can visualize the difference in medians and IQRs with a box plot:
+
+```{r}
+pockets_modified %>%
+  gf_boxplot(Gender ~ Money_spent, fill = ~Gender) %>%
+  gf_labs(title = "Spendinf filled by Gender")
+```
+
+To understand it better, i take scale the x-axis to log(10):
+
+```{r}
+pockets_modified %>%
+  gf_boxplot(Gender ~ Money_spent, fill = ~Gender) %>%
+  gf_refine(scale_x_log10()) %>%
+  gf_labs(title = "Spending filled by Gender")
+```
+
+I will consider the box-plot without the values scaled to log(10) since it seems like some values are going out of bounts/ are nit being able to be represented.
+
+**Observations** (regarding mean and sd):
+
+1\. The mean amount spent by males- 748.6 , is slightly higher than that of females- 693.3.
+
+2\. The standard deviation is much larger for females- 2035.8, than for males- 1636.5, indicating more variability in spending among females (or there may be more extreme spending outliers in the female group?).
+
+3\. The median spending is slightly higher for females at 280 compared to that of males which is 250.
+
+4\. The interquartile range (IQR) for males is broader- 150.0 to 842.0 compared to that for females- 85.0 to 500.0, suggesting a wider spread in spending behavior for males.
+
+5\. On descriptive analysis of the data, it appears so that there is no difference in the money spent by both groups- Both show very similar patterns in spending behavior, but if there in fact is a difference, the whiskers in the box plot being longer of males gives me a hunch that males spent more money than females.
+
+### Defining my Hypothesis:
+
+Null Hypothesis: There is no difference in the money spent by males and females which indicates that they receive more pocket money
+
+Alternative Hypothesis: Males tend to spend more money than women which indicates that they receive more pocket money compared to women.
+
+*Since the IQR ranges of both males and females overlap so much, we can only come to a conclusion of our hypothesis with statistical analysis. The first step of it being a t-test.*
+
+## Statistical Analysis: Hypothesis testing
+
+### A t-test:
+
+Assumptions:
+
+1\. The distribution for each group - male and female is normal.
+
+```{r}
+mosaic::t_test(Money_spent ~ Gender, data = pockets_modified)%>%
+  broom::tidy()
+```
+
+**Observations:**
+
+1.  The estimate suggests that male students, on average, spent 55.29 more than female students.89
+2.  Since the p-value value is as high as 0.8, we fail to reject the null hypothesis. This suggests that there is no statistically significant difference between the spending of male and female students.The confidence interval of -757.07 and 867.66 suggest the same since it straddles 0. Therefore, our null hypothesis that gender does not play a role in the amount of money spent on a random day by a college student is true.
+
+But is this t-test reliable?.. only if the the money spent by the sample is normally distributed. We test that using a Shapiro test.
+
+### A Shapiro test:
+
+For the total distribution:
+
+```{r}
+shapiro.test(pockets_modified$Money_spent)%>%
+  broom::tidy()
+```
+
+We need to know if the individual distribution of both genders are normally distributed. And so we transform our data set to into 2- one with all the male values and one with all the female values.
+
+Acquiring the 2 data sets:
+
+```{r}
+filtered_male <- pockets_modified %>%
+  filter(Gender == "Male")
+filtered_female <- pockets_modified %>%
+  filter(Gender == "Female")
+filtered_male
+filtered_female
+```
+
+Visualizing the distribution we acquire vs a normal distribution:
+
+```{r}
+pockets_modified %>%
+  gf_density( ~ Money_spent,
+              fill = ~ Gender,
+              alpha = 0.5,
+              title = "Money spent on 23rd Oct") %>%
+  gf_facet_grid(~ Gender) %>% 
+  gf_fitdistr(dist = "dnorm")
+```
+
+It does not seem like either have a normal distribution. Does the shapiro test tell me the same?
+
+#### Conducting the Shapiro test for each of these distributions:
+
+For males:
+
+Null hypothesis: The money spent by males is normally distributed.
+
+```{r}
+shapiro.test(filtered_male$Money_spent)%>%
+  broom::tidy()
+```
+
+The statistic indicates how closely the sample data follows a normal distribution (the closer the value is the 1, the more normal the distribution is) and so the computed value of 0.40 says that the distribution is not normal.
+
+A p value so low- 1.135947e-11 indicates that we must reject the null hypothesis.Therefore, the data is not normally distributed.
+
+For females:
+
+Null hypothesis: The money spent by females is normally distributed.
+
+```{r}
+shapiro.test(filtered_female$Money_spent)%>%
+  broom::tidy()
+```
+
+Similar to the inference for the distribution for males, even in females, we can reject the null hypothesis of the distribution being normal.
+
+We go ahead and conduct a Mann-Whitney Test having proven that both distribution aren't normal, proving the t-test to be invalid.
+
+### Mann-Whitney Test
+
+```{r}
+wilcox.test(Money_spent ~ Gender, data = pockets_modified, 
+            conf.int = TRUE, 
+            conf.level = 0.95) %>% 
+  broom::tidy()
+```
+
+**Observations:**
+
+The estimate of the difference between both groups is 55.00 a high p-value (\>0.05) of 0.38 suggests that we cannot reject the null hypothesis. There is statistically no significant difference between the two groups' median values. 0 falls within the confidence interval which further suggest the same.
+
+I received an error saying "Warning: cannot compute exact p-value with ties". This means that because i have so may repeating values (I'm guessing mainly 0)- there are many values with the same rank and polarity. This could lead to not having precise p-values.
+
+Therefore, i cannot reject the null hypothesis right away. To make sure, i will go ahead and perform a permutation test to come to a solid inference, one that i cannot question.
+
+### Permutation Test
+
+```{r}
+obs_diff_gender <- diffmean(Money_spent ~ Gender, 
+                            data = pockets_modified) 
+
+obs_diff_gender
+```
+
+Here we **create a null distribution** for the difference in means by performing 4,999 permutations- each engraving and different values among the 2 gender groups. We do this by randomly reassigning the 'Gender' variable across all observations
+
+```{r}
+null_dist_money <- 
+  do(4999) * diffmean(data = pockets_modified, 
+                      Money_spent ~ shuffle(Gender))
+##null_dist_money , it appears too long when i render it!
+```
+
+**Visualization of the observed mean relative to the null distribution:**
+
+```{r}
+gf_histogram(data = null_dist_money, ~ diffmean, 
+             bins = 25) %>%
+  gf_vline(xintercept = obs_diff_gender, 
+           colour = "darkred", linewidth = 1,
+           title = "Null Distribution by Permutation", 
+           subtitle = "Histogram") %>% 
+  gf_labs(x = "Difference in Means")
+```
+
+**The p-value obtained through the permutation test:**
+
+prop1 calculates the p-value by comparing the observed difference in means (obs_diff_gender) with the null distribution.
+
+```{r}
+prop1(~ diffmean <= obs_diff_gender, data = null_dist_money)
+
+```
+
+**Observations:**
+
+1.  The p-value observed through the permutation test is 0.41. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in this case the higher value i.e. 0.41, we cannot reject the null hypothesis: There is no difference in the amount of pocket money received by male and female students .
+2.  The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same - I cannot reject the null hypothesis.
+
+#### Conclusion:
+
+In the assumption that my sample population is a true representation of my population- There is no difference in the amount spent by male and female students on a random day- and so there must be no difference in the pocket money received by both genders.

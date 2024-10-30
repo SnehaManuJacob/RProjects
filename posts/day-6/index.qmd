@@ -1,8 +1,8 @@
 ---
-title: "Day 6"
+title: "Day 6 and 7"
 author: "Sneha Manu Jacob"
 date: "2024-10-17"
-categories: [ Central Limit Theorem, randamoisation ]
+categories: [ Statistics, Central Limit Theorem, randamoisation ]
 ---
 
 ```{r}
@@ -26,7 +26,7 @@ glimpse(NHANES)
 
 ## Introduction:
 
-Sample of data is taken and theoretically all means are normally distributed. Can we take that distributed and pretend that out data is also normally distributed. 
+Sample of data is taken and theoretically all means are normally distributed. Can we take that distributed and pretend that out data is also normally distributed.
 
 ### Populations and sampling.
 
@@ -294,7 +294,7 @@ p7
 p8
 ```
 
-The range in the x axis, reduces as the sample size reduces.Despite this, the mean values are very similar values.
+The bell curve distribution become more and more narrow. The range in the x axis, reduces as the sample size reduces. Despite this, the mean values are very similar values. This bell curve give you the estimate of standard error.
 
 Therefore,
 
@@ -317,15 +317,17 @@ sd(~Height, data = sample_32) / sqrt(32)
 sd(~Height, data = sample_64) / sqrt(64)
 ```
 
-The population mean will be around the (sample mean +\_ 2 \*standard error(of a sample with a large size))
-
 Since Standard Error decreases with sample size, we need to make our sample of adequate size. Never make n less than 30.
+
+Standard error = sd(of the variable you are taking)/squareroot of lengh of sample
 
 This is 95% accurate.
 
 ### **Confidence intervals**
 
-If the confidence interval is lesser, the uncertainty is lesser.
+The sample mean is very close to the population mean. But this sample mean changes as the sample changes.
+
+If the confidence interval is lesser, the uncertainty is lesser.Assumnibg that the population is also a normal distribution. Population mean = (sample mean +\_ 2 \*standard error(of a sample with a large size)) For every sample taken, the mean calue will stradle the population mean.
 
 ## Randomization:
 
@@ -370,13 +372,13 @@ Observations: It's not a normal distribition. As specifies, the values center ar
 
 ### Assumptions
 
-The assumption is that mean i 0.But also alternatively create a hypothesis that it is not 0. 
+The assumption is that mean i 0.But also alternatively create a hypothesis that it is not 0.
 
-the fact that the districbution is not normal will affect the test we can use to make inferences about the population mean. Regardless, let's do the same. 
+the fact that the districbution is not normal will affect the test we can use to make inferences about the population mean. Regardless, let's do the same.
 
 #### T-test:
 
-one-sample t-test on the variable y to test whether the mean of y differs significantly from a specified population mean in this case out first assumption: 0. 
+one-sample t-test on the variable y to test whether the mean of y differs significantly from a specified population mean in this case out first assumption: 0.
 
 ```{r}
 # t-test
@@ -388,26 +390,77 @@ t1 <- mosaic::t_test(
   broom::tidy() # Make results presentable, and plottable!!
 t1
 ```
+
 It tests both sides of the distribution, meaning that it checks if the mean of y is significantly greater than or less than 0. It does not assume a specific direction for the difference.
 
 Observations:
 
-1. The p-value, indicates the significance of the result. It's extremely small, indicating that the difference between the sample mean and 0 is statistically significant. Essentially, this means there's a very low probability that the sample mean of 2.04 is due to random chance if the true mean were 0.
-2. The confidence interval [1.4399, 2.6515] provides a range for where the true mean likely lies.Since 0 is not within this range, the test confirms that the population mean is very likely not 0.
+1.  The p-value, indicates the significance of the result. It's extremely small, indicating that the difference between the sample mean and 0 is statistically significant. Essentially, this means there's a very low probability that the sample mean of 2.04 is due to random chance if the true mean were 0.
+2.  The confidence interval \[1.4399, 2.6515\] provides a range for where the true mean likely lies.Since 0 is not within this range, the test confirms that the population mean is very likely not 0.
+
+#### Intuitive:
+
+the background of t-test:
+
+```{r}
+mean_belief_pop <- 0  # Assert our belief
+# Sample Mean
+mean_y <- mean(y)
+mean_y
+```
+
+pop mean= sample mean
+
+```{r}
+mean_belief_pop <- 0  # Assert our belief
+# Sample Mean
+sd_y <- sd(y)
+sd_y
+```
+
+sample sd = pop sd
+
+```{r}
+std_error <- sd(y)/sqrt(length(y))
+std_error
+```
+
+```{r}
+## Confidence Interval of Observed Mean
+conf_int <- tibble(ci_low = mean_y - 1.96 * std_error, ci_high = mean_y + 1.96 *
+    std_error)
+conf_int
+```
+
+95% of all sample means lie within this confiedence interval
+
+```{r}
+## Difference between actual and believed mean
+mean_diff <- mean_y - mean_belief_pop
+mean_diff
+```
+
+```{r}
+t <- mean_diff/std_error
+t
+```
+
+At this distance of 6.78, we would have negligible probability of this data occurring by chance! Anything more than a distance of 2 is highly unlikely, 2 itself only have a 5% probability.
 
 #### Wilcoxon’s Signed-Rank Test
 
 If our assumption about normality has been invalidated, the data is used in rank-transformed sense/order. In some cases the signed-rank of the data values is used instead of the data itself. The signed ranks are then tested to see if there are more of one polarity than the other, roughly speaking, and how probable this could be.
 
-1. Take the absolute value of each observation in a sample
-2. Place the ranks in order of (absolute magnitude). The smallest number has rank = 1 and so on.
-3. Give each of the ranks the sign of the original observation ( + or -)
+1.  Take the absolute value of each observation in a sample
+2.  Place the ranks in order of (absolute magnitude). The smallest number has rank = 1 and so on.
+3.  Give each of the ranks the sign of the original observation ( + or -)
 
 ```{r}
 signed_rank <- function(x) {
     sign(x) * rank(abs(x))
 }
 ```
+
 ```{r}
 # Standard Wilcoxon Signed_Rank Test
 t2 <- wilcox.test(y, # variable name
@@ -418,4 +471,71 @@ t2 <- wilcox.test(y, # variable name
   broom::tidy()
 t2
 ```
-Start with the belift that a mean is nothing special.Permutations of signs. 50000 new fictiotios samples are created and plot it. if the mean of the histogram is the same as the estimate. It's nothing special. 
+
+### Using Permutation and Bootstrap
+
+```{r}
+# Calculate exact mean
+obs_mean <- mean( ~ y, data = mydata)
+belief1 <- 0 # What we think the mean is
+obs_diff_mosaic <- obs_mean - belief1
+obs_diff_mosaic
+```
+
+Start with the belief that a mean is nothing special.
+
+```{r}
+## Steps in Permutation Test
+## Repeatedly Shuffle polarities of data observations
+## Take means
+## Compare all means with the real-world observed one
+null_dist_mosaic <- 
+mosaic::do(9999) * mean( ~ abs(y) * 
+          sample(c(-1, 1), # +/- 1s multiply y
+            length(y),     # How many +/- 1s?
+            replace = T),  # select with replacement
+        data = mydata)
+##
+range(null_dist_mosaic$mean)
+```
+
+Permutations of signs. 50000 new fictitious samples are created and plot it.5000 arrays of -1 and 1 are created and multiplied with my sample. If the mean of the histogram falls within the estimate. It's nothing special.
+
+```{r}
+## Plot this NULL distribution
+gf_histogram(
+  ~ mean,
+  data = null_dist_mosaic,
+  fill = ~ (mean >= obs_diff_mosaic),
+  bins = 50, title = "Distribution of Permutation Means under Null Hypothesis",
+  subtitle = "Why is the mean of the means zero??") %>%
+  gf_labs(x = "Calculated Random Means",
+          y = "How Often do these occur?") %>% 
+  gf_vline(xintercept = obs_diff_mosaic, colour = "red")
+```
+
+Here we twist data to try and mimic nature. If i am not able to do this, it proves that i didn't get what i got, by chance. Something is happening!
+
+## Exam Data:
+
+### Inspecting data:
+
+```{r}
+exam_grades %>%
+    gf_density(~course_grade) %>%
+    gf_fitdistr(dist = "dnorm") %>%
+    gf_labs(title = "Density of Course Grade", subtitle = "Compared with Normal Density")
+```
+
+data looks normally distributed.
+
+#### Testing assumptions:
+
+The Shapiro-Wilkes Test tests whether a data variable is normally distributed or not. Without digging into the maths of it, let us say it makes the assumption that the variable is so distributed and then computes the probability of how likely this is. So a high p-value is a good thing here.
+
+```{r}
+stats::shapiro.test(x = exam_grades$course_grade) %>%
+    broom::tidy()
+```
+
+It is normally distributed

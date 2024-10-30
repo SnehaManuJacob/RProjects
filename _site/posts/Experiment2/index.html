@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sneha Manu Jacob">
+<meta name="dcterms.date" content="2024-10-25">
+
+<title>Experiment 2 – Sneha’s Data Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="../../site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sneha’s Data Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Experiment 2</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">A3</div>
+                <div class="quarto-category">Tips?</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sneha Manu Jacob </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 25, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'mosaic':
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+
+The 'mosaic' package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+
+Attaching package: 'mosaic'
+
+The following object is masked from 'package:Matrix':
+
+    mean
+
+The following objects are masked from 'package:dplyr':
+
+    count, do, tally
+
+The following object is masked from 'package:purrr':
+
+    cross
+
+The following object is masked from 'package:ggplot2':
+
+    stat
+
+The following objects are masked from 'package:stats':
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+
+The following objects are masked from 'package:base':
+
+    max, mean, min, prod, range, sample, sum</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'skimr'
+
+The following object is masked from 'package:mosaic':
+
+    n_missing</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(crosstable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'crosstable'
+
+The following object is masked from 'package:purrr':
+
+    compact</code></pre>
+</div>
+</div>
+<section id="defining-the-research-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-research-experiment">Defining the Research Experiment:</h2>
+<p>Goal of the Experiment: To determine if there is a significant difference in the amount of money given as tip among vegetarian and non-vegetarian young adults.</p>
+<p><strong>Methodology</strong></p>
+<p>Sampling: The population consists of students on a college campus who have ordered food through online delivery services like Swiggy or Zomato recently. The method of online platforms must have been chosen since it is easy to access and recollect the amount paid as tip this way and tipping in restaurants is not too socially expected in India unlike in the West. The sample population is a randomly chosen group of students from Manipal Academy of Higher Education, Bangalore, ensuring a hopefully balanced set of participants that is a true representation of the population.</p>
+<p>Method Followed- To ensure a lack of bias, a coin was tossed to even determine if data would be collected from a person or not. This lead to random sampling ensure diversity in age, year of study, and socioeconomic background.</p>
+<p>Sample Size: We have a total of 60 participants 30 vegetarians and 30 non-vegetarians.</p>
+<p><strong>Why could knowing this be useful?</strong></p>
+<ol type="1">
+<li>It can provide insights for businesses like restaurants or food delivery services in understanding the financial behaviors of specific demographic segments.</li>
+<li>Understanding these patterns can help employers design compensation and customer engagement strategies that ensure fair tipping opportunities for their staff.</li>
+</ol>
+<section id="reading-and-analyzing-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="reading-and-analyzing-the-data">Reading and Analyzing the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tips_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../../data/tip.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tips_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Gender Preferance Tip
+1      Aanya Female        Veg   0
+2       Adit   Male        Veg   0
+3      Aditi Female        Veg  20
+4      Akash   Male    Non-veg   0
+5    Akshita Female    Non-veg   0
+6   Anandita Female    Non-veg   0
+7     Ananya Female    Non-veg  20
+8      Anaya Female        Veg  35
+9     Anhuya Female        Veg  40
+10     Ankit   Male    Non-veg   0
+11     Anmol   Male        Veg   0
+12      Anna   Male        Veg   0
+13  Anoushka Female    Non-veg   0
+14     Arnav   Male    Non-veg   0
+15    Arushi Female    Non-veg   0
+16  Ashutosh   Male    Non-veg   0
+17     Asark Female    Non-veg  20
+18      Ayan   Male        Veg   0
+19      Debu   Male        Veg  15
+20   Dheeman   Male        Veg 100
+21      Diya Female        Veg  30
+22   Hardik    Male    Non-veg   0
+23  Ignatius   Male    Non-veg  20
+24    Khushi Female        Veg   0
+25   Kshraja Female        Veg   0
+26  Mahendra   Male    Non-veg  20
+27     Mahie Female        Veg   0
+28    Manish   Male        Veg   0
+29  Nanditha Female        Veg   0
+30    Nevaan   Male    Non-veg   0
+31     Nidhi Female        Veg   0
+32   Nishant   Male    Non-veg  20
+33     Nitya Female    Non-veg   0
+34      Ojas   Male        Veg  20
+35  Praneeta Female    Non-veg  50
+36 Priyanshu   Male    Non-veg  20
+37     Radha Female    Non-veg  20
+38      Reva Female    Non-veg  20
+39     Rikin   Male    Non-veg  30
+40    Sadnya Female        Veg   0
+41   Sanjana Female        Veg   0
+42     Sarah Female    Non-veg   0
+43   Shaivii Female    Non-veg   0
+44  Shashwat   Male        Veg   0
+45     Shiva   Male        Veg   0
+46    Shreya Female        Veg   0
+47    Symran Female    Non-veg  20
+48    Simran Female    Non-veg   0
+49   Sourabh   Male    Non-veg   0
+50    Srujan   Male        Veg   0
+51    Suhaas   Male        Veg  20
+52    Suhani Female    Non-veg  20
+53  Sushmita Female        Veg  20
+54     Taran   Male        Veg  20
+55     Varad   Male        Veg   0
+56    Vedant   Male    Non-veg  20
+57     Vinay   Male    Non-veg   0
+58   Vishesh   Male        Veg   0
+59    Vishnu   Male    Non-veg   0
+60    Zivnya Female        Veg  50</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(tips_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 60
+Columns: 4
+$ Name       &lt;chr&gt; "Aanya", "Adit", "Aditi", "Akash", "Akshita", "Anandita", "…
+$ Gender     &lt;chr&gt; "Female", "Male", "Female", "Male", "Female", "Female", "Fe…
+$ Preferance &lt;chr&gt; "Veg", "Veg", "Veg", "Non-veg", "Non-veg", "Non-veg", "Non-…
+$ Tip        &lt;int&gt; 0, 0, 20, 0, 0, 0, 20, 35, 40, 0, 0, 0, 0, 0, 0, 0, 20, 0, …</code></pre>
+</div>
+</div>
+</section>
+<section id="defining-the-data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-data-dictionary">Defining the Data Dictionary:</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>The name of the participant</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td>The Gender (Male/Female) of the participant</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>Preferance</td>
+<td>The dietary preference of the participant (Veg / Non-veg)</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Tip</td>
+<td>The amount of money paid as tip to the participant’s online delivery partner in their last order</td>
+<td>Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Variables ‘Gender’ and ‘Preferance’ need to be transformed to be factors.</li>
+<li>Preference is spelled wrong!</li>
+</ol>
+</section>
+<section id="transforming-and-inspecting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-and-inspecting-the-data">Transforming and inspecting the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="ot">&lt;-</span> tips_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">as_factor</span>(Gender),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Preferance =</span> <span class="fu">factor</span>(Preferance,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Veg"</span>, <span class="st">"Non-veg"</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Veg"</span>, <span class="st">"Non-veg"</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>tips_modified</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Gender Preferance Tip
+1      Aanya Female        Veg   0
+2       Adit   Male        Veg   0
+3      Aditi Female        Veg  20
+4      Akash   Male    Non-veg   0
+5    Akshita Female    Non-veg   0
+6   Anandita Female    Non-veg   0
+7     Ananya Female    Non-veg  20
+8      Anaya Female        Veg  35
+9     Anhuya Female        Veg  40
+10     Ankit   Male    Non-veg   0
+11     Anmol   Male        Veg   0
+12      Anna   Male        Veg   0
+13  Anoushka Female    Non-veg   0
+14     Arnav   Male    Non-veg   0
+15    Arushi Female    Non-veg   0
+16  Ashutosh   Male    Non-veg   0
+17     Asark Female    Non-veg  20
+18      Ayan   Male        Veg   0
+19      Debu   Male        Veg  15
+20   Dheeman   Male        Veg 100
+21      Diya Female        Veg  30
+22   Hardik    Male    Non-veg   0
+23  Ignatius   Male    Non-veg  20
+24    Khushi Female        Veg   0
+25   Kshraja Female        Veg   0
+26  Mahendra   Male    Non-veg  20
+27     Mahie Female        Veg   0
+28    Manish   Male        Veg   0
+29  Nanditha Female        Veg   0
+30    Nevaan   Male    Non-veg   0
+31     Nidhi Female        Veg   0
+32   Nishant   Male    Non-veg  20
+33     Nitya Female    Non-veg   0
+34      Ojas   Male        Veg  20
+35  Praneeta Female    Non-veg  50
+36 Priyanshu   Male    Non-veg  20
+37     Radha Female    Non-veg  20
+38      Reva Female    Non-veg  20
+39     Rikin   Male    Non-veg  30
+40    Sadnya Female        Veg   0
+41   Sanjana Female        Veg   0
+42     Sarah Female    Non-veg   0
+43   Shaivii Female    Non-veg   0
+44  Shashwat   Male        Veg   0
+45     Shiva   Male        Veg   0
+46    Shreya Female        Veg   0
+47    Symran Female    Non-veg  20
+48    Simran Female    Non-veg   0
+49   Sourabh   Male    Non-veg   0
+50    Srujan   Male        Veg   0
+51    Suhaas   Male        Veg  20
+52    Suhani Female    Non-veg  20
+53  Sushmita Female        Veg  20
+54     Taran   Male        Veg  20
+55     Varad   Male        Veg   0
+56    Vedant   Male    Non-veg  20
+57     Vinay   Male    Non-veg   0
+58   Vishesh   Male        Veg   0
+59    Vishnu   Male    Non-veg   0
+60    Zivnya Female        Veg  50</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis">Descriptive Analysis:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(tips_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 60
+Columns: 4
+$ Name       &lt;chr&gt; "Aanya", "Adit", "Aditi", "Akash", "Akshita", "Anandita", "…
+$ Gender     &lt;fct&gt; Female, Male, Female, Male, Female, Female, Female, Female,…
+$ Preferance &lt;ord&gt; Veg, Veg, Veg, Non-veg, Non-veg, Non-veg, Non-veg, Veg, Veg…
+$ Tip        &lt;int&gt; 0, 0, 20, 0, 0, 0, 20, 35, 40, 0, 0, 0, 0, 0, 0, 0, 20, 0, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(tips_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">tips_modified</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Fem: 30, Mal: 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Preferance</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Veg: 30, Non: 30</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tip</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11.17</td>
+<td style="text-align: right;">17.84</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>There are no missing values in the data-set.</li>
+<li>There are 30 vegetarian and 30 non-vegetarian entries in the Food Preference factor. There are 30 male and 30 female entries in the Gender factor.Was data collected in a way that there are 15 male and 15 female vegetarians and 15 male and 15 female non-vegetarians? I should summerise and check!</li>
+<li>It’s interesting to see that the progression of p0 to p100 is a series of 0, 0, 0, 20 and 100. The smallest tip given is 0 while the biggest is 100. This also indicates a large number of 0 -no tip in the data set compared to other values. It’s most likely a very right skewed distribution. It would be interesting to analyse who contributed to more of these 0s or if everyone is equally kanjoos regardless of food preference or gender.</li>
+</ol>
+<section id="summeries-and-visualizations-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="summeries-and-visualizations-of-the-data">Summeries and Visualizations of the data</h3>
+<p><strong>Distribution of overall tips:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Tip)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Like i had thought inspecting the day, a majority of participants have not given any tip. It as a right skewed distribution.</li>
+<li>Among people who do tip, 20rs is the most tipped value of money.</li>
+<li>Is tipping value 100 an outlier?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Preferance, Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span><span class="fu">n</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Preferance'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+# Groups:   Preferance [2]
+  Preferance Gender count
+  &lt;ord&gt;      &lt;fct&gt;  &lt;int&gt;
+1 Veg        Female    15
+2 Veg        Male      15
+3 Non-veg    Female    15
+4 Non-veg    Male      15</code></pre>
+</div>
+</div>
+<p><strong>Observation:</strong> My previous hypothesis that there are 15 male and 15 female vegetarians and 15 male and 15 female non-vegetarians. This must have been done to remove any gender bias from our analysis.</p>
+<p>It gives us the opportunity to also inspect another aspect to tipping - if gender plays a roll or not- it works either ways- on doing it in this way, our analysis has no bias based on dietary decisions. For now, let’s continue with the Food preference tipping analysis.</p>
+<p><strong>Tips faceted by Food Preference:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>Tip, <span class="at">fill =</span> <span class="sc">~</span>Preferance, <span class="at">data =</span> tips_modified, <span class="at">bins=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Tips faceted by Food Preference"</span>, <span class="at">caption =</span> <span class="st">"ggformula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Tip<span class="sc">|</span>Preferance, <span class="at">fill =</span> <span class="sc">~</span>Preferance, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tips faceted by Food Preference"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"ggformula"</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_theme</span>(<span class="fu">theme</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span> </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Tip,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Preferance,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Money Spent Densities"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Vegetarians vs Non-Vegetarians"</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Both groups show a right-skewed distribution with a high count of low tip (0) amount. The count of participants giving no tip appears to be similar for both groups.</li>
+<li>These graphs suggest that while the count of tips (below 25) appears to be higher for non-vegetarians, The count of higher tips (above 25), while low for both groups, is relatively higher for vegetarians.</li>
+<li>Maybe food preference might not have a strong influence on the tip amounts given by students? Or maybe Vegetarians tip more than non vegetarians in the sense that when they vegetarians do give tips, they tend to give a higher amounts than non- vegetarians do?</li>
+</ol>
+<section id="crosstables" class="level4">
+<h4 class="anchored" data-anchor-id="crosstables">Crosstables:</h4>
+<p>Trying to find the difference in means and medians of tips given based on the difference in food preference within the sample population to get a better understanding of what the data is saying:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstable</span>(Tip <span class="sc">~</span> Preferance, <span class="at">data =</span> tips_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  crosstable<span class="sc">::</span><span class="fu">as_flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-3aba2032{table-layout:auto;}.cl-3aae1a6c{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3aae1a8a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3ab373a4{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3ab373b8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3ab399ec{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3ab399f6{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3ab399f7{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3ab399f8{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3ab39a00{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-3aba2032"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-3ab399ec"><p class="cl-3ab373a4"><span class="cl-3aae1a6c">label</span></p></th><th rowspan="2" class="cl-3ab399ec"><p class="cl-3ab373a4"><span class="cl-3aae1a6c">variable</span></p></th><th colspan="2" class="cl-3ab399f6"><p class="cl-3ab373a4"><span class="cl-3aae1a6c">Preferance</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-3ab399f7"><p class="cl-3ab373a4"><span class="cl-3aae1a6c">Veg</span></p></th><th class="cl-3ab399f7"><p class="cl-3ab373a4"><span class="cl-3aae1a6c">Non-veg</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-3ab399f8"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">Tip</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">Min / Max</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">0 / 100.0</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">0 / 50.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">Med [IQR]</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">0 [0;20.0]</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">0 [0;20.0]</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">Mean (std)</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">12.3 (21.9)</span></p></td><td class="cl-3ab39a00"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">10.0 (12.9)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3ab399f8"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">N (NA)</span></p></td><td class="cl-3ab399f8"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">30 (0)</span></p></td><td class="cl-3ab399f8"><p class="cl-3ab373b8"><span class="cl-3aae1a8a">30 (0)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p><strong>Visualizing the Median and IQR ranges:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(Preferance <span class="sc">~</span> Tip, <span class="at">fill =</span> <span class="sc">~</span>Preferance, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Box plot of Tip filled with Food Preference"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations</strong>:</p>
+<ol type="1">
+<li>The mean value of the tips given by vegetarians(12.3) is higher than that given by non- vegetarians(10) which makes sense considering our earlier observation of the fact that the giving of higher tips is more common among vegetarians.</li>
+<li>The higher standard deviation in the Vegetarian group-21.9 suggests that they have more variability in tipping behavior compared to Non-vegetarians-12.9.</li>
+<li>The median tip for both groups is 0, indicating that at least half of the participants from both groups tipped nothing.</li>
+<li>The IQR range for both groups is 0 to 20 i.e.&nbsp;50% of the tips for both groups falls within this range.</li>
+<li>Does this suggest that most participants, regardless of food preference, tend to give low tips, with the Vegetarian group having one visible outlier that skews its range higher- there is no difference in tipping behavior based on food preference?</li>
+</ol>
+</section>
+</section>
+<section id="forming-my-hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="forming-my-hypothesis">Forming my Hypothesis:</h3>
+<p>Null Hypothesis: There is no difference in the average tip amount between vegetarians and non-vegetarians.</p>
+<p>Alternative Hypothesis: Vegetarians tend give larger values as tips than non-vegetarians.</p>
+<p><em>It’s not possible to come to any concrete conclusion with just the descriptive analysis of the data, and so, I move to conduct statistical analysis on this data.</em></p>
+</section>
+</section>
+<section id="statistical-analysis-hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis-hypothesis-testing">Statistical Analysis: Hypothesis Testing</h2>
+<section id="a-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-t-test">A t-test:</h3>
+<p>Assumptions: 1. The distribution for each group - Vegetarians and Non-vegetarians is normal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(Tip <span class="sc">~</span> Preferance, <span class="at">data =</span> tips_modified)<span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 10
+  estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1     2.33      12.3        10     0.503   0.617      46.9    -6.99      11.7
+# ℹ 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The estimate suggests that vegetarians, on average, give 2.3rs more tip than non-vegetarians in mu sample data set.</li>
+<li>The high p-value of 0.6 1, greater than the typical significance level of 0.05, suggests that there is no statistically significant difference in the average tip amounts between vegetarians and non-vegetarians.The result could just be random, so I don’t have strong evidence that something is happening.</li>
+<li>0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggest the same.</li>
+<li>Therefore we cannot reject the null hypothesis.</li>
+</ol>
+<p>What if my assumption of these 2 distribution of tip faceted by Food Preference being normal is not right? We could do a Shapiro test to confirm.</p>
+</section>
+<section id="a-shapiro-test" class="level3">
+<h3 class="anchored" data-anchor-id="a-shapiro-test">A Shapiro test:</h3>
+<p>Shapiro test is one used to determine if a sample comes from a normally distributed population or not.</p>
+<p>First we transform our data set to be 2 different ones- one with all the Veg values and the other with all the Non-veg values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>filtered_Veg <span class="ot">&lt;-</span> tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Preferance <span class="sc">==</span> <span class="st">"Veg"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>filtered_Non <span class="ot">&lt;-</span> tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Preferance <span class="sc">==</span> <span class="st">"Non-veg"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>filtered_Veg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Name Gender Preferance Tip
+1     Aanya Female        Veg   0
+2      Adit   Male        Veg   0
+3     Aditi Female        Veg  20
+4     Anaya Female        Veg  35
+5    Anhuya Female        Veg  40
+6     Anmol   Male        Veg   0
+7      Anna   Male        Veg   0
+8      Ayan   Male        Veg   0
+9      Debu   Male        Veg  15
+10  Dheeman   Male        Veg 100
+11     Diya Female        Veg  30
+12   Khushi Female        Veg   0
+13  Kshraja Female        Veg   0
+14    Mahie Female        Veg   0
+15   Manish   Male        Veg   0
+16 Nanditha Female        Veg   0
+17    Nidhi Female        Veg   0
+18     Ojas   Male        Veg  20
+19   Sadnya Female        Veg   0
+20  Sanjana Female        Veg   0
+21 Shashwat   Male        Veg   0
+22    Shiva   Male        Veg   0
+23   Shreya Female        Veg   0
+24   Srujan   Male        Veg   0
+25   Suhaas   Male        Veg  20
+26 Sushmita Female        Veg  20
+27    Taran   Male        Veg  20
+28    Varad   Male        Veg   0
+29  Vishesh   Male        Veg   0
+30   Zivnya Female        Veg  50</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>filtered_Non</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Gender Preferance Tip
+1      Akash   Male    Non-veg   0
+2    Akshita Female    Non-veg   0
+3   Anandita Female    Non-veg   0
+4     Ananya Female    Non-veg  20
+5      Ankit   Male    Non-veg   0
+6   Anoushka Female    Non-veg   0
+7      Arnav   Male    Non-veg   0
+8     Arushi Female    Non-veg   0
+9   Ashutosh   Male    Non-veg   0
+10     Asark Female    Non-veg  20
+11   Hardik    Male    Non-veg   0
+12  Ignatius   Male    Non-veg  20
+13  Mahendra   Male    Non-veg  20
+14    Nevaan   Male    Non-veg   0
+15   Nishant   Male    Non-veg  20
+16     Nitya Female    Non-veg   0
+17  Praneeta Female    Non-veg  50
+18 Priyanshu   Male    Non-veg  20
+19     Radha Female    Non-veg  20
+20      Reva Female    Non-veg  20
+21     Rikin   Male    Non-veg  30
+22     Sarah Female    Non-veg   0
+23   Shaivii Female    Non-veg   0
+24    Symran Female    Non-veg  20
+25    Simran Female    Non-veg   0
+26   Sourabh   Male    Non-veg   0
+27    Suhani Female    Non-veg  20
+28    Vedant   Male    Non-veg  20
+29     Vinay   Male    Non-veg   0
+30    Vishnu   Male    Non-veg   0</code></pre>
+</div>
+</div>
+<p>Visualizing the distribution we acquire vs a normal distribution for each group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>( <span class="sc">~</span> Tip,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="sc">~</span> Preferance,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Tip given"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_grid</span>(<span class="sc">~</span> Preferance) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_fitdistr</span>(<span class="at">dist =</span> <span class="st">"dnorm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These graphs don’t seem to suggest that these 2 distributions are normally distributed. Does the shapiro test say the same?</p>
+<section id="for-vegetarians" class="level4">
+<h4 class="anchored" data-anchor-id="for-vegetarians">For Vegetarians:</h4>
+<p>Null hypothesis: The money given as tip by Vegetarians is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Veg<span class="sc">$</span>Tip)<span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic     p.value method                     
+      &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;                      
+1     0.629 0.000000166 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>A high w (statistic) value - one greater than 0.9 indicates that a distribution is normal. With a w value so low : 0.62, we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it’s less than 0.05 which confirms that the w value we received is statistically significant, it did hot happen by chance.</p>
+<p>Therefore, the distribution of tips given by vegetarians are not normally distributed.</p>
+</section>
+<section id="for-non-vegetarians" class="level4">
+<h4 class="anchored" data-anchor-id="for-non-vegetarians">For Non-Vegetarians:</h4>
+<p>Null hypothesis: The money given as tip by Non-Vegetarians is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Non<span class="sc">$</span>Tip)<span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic    p.value method                     
+      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                      
+1     0.717 0.00000275 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>The conclusions of this Shapiro test is similar to the last- a low w which indicates that the distribution is not normally distributed. Though a little more than the the previous one. We confirm this by assessing the p-value of the test: a very low value confirming that this was not by chance.</p>
+<p>Therefore, the distribution of tips given by Non-vegetarians are not normally distributed.</p>
+<p>And so we through out any inferences we pulled from the t test- our assumption has been proven to be false- making it invalid.</p>
+</section>
+</section>
+<section id="mann-whitney-test" class="level3">
+<h3 class="anchored" data-anchor-id="mann-whitney-test">Mann-Whitney Test</h3>
+<p>The Mann-Whitney Test is used to compare two independent groups when the data doesn’t follow a normal distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Tip <span class="sc">~</span> Preferance, <span class="at">data =</span> tips_modified, </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf.int =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact confidence intervals with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+    estimate statistic p.value     conf.low conf.high method         alternative
+       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
+1 -0.0000372       437   0.833 -0.000000989 0.0000335 Wilcoxon rank… two.sided  </code></pre>
+</div>
+</div>
+<p>Okay i have a doubt- The test does not directly indicate which group (variable) has higher values. If i look at my skim or even my estimate1 in t-test, Veg is the first group, I also ordered my levels to be Veg first, so that’s how it works here too? Yep, that’s what I’m going with.</p>
+<ol type="1">
+<li>The estimate mean difference is 3.7rs.</li>
+<li>The p-value is 0.8 (greater than 0.05) suggesting that the estimate result could easily /probably happened by chance, so it’s not considered significant. We therefore, cannot reject the null hypothesis.</li>
+<li>0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggests the same- we cannot reject the null hypothesis.</li>
+</ol>
+<p>I received an error saying “Warning: cannot compute exact p-value with ties Warning: cannot compute exact confidence intervals with ties”. This means that because i have so may repeating values (I’m guessing mainly 0)- there are many values with the same rank and polarity. This could lead to not having a precise p-values and confidence interval result. Therefore, i cannot reject or accept the null hypothesis right away, to make sure, i will go ahead and perform a permutation test to come to a solid inference, one that i cannot question.</p>
+</section>
+<section id="permutation-test" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-test">Permutation Test</h3>
+<p>The permutation test is very flexible and requires minimal assumptions. It doesn’t assume normality or equal variances, making it useful for small or skewed data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>obs_diff_pref <span class="ot">&lt;-</span> <span class="fu">diffmean</span>(Tip <span class="sc">~</span> Preferance, </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> tips_modified) </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>obs_diff_pref</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> diffmean 
+-2.333333 </code></pre>
+</div>
+</div>
+<p>Non-veg mean - Veg mean = -2.3</p>
+<p>In my sample data, vegetarians, on average, give 2.3rs more tip than non-vegetarians.</p>
+<p><strong>Creating the Null Distribution by Permutation</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>null_dist_tips <span class="ot">&lt;-</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="dv">4999</span>) <span class="sc">*</span> <span class="fu">diffmean</span>(<span class="at">data =</span> tips_modified, </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                      Tip <span class="sc">~</span> <span class="fu">shuffle</span>(Preferance))</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">##null_dist_tips , it appears too long when i render it!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Visualizing this:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="at">data =</span> null_dist_tips, <span class="sc">~</span> diffmean, </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> obs_diff_pref, </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"darkred"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">title =</span> <span class="st">"Null Distribution by Permutation"</span>, </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"Histogram"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Difference in Means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Acquiring the p-value:</strong></p>
+<p>The p-value is calculated by comparing the obs_diff_pref (from the actual data) to the null distribution acquired through permutation. It represents the proportion of times a difference as extreme as the observed one occurs by random chance alone.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop1</span>(<span class="sc">~</span> diffmean <span class="sc">&lt;=</span> obs_diff_pref, <span class="at">data =</span> null_dist_tips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>prop_TRUE 
+    0.311 </code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The p-value observed through the permutation test is 0.32. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in case of a higher value like 0.3, we cannot reject the null hypothesis: There is no difference in the tipping behavior between vegetarians and non-vegetarians.</li>
+<li>The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same. The observed mean difference is seen around the middle of our null distribution - I can easily mimic nature here - Nothing special is happening - I cannot reject the null hypothesis.</li>
+</ol>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion:</h3>
+<p>In the assumption that my sample population is a true representation of my population- there appears to be no significant difference in tipping behavior based on dietary preference.</p>
+<hr>
+</section>
+</section>
+<section id="descriptive-analysis-based-on-gender" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis-based-on-gender">Descriptive Analysis (based on gender):</h2>
+<section id="visualizing-tips-faceted-by-gender" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-tips-faceted-by-gender">Visualizing Tips faceted by Gender</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>Tip, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">data =</span> tips_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Tips faceted by Gender"</span>, <span class="at">caption =</span> <span class="st">"ggformula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Tip<span class="sc">|</span>Gender, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tips faceted by Gender"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"ggformula"</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_theme</span>(<span class="fu">theme</span>(</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span> </span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Tip,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Gender,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Money Spent Densities"</span>,</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Males vs Females"</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>If I ignore the outlier for males at 100, from looking the data, i think females tend to tip more than males.</li>
+</ol>
+</section>
+<section id="crosstables-1" class="level3">
+<h3 class="anchored" data-anchor-id="crosstables-1">Crosstables:</h3>
+<p>Does the summation of the data support my hunch?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstable</span>(Tip <span class="sc">~</span> Gender, <span class="at">data =</span> tips_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  crosstable<span class="sc">::</span><span class="fu">as_flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-3fdc01de{table-layout:auto;}.cl-3fd18f2e{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3fd18f38{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3fd5371e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3fd53732{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3fd5569a{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3fd556a4{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3fd556ae{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3fd556af{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3fd556b0{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-3fdc01de"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-3fd5569a"><p class="cl-3fd5371e"><span class="cl-3fd18f2e">label</span></p></th><th rowspan="2" class="cl-3fd5569a"><p class="cl-3fd5371e"><span class="cl-3fd18f2e">variable</span></p></th><th colspan="2" class="cl-3fd556a4"><p class="cl-3fd5371e"><span class="cl-3fd18f2e">Gender</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-3fd556ae"><p class="cl-3fd5371e"><span class="cl-3fd18f2e">Female</span></p></th><th class="cl-3fd556ae"><p class="cl-3fd5371e"><span class="cl-3fd18f2e">Male</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-3fd556af"><p class="cl-3fd53732"><span class="cl-3fd18f38">Tip</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">Min / Max</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">0 / 50.0</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">0 / 100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">Med [IQR]</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">0 [0;20.0]</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">0 [0;20.0]</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">Mean (std)</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">12.2 (16.1)</span></p></td><td class="cl-3fd556b0"><p class="cl-3fd53732"><span class="cl-3fd18f38">10.2 (19.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3fd556af"><p class="cl-3fd53732"><span class="cl-3fd18f38">N (NA)</span></p></td><td class="cl-3fd556af"><p class="cl-3fd53732"><span class="cl-3fd18f38">30 (0)</span></p></td><td class="cl-3fd556af"><p class="cl-3fd53732"><span class="cl-3fd18f38">30 (0)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Visualization of median and IQR ranges:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(Gender <span class="sc">~</span> Tip, <span class="at">fill =</span> <span class="sc">~</span>Gender, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Box plot of Tip filled with Gender"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>50 percent of all tips for both genders lie within the same range 0-20.</li>
+<li>Despite this similarity, the difference in mean by 2 values (which i accept and notice is not too much), the higher value being present for Females, suggest that there are females are more likely to pay more tip than men.</li>
+</ol>
+</section>
+<section id="forming-my-hypothesis-1" class="level3">
+<h3 class="anchored" data-anchor-id="forming-my-hypothesis-1">Forming My Hypothesis:</h3>
+<p>Null Hypothesis: There is no difference in tipping behavior between males and females.</p>
+<p>Alternative Hypothesis: Females tend give larger values as tips than Males.</p>
+</section>
+</section>
+<section id="statistical-analysis-hypothesis-testing-1" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis-hypothesis-testing-1">Statistical Analysis: Hypothesis Testing</h2>
+<section id="a-t-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-t-test-1">A t-test:</h3>
+<p>Assumptions: 1. The distribution for each group - male and female is normal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(Tip <span class="sc">~</span> Gender, <span class="at">data =</span> tips_modified)<span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 10
+  estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1        2      12.2      10.2     0.431   0.668      55.8    -7.29      11.3
+# ℹ 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The estimate suggests that females, on average, give 2rs more tip than males in our sample data set.</li>
+<li>The high p-value of 0.66, greater than the typical significance level of 0.05, suggests that there is no statistically significant difference in the average tip amounts between males and females.The result could just be random, so I don’t have strong evidence that something is happening.</li>
+<li>0- which indicates that there is no difference on the average tip, falls within the confidence interval (-7.2 to 11.9) which suggest the same.</li>
+<li>Therefore we cannot reject the null hypothesis.</li>
+</ol>
+<p>But what if my assumption of the tips being distributed normally is not accurate?</p>
+<p>First we transform our data set to be 2 different ones- one with all the Male values and the other with all the Female values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>filtered_Male <span class="ot">&lt;-</span> tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>filtered_Female <span class="ot">&lt;-</span> tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>filtered_Male</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Gender Preferance Tip
+1       Adit   Male        Veg   0
+2      Akash   Male    Non-veg   0
+3      Ankit   Male    Non-veg   0
+4      Anmol   Male        Veg   0
+5       Anna   Male        Veg   0
+6      Arnav   Male    Non-veg   0
+7   Ashutosh   Male    Non-veg   0
+8       Ayan   Male        Veg   0
+9       Debu   Male        Veg  15
+10   Dheeman   Male        Veg 100
+11   Hardik    Male    Non-veg   0
+12  Ignatius   Male    Non-veg  20
+13  Mahendra   Male    Non-veg  20
+14    Manish   Male        Veg   0
+15    Nevaan   Male    Non-veg   0
+16   Nishant   Male    Non-veg  20
+17      Ojas   Male        Veg  20
+18 Priyanshu   Male    Non-veg  20
+19     Rikin   Male    Non-veg  30
+20  Shashwat   Male        Veg   0
+21     Shiva   Male        Veg   0
+22   Sourabh   Male    Non-veg   0
+23    Srujan   Male        Veg   0
+24    Suhaas   Male        Veg  20
+25     Taran   Male        Veg  20
+26     Varad   Male        Veg   0
+27    Vedant   Male    Non-veg  20
+28     Vinay   Male    Non-veg   0
+29   Vishesh   Male        Veg   0
+30    Vishnu   Male    Non-veg   0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>filtered_Female</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Name Gender Preferance Tip
+1     Aanya Female        Veg   0
+2     Aditi Female        Veg  20
+3   Akshita Female    Non-veg   0
+4  Anandita Female    Non-veg   0
+5    Ananya Female    Non-veg  20
+6     Anaya Female        Veg  35
+7    Anhuya Female        Veg  40
+8  Anoushka Female    Non-veg   0
+9    Arushi Female    Non-veg   0
+10    Asark Female    Non-veg  20
+11     Diya Female        Veg  30
+12   Khushi Female        Veg   0
+13  Kshraja Female        Veg   0
+14    Mahie Female        Veg   0
+15 Nanditha Female        Veg   0
+16    Nidhi Female        Veg   0
+17    Nitya Female    Non-veg   0
+18 Praneeta Female    Non-veg  50
+19    Radha Female    Non-veg  20
+20     Reva Female    Non-veg  20
+21   Sadnya Female        Veg   0
+22  Sanjana Female        Veg   0
+23    Sarah Female    Non-veg   0
+24  Shaivii Female    Non-veg   0
+25   Shreya Female        Veg   0
+26   Symran Female    Non-veg  20
+27   Simran Female    Non-veg   0
+28   Suhani Female    Non-veg  20
+29 Sushmita Female        Veg  20
+30   Zivnya Female        Veg  50</code></pre>
+</div>
+</div>
+<p>Visualizing the distribution we acquire vs a normal distribution for each group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>tips_modified <span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>( <span class="sc">~</span> Tip,</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="sc">~</span> Gender,</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Tip given"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_grid</span>(<span class="sc">~</span> Gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_fitdistr</span>(<span class="at">dist =</span> <span class="st">"dnorm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The data does not seem to be normally distributed. Let’s confirm!</p>
+</section>
+<section id="a-shapiro-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-shapiro-test-1">A Shapiro test:</h3>
+<p>Shapiro test is one used to determine if a sample comes from a normally distributed population or not.</p>
+<section id="for-males" class="level4">
+<h4 class="anchored" data-anchor-id="for-males">For Males:</h4>
+<p>Null hypothesis: The money given as tip by Males is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Male<span class="sc">$</span>Tip)<span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic      p.value method                     
+      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;                      
+1     0.532 0.0000000119 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>With a w value so low : 0.5 (&lt;0.9), we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it’s less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.</p>
+<p>Tips given by males are not normally distributed.</p>
+</section>
+<section id="for-females" class="level4">
+<h4 class="anchored" data-anchor-id="for-females">For Females:</h4>
+<p>Null hypothesis: The money given as tip by Females is normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(filtered_Female<span class="sc">$</span>Tip)<span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic    p.value method                     
+      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                      
+1     0.748 0.00000832 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p>With a w value so low : 0.7 (&lt;0.9), we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it’s less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.</p>
+<p>Tips given by females are not normally distributed.</p>
+</section>
+</section>
+<section id="mann-whitney-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="mann-whitney-test-1">Mann-Whitney Test</h3>
+<p>Since we proved the t-test p-value to be invalid, we can use the Mann-Whitney test to pull inferences. It is used to compare two independent groups when the data doesn’t follow a normal distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Tip <span class="sc">~</span> Gender, <span class="at">data =</span> tips_modified, </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf.int =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact confidence intervals with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+   estimate statistic p.value   conf.low  conf.high method           alternative
+      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      
+1 0.0000445       498   0.422 -0.0000134 0.00000497 Wilcoxon rank s… two.sided  </code></pre>
+</div>
+</div>
+<ol type="1">
+<li>The estimate suggests that females, on average, give 4.446004e-05rs more tip than males.</li>
+<li>The p-value is 0.4(greater than 0.05) suggesting that the estimate result could easily /probably happened by chance, so it’s not considered significant. We therefore, cannot reject the null hypothesis.</li>
+<li>0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggests the same- we cannot reject the null hypothesis.</li>
+</ol>
+<p>I received an error saying “Warning: cannot compute exact p-value with tiesWarning: cannot compute exact confidence intervals with ties”. This means that because i have so may repeating values (I’m guessing mainly 0)- there are many values with the same rank and polarity. This could lead to not having a precise p-values and confidence interval result. Therefore, i cannot reject or accept the null hypothesis right away, to make sure, i will go ahead and perform a permutation test to come to a solid inference, one that i cannot question.</p>
+</section>
+<section id="permutation-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-test-1">Permutation Test</h3>
+<p>The permutation test is very flexible and requires minimal assumptions. It doesn’t assume normality or equal variances, making it useful for small or skewed data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>obs_diff_gender <span class="ot">&lt;-</span> <span class="fu">diffmean</span>(Tip <span class="sc">~</span> Gender, </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> tips_modified) </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>obs_diff_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>diffmean 
+      -2 </code></pre>
+</div>
+</div>
+<p>Male mean - Female mean = -2</p>
+<p>In my sample data, females, on average, give 2rs more tip than males.</p>
+<p><strong>Creating the Null Distribution by Permutation</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>null_dist_tips2 <span class="ot">&lt;-</span> </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="dv">4999</span>) <span class="sc">*</span> <span class="fu">diffmean</span>(<span class="at">data =</span> tips_modified, </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>                      Tip <span class="sc">~</span> <span class="fu">shuffle</span>(Gender))</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="do">##null_dist_tips2 , it appears too long when i render it!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Visualizing this:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="at">data =</span> null_dist_tips2, <span class="sc">~</span> diffmean, </span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> obs_diff_gender, </span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"darkred"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">title =</span> <span class="st">"Null Distribution by Permutation"</span>, </span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"Histogram"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Difference in Means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Acquiring the p-value:</strong></p>
+<p>The p-value is calculated by comparing the obs_diff_gender (from the actual data) to the null distribution acquired through permutation. It represents the proportion of times a difference as extreme as the observed one occurs by random chance alone.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop1</span>(<span class="sc">~</span> diffmean <span class="sc">&lt;=</span> obs_diff_gender, <span class="at">data =</span> null_dist_tips2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>prop_TRUE 
+   0.3574 </code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The p-value observed through the permutation test is 0.35. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in case of a higher value like 0.3, we cannot reject the null hypothesis: There is no difference in the tipping behavior between male and female students .</li>
+<li>The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same. The observed mean difference is observed around the middle of our null distribution - I can easily mimic nature here - Nothing special is happening - I cannot reject the null hypothesis.</li>
+</ol>
+</section>
+<section id="conclusion-1" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-1">Conclusion:</h3>
+<p>In the assumption that my sample population is a true representation of my population-there appears to be no significant difference in tipping behavior based on gender.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

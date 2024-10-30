@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sneha Manu Jacob">
+<meta name="dcterms.date" content="2024-10-26">
+
+<title>Experiment 3 – Sneha’s Data Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="../../site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sneha’s Data Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Experiment 3</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">A3</div>
+                <div class="quarto-category">Grades?</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sneha Manu Jacob </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 26, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'mosaic':
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+
+The 'mosaic' package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+
+Attaching package: 'mosaic'
+
+The following object is masked from 'package:Matrix':
+
+    mean
+
+The following objects are masked from 'package:dplyr':
+
+    count, do, tally
+
+The following object is masked from 'package:purrr':
+
+    cross
+
+The following object is masked from 'package:ggplot2':
+
+    stat
+
+The following objects are masked from 'package:stats':
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+
+The following objects are masked from 'package:base':
+
+    max, mean, min, prod, range, sample, sum</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'skimr'
+
+The following object is masked from 'package:mosaic':
+
+    n_missing</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(crosstable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'crosstable'
+
+The following object is masked from 'package:purrr':
+
+    compact</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'infer'
+
+The following objects are masked from 'package:mosaic':
+
+    prop_test, t_test</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggprism)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(supernova) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="defining-the-research-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-research-experiment">Defining the Research Experiment:</h2>
+<p>Goal of the Experiment: The purpose of this experiment is to evaluate whether there are significant differences in grades between students enrolled in different degree programs at Srishti School of Art, Design and Technology. There are 3 kinds of degrees offered: B.Voc, B.FA, and B.Des. By collecting and analyzing grade data from multiple disciplines, you aim to understand potential academic performance patterns or disparities associated with each program.</p>
+<section id="methodology" class="level3">
+<h3 class="anchored" data-anchor-id="methodology"><strong>Methodology</strong></h3>
+<p><strong>Sampling</strong>: The population consists of all students that are currently studying in Srishti. The sample population is a randomly chosen group of students ensuring a hopefully balanced set of participants that is a true representation of the population.The students were asked what the first Contextual Enquiry mark they got is, in the academic year 2024-2025 is.</p>
+<p>Method Followed- To ensure a lack of bias, a coin was tossed to even determine if data would be collected from a person or not. This lead to random sampling ensure diversity in age, year of study, and socioeconomic background.</p>
+<p>Sample Size: We had a total of 90 participants 30 B.Des and 30 B.Voc and 30 B.FA.</p>
+<p><strong>Why could knowing this be useful?</strong></p>
+<ol type="1">
+<li>If certain degrees consistently lower grades, it may reveal the need for additional academic support or resources.</li>
+<li>Insights from this data can help academic advisors understand potential challenges in different programs, aiding students</li>
+<li>Identifying patterns may stimulate discussions on grading consistency across departments, contributing to equitable academic practices.</li>
+</ol>
+</section>
+<section id="reading-and-analyzing-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="reading-and-analyzing-the-data">Reading and Analyzing the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>grades_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../../data/Grades.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>grades_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   SN Degree Course Year Letter.Grade Score Gender
+1   1  B.Des    CAC    2            A   8.0      F
+2   2  B.Des    CAC    2            O   9.6      F
+3   3  B.Des   IADP    2           A+   9.2      F
+4   4  B.Des     CE    2            O   9.8      F
+5   5  B.Des   BSSD    2            P   3.0      M
+6   6  B.Des    CAC    2            O   9.5      F
+7   7  B.Des    PSD    2           A+   9.0      F
+8   8  B.Des    PSD    2           A+   9.0      F
+9   9  B.Des    PSD    2           A+   9.0      F
+10 10  B.Des   BSSD    3           A+   9.0      F
+11 11  B.Des   VCSB    2            A   8.0      F
+12 12  B.Des   VCSB    2            A   8.0      F
+13 13  B.Des  IAIDP    3            A   8.0      M
+14 14  B.Des  IAIDP    3           B+   7.0      M
+15 15  B.Des   VCSB    2           B+   7.0      F
+16 16  B.Des    HCD    3           A+   9.0      M
+17 17  B.Des    CAC    3           A+   9.1      F
+18 18  B.Des   VCSB    2            A   8.0      M
+19 19  B.Des     CE    2           A+   9.0      F
+20 20  B.Des    CAC    2           A+   9.0      M
+21 21  B.Des   IADP    2            A   8.0      F
+22 22  B.Des   IADP    3           B+   7.0      M
+23 23  B.Des   VCSB    3           A+   9.0      F
+24 24  B.Des     CE    2            O  10.0      F
+25 25  B.Des    CAC    3           A+   9.0      F
+26 26  B.Des    CAC    3           A+   9.0      F
+27 27  B.Des    PSD    3           B+   7.0      F
+28 28  B.Des    PSD    3            A   8.0      F
+29 29  B.Des    CAC    2           A+   9.0      F
+30 30  B.Des    HCD    2            A   8.0      F
+31 31  B.Voc   UIID    3            O   9.5      F
+32 32  B.Voc   UIID    3           A+   9.0      F
+33 33  B.Voc   UIID    3           A+   9.0      M
+34 34  B.Voc   UIID    3           B+   7.0      M
+35 35  B.Voc   UIID    3            A   8.0      F
+36 36  B.Voc   UIID    3            A   8.0      F
+37 37  B.Voc     ID    3           B+   7.0      M
+38 38  B.Voc    DMP    3            O   9.5      M
+39 39  B.Voc    DMP    3            B   6.5      M
+40 40  B.Voc    DMP    3            O   9.5      M
+41 41  B.Voc    DMP    3            O   9.5      M
+42 42  B.Voc    DMP    3           A+   9.0      M
+43 43  B.Voc    DMP    3            O   9.5      F
+44 44  B.Voc    DMP    3            O   9.5      F
+45 45  B.Voc    DMP    3            B   6.5      F
+46 46  B.Voc    DMP    3            C   5.0      M
+47 47  B.Voc   UIID    1           A+   9.0      M
+48 48  B.Voc   UIID    1            B   7.0      F
+49 49  B.Voc   UIID    1            B   7.0      F
+50 50  B.Voc   UIID    1            A   8.0      F
+51 51  B.Voc   UIID    1            A   8.0      F
+52 52  B.Voc   UIID    1           A+   9.0      F
+53 53  B.Voc   UIID    2            A   8.0      M
+54 54  B.Voc   GADP    1            A   8.0      F
+55 55  B.Voc   GADP    2            A   8.0      M
+56 56  B.Voc   Film    3            A   8.0      M
+57 57  B.Voc   GADP    3           A+   9.0      F
+58 58  B.Voc   GADP    3           A+   9.0      F
+59 59  B.Voc    DMP    2            A   8.0      M
+60 60  B.Voc    DMP    2            A   8.0      M
+61 61   B.FA    CAP    3            A   8.0      F
+62 62   B.FA    CAP    3           A+   9.0      M
+63 63   B.FA    CAP    3           A+   9.0      F
+64 64   B.FA    DMA    2           A+   8.5      M
+65 65   B.FA    DMA    2            A   8.0      M
+66 66   B.FA    DMA    2            A   8.0      F
+67 67   B.FA    CAP    2            A   8.0      F
+68 68   B.FA    CAP    2           A+   8.0      F
+69 69   B.FA   Film    3            B   6.0      M
+70 70   B.FA    DMA    2            A   8.0      F
+71 71   B.FA    DMA    2           B+   7.0      F
+72 72   B.FA    DMA    2           B+   7.0      F
+73 73   B.FA    DMA    2            A   8.0      F
+74 74   B.FA    DMA    2           B+   7.0      F
+75 75   B.FA    DMA    2            B   6.0      M
+76 76   B.FA   Film    3            A   8.0      M
+77 77   B.FA   Film    3            A   8.0      M
+78 78   B.FA    DMA    2            A   8.0      M
+79 79   B.FA    DMA    2            A   8.0      M
+80 80   B.FA    DMA    2           B+   7.0      F
+81 81   B.FA    DMA    2           B+   7.0      F
+82 82   B.FA   Film    2            A   8.0      F
+83 83   B.FA   Film    3           B+   7.0      F
+84 84   B.FA    DMA    2           A+   9.0      F
+85 85   B.FA    DMA    2            A   8.0      M
+86 86   B.FA    DMA    2           B+   7.0      F
+87 87   B.FA    DMA    2           B+   7.0      F
+88 88   B.FA    DMA    2           B+   7.0      M
+89 89   B.FA    DMA    2           B+   7.0      F
+90 90   B.FA    DMA    2           B+   7.0      F</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(grades_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 90
+Columns: 7
+$ SN           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
+$ Degree       &lt;chr&gt; "B.Des", "B.Des", "B.Des", "B.Des", "B.Des", "B.Des", "B.…
+$ Course       &lt;chr&gt; "CAC", "CAC", "IADP", "CE", "BSSD", "CAC", "PSD", "PSD", …
+$ Year         &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 3, 2, 3, 3, 2, 2, …
+$ Letter.Grade &lt;chr&gt; "A", "O", "A+", "O", "P", "O", "A+", "A+", "A+", "A+", "A…
+$ Score        &lt;dbl&gt; 8.0, 9.6, 9.2, 9.8, 3.0, 9.5, 9.0, 9.0, 9.0, 9.0, 8.0, 8.…
+$ Gender       &lt;chr&gt; "F", "F", "F", "F", "M", "F", "F", "F", "F", "F", "F", "F…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(grades_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">grades_data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degree</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Letter.Grade</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SN</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">45.50</td>
+<td style="text-align: right;">26.12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">23.25</td>
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">67.75</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.33</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▁▁▇▁▆</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Score</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.06</td>
+<td style="text-align: right;">1.13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">▁▁▆▇▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="defining-the-data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-data-dictionary">Defining the Data Dictionary:</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Description</th>
+<th>Type of variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Degree</td>
+<td>The name of degree the student is studying for</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Course</td>
+<td>The specific field of study or program the student is enrolled in within their degrees</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>Letter.Grade</td>
+<td>The grade assigned to a student in letter format</td>
+<td>Qualitative</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td>The gender of the student</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>SN</td>
+<td>A unique identifier for each record or student entry in the data-set</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Year</td>
+<td>Are they a 1st year, 2nd year or 3rd year student?</td>
+<td>Qualitative</td>
+</tr>
+<tr class="odd">
+<td>Score</td>
+<td>The numerical grade earned by the student in their first CE on academic year 2024-2025, says the same thing as Letter grade but in a more accurate and precise manner</td>
+<td>Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>SN and letter grade are not a required column.</li>
+<li>Degree, year and and Gender need to be transformed into factors</li>
+<li>Are there too many levels on Course for it to be a factor? Maybe if do find a statistical difference in how different degrees are graded, for the one with the highest, I can find out if there is a course wise difference too?</li>
+</ol>
+</section>
+<section id="transforming-and-inspecting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-and-inspecting-the-data">Transforming and inspecting the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="ot">&lt;-</span> grades_data <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">as_factor</span>(Gender),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> <span class="fu">factor</span>(Year,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"2"</span>,<span class="st">"3"</span>),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"2"</span>,<span class="st">"3"</span>),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Degree =</span> <span class="fu">as_factor</span>(Degree),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Course =</span> <span class="fu">as_factor</span>(Course)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Degree , Course, Year, Gender, Score)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>grades_modified</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Degree Course Year Gender Score
+1   B.Des    CAC    2      F   8.0
+2   B.Des    CAC    2      F   9.6
+3   B.Des   IADP    2      F   9.2
+4   B.Des     CE    2      F   9.8
+5   B.Des   BSSD    2      M   3.0
+6   B.Des    CAC    2      F   9.5
+7   B.Des    PSD    2      F   9.0
+8   B.Des    PSD    2      F   9.0
+9   B.Des    PSD    2      F   9.0
+10  B.Des   BSSD    3      F   9.0
+11  B.Des   VCSB    2      F   8.0
+12  B.Des   VCSB    2      F   8.0
+13  B.Des  IAIDP    3      M   8.0
+14  B.Des  IAIDP    3      M   7.0
+15  B.Des   VCSB    2      F   7.0
+16  B.Des    HCD    3      M   9.0
+17  B.Des    CAC    3      F   9.1
+18  B.Des   VCSB    2      M   8.0
+19  B.Des     CE    2      F   9.0
+20  B.Des    CAC    2      M   9.0
+21  B.Des   IADP    2      F   8.0
+22  B.Des   IADP    3      M   7.0
+23  B.Des   VCSB    3      F   9.0
+24  B.Des     CE    2      F  10.0
+25  B.Des    CAC    3      F   9.0
+26  B.Des    CAC    3      F   9.0
+27  B.Des    PSD    3      F   7.0
+28  B.Des    PSD    3      F   8.0
+29  B.Des    CAC    2      F   9.0
+30  B.Des    HCD    2      F   8.0
+31  B.Voc   UIID    3      F   9.5
+32  B.Voc   UIID    3      F   9.0
+33  B.Voc   UIID    3      M   9.0
+34  B.Voc   UIID    3      M   7.0
+35  B.Voc   UIID    3      F   8.0
+36  B.Voc   UIID    3      F   8.0
+37  B.Voc     ID    3      M   7.0
+38  B.Voc    DMP    3      M   9.5
+39  B.Voc    DMP    3      M   6.5
+40  B.Voc    DMP    3      M   9.5
+41  B.Voc    DMP    3      M   9.5
+42  B.Voc    DMP    3      M   9.0
+43  B.Voc    DMP    3      F   9.5
+44  B.Voc    DMP    3      F   9.5
+45  B.Voc    DMP    3      F   6.5
+46  B.Voc    DMP    3      M   5.0
+47  B.Voc   UIID    1      M   9.0
+48  B.Voc   UIID    1      F   7.0
+49  B.Voc   UIID    1      F   7.0
+50  B.Voc   UIID    1      F   8.0
+51  B.Voc   UIID    1      F   8.0
+52  B.Voc   UIID    1      F   9.0
+53  B.Voc   UIID    2      M   8.0
+54  B.Voc   GADP    1      F   8.0
+55  B.Voc   GADP    2      M   8.0
+56  B.Voc   Film    3      M   8.0
+57  B.Voc   GADP    3      F   9.0
+58  B.Voc   GADP    3      F   9.0
+59  B.Voc    DMP    2      M   8.0
+60  B.Voc    DMP    2      M   8.0
+61   B.FA    CAP    3      F   8.0
+62   B.FA    CAP    3      M   9.0
+63   B.FA    CAP    3      F   9.0
+64   B.FA    DMA    2      M   8.5
+65   B.FA    DMA    2      M   8.0
+66   B.FA    DMA    2      F   8.0
+67   B.FA    CAP    2      F   8.0
+68   B.FA    CAP    2      F   8.0
+69   B.FA   Film    3      M   6.0
+70   B.FA    DMA    2      F   8.0
+71   B.FA    DMA    2      F   7.0
+72   B.FA    DMA    2      F   7.0
+73   B.FA    DMA    2      F   8.0
+74   B.FA    DMA    2      F   7.0
+75   B.FA    DMA    2      M   6.0
+76   B.FA   Film    3      M   8.0
+77   B.FA   Film    3      M   8.0
+78   B.FA    DMA    2      M   8.0
+79   B.FA    DMA    2      M   8.0
+80   B.FA    DMA    2      F   7.0
+81   B.FA    DMA    2      F   7.0
+82   B.FA   Film    2      F   8.0
+83   B.FA   Film    3      F   7.0
+84   B.FA    DMA    2      F   9.0
+85   B.FA    DMA    2      M   8.0
+86   B.FA    DMA    2      F   7.0
+87   B.FA    DMA    2      F   7.0
+88   B.FA    DMA    2      M   7.0
+89   B.FA    DMA    2      F   7.0
+90   B.FA    DMA    2      F   7.0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis">Descriptive Analysis:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(grades_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 90
+Columns: 5
+$ Degree &lt;fct&gt; B.Des, B.Des, B.Des, B.Des, B.Des, B.Des, B.Des, B.Des, B.Des, …
+$ Course &lt;fct&gt; CAC, CAC, IADP, CE, BSSD, CAC, PSD, PSD, PSD, BSSD, VCSB, VCSB,…
+$ Year   &lt;ord&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, …
+$ Gender &lt;fct&gt; F, F, F, F, M, F, F, F, F, F, F, F, M, M, F, M, F, M, F, M, F, …
+$ Score  &lt;dbl&gt; 8.0, 9.6, 9.2, 9.8, 3.0, 9.5, 9.0, 9.0, 9.0, 9.0, 8.0, 8.0, 8.0…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(grades_modified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">grades_modified</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degree</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">B.D: 30, B.V: 30, B.F: 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">DMA: 20, UII: 13, DMP: 11, CAC: 8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">2: 46, 3: 37, 1: 7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">F: 57, M: 33</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Score</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.06</td>
+<td style="text-align: right;">1.13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">▁▁▆▇▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>I have an unequal count of levels of genders and Years and although this doesn’t prevent me from testing for significant differences, the statistical power of the tests might be affected, especially if one group is very small compared to the other, which is how it is in both cases. I think it would have been fine if i was looking to find the proportions but since that is not my focus, I think I’ll stick to trying to find if there are significant differences in grades between students enrolled in different degree programs.</li>
+<li>The lowest grade obtained seems to be 3 while the highest seems to be 10. The mean value is 8.03 which suggests that the distribution of all scores together is left skewed.</li>
+</ol>
+<section id="summaries-and-visualizations-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="summaries-and-visualizations-of-the-data">Summaries and Visualizations of the data</h3>
+<p><strong>Distribution of overall grades:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The distribution seems to be kind of normal expect for an outlier at 3?</li>
+<li>The most common grade obtained is 8.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>Score, <span class="at">fill =</span> <span class="sc">~</span>Degree, <span class="at">data =</span> grades_modified, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Grades faceted by Degree"</span>, <span class="at">caption =</span> <span class="st">"ggformula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Score<span class="sc">|</span>Degree, <span class="at">fill =</span> <span class="sc">~</span>Degree, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Grades faceted by Degree"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"ggformula"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_theme</span>(<span class="fu">theme</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span> </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Score,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Degree,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Grades Densities by Degrees "</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"B.Des vs B.Voc us B.FA"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The plot suggests that B.Des students might have more high scores (8 and above) compared to B.FA and B.Voc students.</li>
+<li>The B.FA program has a wider distribution, with students scoring from as low as 5 to as high as 9.7. The other programs (B.Des and B.Voc) show a denser concentration in the higher score range, with fewer students scoring below 6.</li>
+<li>The spread and shape differences across these distributions suggest possible variations in grading patterns or student performance across programs.</li>
+</ol>
+<section id="crosstables" class="level4">
+<h4 class="anchored" data-anchor-id="crosstables">Crosstables:</h4>
+<p>Trying to find the difference in means and medians of grades obtained degree vise within the sample population to get a better understanding of what the data is saying.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstable</span>(Score <span class="sc">~</span> Degree, <span class="at">data =</span> grades_modified) <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  crosstable<span class="sc">::</span><span class="fu">as_flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-73f3b3dc{table-layout:auto;}.cl-73e77f7c{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-73e77f9a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-73eba5c0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-73eba5ca{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-73ebdb30{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-73ebdb3a{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-73ebdb3b{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-73ebdb44{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-73ebdb45{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-73f3b3dc"><thead><tr style="overflow-wrap:break-word;"><th rowspan="2" class="cl-73ebdb30"><p class="cl-73eba5c0"><span class="cl-73e77f7c">label</span></p></th><th rowspan="2" class="cl-73ebdb30"><p class="cl-73eba5c0"><span class="cl-73e77f7c">variable</span></p></th><th colspan="3" class="cl-73ebdb3a"><p class="cl-73eba5c0"><span class="cl-73e77f7c">Degree</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-73ebdb3b"><p class="cl-73eba5c0"><span class="cl-73e77f7c">B.Des</span></p></th><th class="cl-73ebdb3b"><p class="cl-73eba5c0"><span class="cl-73e77f7c">B.Voc</span></p></th><th class="cl-73ebdb3b"><p class="cl-73eba5c0"><span class="cl-73e77f7c">B.FA</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-73ebdb44"><p class="cl-73eba5ca"><span class="cl-73e77f9a">Score</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">Min / Max</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">3.0 / 10.0</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">5.0 / 9.5</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">6.0 / 9.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">Med [IQR]</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">9.0 [8.0;9.0]</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">8.0 [8.0;9.0]</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">8.0 [7.0;8.0]</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">Mean (std)</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">8.4 (1.3)</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">8.2 (1.1)</span></p></td><td class="cl-73ebdb45"><p class="cl-73eba5ca"><span class="cl-73e77f9a">7.6 (0.8)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-73ebdb44"><p class="cl-73eba5ca"><span class="cl-73e77f9a">N (NA)</span></p></td><td class="cl-73ebdb44"><p class="cl-73eba5ca"><span class="cl-73e77f9a">30 (0)</span></p></td><td class="cl-73ebdb44"><p class="cl-73eba5ca"><span class="cl-73e77f9a">30 (0)</span></p></td><td class="cl-73ebdb44"><p class="cl-73eba5ca"><span class="cl-73e77f9a">30 (0)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The mean values indicate that B.Des students, on average, have higher scores, followed by B.Voc and then B.FA.</li>
+<li>The Standard deviation suggests that B.FA has the lowest variability in scores while B.Des has the most.</li>
+</ol>
+<p><strong>Visualizing the median and IQR through a box plot to better understand it.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_boxplot</span>(Degree <span class="sc">~</span> Score, <span class="at">fill =</span> <span class="sc">~</span>Degree, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Box plot of Scores by Degree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The median tip for 2 groups B.Voc and B.FA are 8, Indicating half the participants got more than 8 and half got less than 8. But their IQR ranges are different. B.FA is 7.0-8.0 while B.Voc is 8.0;9.0 which indicated that even through their medians are the same, B.Voc students tend to get more scores among the 2?</li>
+<li>B.Des has a higher median, indicating overall higher scores compared to the other two groups.There is an outlier in B.Des with a score below 4, which likely represents an unusually low performance in this group.</li>
+<li>The IQR ranges of B.Voc and B.Des overlap perfectly with each other. Therefore 50 percent of all grades obtained by there 2 groups are in the same small range. In this case, is there really a significant enough difference in the grades obtained by the 2 groups?</li>
+</ol>
+<p><strong>Hypothesis:</strong></p>
+<p>Null Hypothesis: There is no differences in grades among students enrolled in different degree programs.</p>
+<p>Alternative Hypothesis: B.FA students tend get lower grades than students studying for other degrees. / <em>Is there a difference in scores achieved by B.Des and B.Voc? I don’t think there would be one significant enough looking at the descriptive analysis</em></p>
+<p>We can reasonably hypothesize that there is a difference in scores based on degree, but is this difference statistically significant? We can use ANOVA for a pair-wise comparison and find out!</p>
+</section>
+</section>
+</section>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
+<section id="anova" class="level3">
+<h3 class="anchored" data-anchor-id="anova">ANOVA:</h3>
+<p>Assumptions: 1. Data (and standard errors) are normally distributed. 2. Variances between all groups (B.Des, B.FA and B.Voc) are equal. 3. Observations are independent.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>grades_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(Score <span class="sc">~</span> Degree, <span class="at">data =</span> grades_modified) </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>grades_supernova <span class="ot">&lt;-</span> supernova<span class="sc">::</span><span class="fu">pairwise</span>(grades_anova,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">correction =</span> <span class="st">"Bonferroni"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="co"># 95% CI calculation</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_equal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>grades_supernova</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Pairwise t-tests with Bonferroni correction ─────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Model: Score ~ Degree</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Degree</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Levels: 3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Family-wise error-rate: 0.049</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  group_1 group_2   diff pooled_se      t    df  lower  upper  p_adj
+  &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 B.Voc   B.Des   -0.173     0.201 -0.864    87 -0.607  0.261 1.0000
+2 B.FA    B.Des   -0.757     0.201 -3.770    87 -1.191 -0.323  .0009
+3 B.FA    B.Voc   -0.583     0.201 -2.906    87 -1.017 -0.149  .0139</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>The confidence interval for the difference between B.Voc and B.Des includes zero, meaning we cannot conclude to state there is a significant difference in scores between the two. This is supported by the p_adj value of the comparison of these group- 1.00, which suggests that there is no statistically significant difference between the 2 groups, the result we see could be by chance.</li>
+<li>The confidence interval between B.FA - B.Des and B.FA - B.Voc so no straddle 0 which suggests that there is a statistically significant difference in the mean grades received between B.FA and both groups. This is supported by the p-adj values obtained which are both below 0.05.</li>
+<li>The computed difference in means are -0.757 and -0.583. This suggests that B.Des students, on average, get 0.75 points more than B.FA students and B.Voc students, on average, get 0.58 points more than B.FA students. The effect is larger for the comparison between B.FA and B.Des compared to B.FA and B.Voc.</li>
+<li>Could any other factor like Year or Course (like too many first years who are still figuring out the ropes compared to the data collected for other degrees) be the reason for the “evidently” lower grades obtained by B.FA students?</li>
+</ol>
+<p>What if any of my assumptions about the data/groups that wrong? They are crucial to the accuracy of ANOVA! I’ll confirm just to be sure!</p>
+<section id="test-for-normality" class="level4">
+<h4 class="anchored" data-anchor-id="test-for-normality">Test for Normality:</h4>
+<p>The null hypothesis: All 3 distributions of grades are normal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> grades_modified<span class="sc">$</span>Score) <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  statistic     p.value method                     
+      &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;                      
+1     0.885 0.000000920 Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>Although the static value (w) is high- 0.88, it’s not high enough to suggest that the we can accept the null hypothesis. Quite the opposite actually, we reject the null hypothesis.</li>
+<li>Science the p-value is less than 0.05, we reject the null hypothesis that the data follows a normal distribution. It’s much smaller than 0.05, indicating that the data significantly deviates from a normal distribution.</li>
+</ol>
+<p><strong>Faceted by Groups</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Degree) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_modify</span>(<span class="sc">~</span> .x <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Score) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_vector</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shapiro.test</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+# Groups:   Degree [3]
+  Degree statistic   p.value method                     
+  &lt;fct&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                      
+1 B.Des      0.753 0.0000101 Shapiro-Wilk normality test
+2 B.Voc      0.887 0.00418   Shapiro-Wilk normality test
+3 B.FA       0.875 0.00211   Shapiro-Wilk normality test</code></pre>
+</div>
+</div>
+<p><strong>Visualizing this:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>( <span class="sc">~</span> Score,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="sc">~</span> Degree,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Score of different degrees vs normal distribution"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_grid</span>(<span class="sc">~</span> Degree) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_fitdistr</span>(<span class="at">dist =</span> <span class="st">"dnorm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<p>Unsurprisingly, non of the 3 groups are normally distributed. All of them have low w values and really low o-values that indicate that we must reject the null hypothesis- they are not normally distributed.</p>
+<p>This already makes the inferences we got out of anova invalid. We must use permutation to come to a solid conclusion. But before that, just for kicks, let’s check if the variances within all groups are the same/ similar values.</p>
+</section>
+<section id="test-for-variance" class="level4">
+<h4 class="anchored" data-anchor-id="test-for-variance">Test for Variance:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Degree) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">variance =</span> <span class="fu">var</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Degree variance
+  &lt;fct&gt;     &lt;dbl&gt;
+1 B.Des     1.74 
+2 B.Voc     1.27 
+3 B.FA      0.615</code></pre>
+</div>
+</div>
+<p>As I has pointed out earlier in the observations of the density graphs, B.Des has the most variance with a value of 1.7 with B.FA with the least- 0.6.</p>
+<p>Since our data is not normally distributed, i can use the fligner test to test the homogeneity of variances.</p>
+<p>Null hypothesis: The variances between the groups are similar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Score <span class="sc">~</span> Degree, <span class="at">data =</span> grades_modified)<span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  statistic p.value parameter method                                          
+      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                           
+1      2.27   0.321         2 Fligner-Killeen test of homogeneity of variances</code></pre>
+</div>
+</div>
+<p>Since the p-value is not below 0.05, we cannot reject the null hypothesis of equal variances. This suggests that there is no significant difference in variances between the groups, meaning the assumption of homogeneity of variances is likely satisfied- the data do not have significantly different variances.</p>
+</section>
+</section>
+<section id="anova-using-permutation-tests" class="level3">
+<h3 class="anchored" data-anchor-id="anova-using-permutation-tests">ANOVA using Permutation Tests</h3>
+<p>Permutation tests are distribution-free, meaning they don’t rely on specific assumptions about the underlying data distribution, including normality and homogeneity of variances, even though we did reject the assumption of similar variances like we did the normality.</p>
+<p>We want to see if the Grades depends on Degree or if any differences we observe could just be random. The F statistic is a number that tells us how much variation there is between groups (based on degree levels) compared to the variation within each group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>observed_infer <span class="ot">&lt;-</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(Score <span class="sc">~</span> Degree) <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"F"</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>observed_infer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Score (numeric)
+Explanatory: Degree (factor)
+Null Hypothesis: independence
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  3.90</code></pre>
+</div>
+</div>
+<p><strong>Observations</strong></p>
+<ol type="1">
+<li>Null Hypothesis (independence): There is no statistically significant difference between grades obtained by people studying for different degrees.</li>
+<li>We see that the observed F-Statistic is 3.900206 which is a high value that suggests that that differences between group means are larger relative to the variation within each group. When the variation within each group is small, but the means are far apart, there is less overlap between the groups, making them more distinct from each other. In simple terms it represents the observed variability in scores among different degrees.</li>
+</ol>
+<p><strong>The null distribution of f-values obtained by permutation</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>null_dist_infer <span class="ot">&lt;-</span> grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(Score <span class="sc">~</span> Degree) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">4999</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"F"</span>)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>null_dist_infer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Score (numeric)
+Explanatory: Degree (factor)
+Null Hypothesis: independence
+# A tibble: 4,999 × 2
+   replicate   stat
+       &lt;int&gt;  &lt;dbl&gt;
+ 1         1 0.130 
+ 2         2 0.478 
+ 3         3 1.73  
+ 4         4 1.71  
+ 5         5 0.315 
+ 6         6 0.0717
+ 7         7 1.82  
+ 8         8 0.318 
+ 9         9 0.102 
+10        10 0.227 
+# ℹ 4,989 more rows</code></pre>
+</div>
+</div>
+<p><strong>Visualizing the presence of observed f value in the null distribution</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>null_dist_infer <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>(<span class="at">method =</span> <span class="st">"simulation"</span>) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> observed_infer<span class="sc">$</span>stat, <span class="at">direction =</span> <span class="st">"right"</span>) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="dv">500</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_logticks</span>(<span class="at">outside =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in transformation$transform(x): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in scale_x_continuous(trans = "log10", expand = c(0, 0)): log-10
+transformation introduced infinite values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> null_dist_infer <span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">p_value =</span> <span class="fu">mean</span>(stat <span class="sc">&gt;=</span> observed_infer<span class="sc">$</span>stat))</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  p_value
+    &lt;dbl&gt;
+1  0.0258</code></pre>
+</div>
+</div>
+<p><strong>Observations:</strong></p>
+<ol type="1">
+<li>A p-value of 0.019 indicates that there’s only a 1.9% chance of obtaining this result if there were no effect of Degree on Score. With it being so low a value, we can reject the null hypothesis that there is no difference in the grades obtained by students studying for different degrees.</li>
+<li>Scores therefore differ significantly by degree but the permutation test evaluates the variability in scores across all groups combined.</li>
+<li>The results of the permutation suggests that there’s a significant difference among groups, not which specific degrees have higher or lower scores. How do i find this out? Is it just by believing the observed means?</li>
+</ol>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion:</h3>
+<p>With the permutation test of Anova I was able to conclude that there scores do in fact differ significantly by degree. Taking into account my descriptive analysis of the data, I can positively say that my alternative hypothesis is right- There is a difference in the way B.FA students are graded compared to students in other degrees (B.Des and B.Voc) - They tend to get lower grades. I cannot come to a conclusion regarding it’s status of being statistical significant- because from what I understand, there permutation test shows a low p-value even if there is a statistically significant difference between 2 groups.</p>
+<p>Is there another test i can do to find this?</p>
+<hr>
+<p>Among courses (departments) within B.FA, we can try and find if there is a significant difference in grades received by by any of the groups. Within B.FA, is there a course receiving more or less grades than others and is this difference statistically significant- is it something that happened by chance or not.</p>
+</section>
+</section>
+<section id="descriptive-analysis-1" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis-1">Descriptive analysis</h2>
+<section id="filtering-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-the-data">Filtering the data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>filtered_FA <span class="ot">&lt;-</span> grades_modified <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Degree <span class="sc">==</span> <span class="st">"B.FA"</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>filtered_FA </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Degree Course Year Gender Score
+1    B.FA    CAP    3      F   8.0
+2    B.FA    CAP    3      M   9.0
+3    B.FA    CAP    3      F   9.0
+4    B.FA    DMA    2      M   8.5
+5    B.FA    DMA    2      M   8.0
+6    B.FA    DMA    2      F   8.0
+7    B.FA    CAP    2      F   8.0
+8    B.FA    CAP    2      F   8.0
+9    B.FA   Film    3      M   6.0
+10   B.FA    DMA    2      F   8.0
+11   B.FA    DMA    2      F   7.0
+12   B.FA    DMA    2      F   7.0
+13   B.FA    DMA    2      F   8.0
+14   B.FA    DMA    2      F   7.0
+15   B.FA    DMA    2      M   6.0
+16   B.FA   Film    3      M   8.0
+17   B.FA   Film    3      M   8.0
+18   B.FA    DMA    2      M   8.0
+19   B.FA    DMA    2      M   8.0
+20   B.FA    DMA    2      F   7.0
+21   B.FA    DMA    2      F   7.0
+22   B.FA   Film    2      F   8.0
+23   B.FA   Film    3      F   7.0
+24   B.FA    DMA    2      F   9.0
+25   B.FA    DMA    2      M   8.0
+26   B.FA    DMA    2      F   7.0
+27   B.FA    DMA    2      F   7.0
+28   B.FA    DMA    2      M   7.0
+29   B.FA    DMA    2      F   7.0
+30   B.FA    DMA    2      F   7.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(filtered_FA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 30
+Columns: 5
+$ Degree &lt;fct&gt; B.FA, B.FA, B.FA, B.FA, B.FA, B.FA, B.FA, B.FA, B.FA, B.FA, B.F…
+$ Course &lt;fct&gt; CAP, CAP, CAP, DMA, DMA, DMA, CAP, CAP, Film, DMA, DMA, DMA, DM…
+$ Year   &lt;ord&gt; 3, 3, 3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, …
+$ Gender &lt;fct&gt; F, M, F, M, M, F, F, F, M, F, F, F, F, F, M, M, M, M, M, F, F, …
+$ Score  &lt;dbl&gt; 8.0, 9.0, 9.0, 8.5, 8.0, 8.0, 8.0, 8.0, 6.0, 8.0, 7.0, 7.0, 8.0…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(filtered_FA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">filtered_FA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degree</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">B.F: 30, B.D: 0, B.V: 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">DMA: 20, Fil: 5, CAP: 5, CAC: 0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">2: 23, 3: 7, 1: 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">F: 19, M: 11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Score</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.62</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">▁▇▁▇▂</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>There are 3 courses: DMA, Film and CAP.</p>
+<p>What is the count of each of these courses? We will not be able to do an accurate analysis of the data id there is too little or too large of data for any Course.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>filtered_FA <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Course) <span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Course count
+  &lt;fct&gt;  &lt;int&gt;
+1 Film       5
+2 CAP        5
+3 DMA       20</code></pre>
+</div>
+</div>
+<p>Okay not possible. There are too little DMA and CAP students - 5 each and too many DMA students in the data set. But just to be curious what is the distribution of each?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>filtered_FA <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_density</span>(</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> Score,</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="sc">~</span> Course,</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Grades Densities by Courses within B.FA"</span>,</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Film vs CAP us DMA"</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That looks so cool! At a fist glance, it seems like among the 3, if this data was good enough, CAP students tend to get more grades than the other 2 while film students tend to get the least. I could be completely wrong here.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

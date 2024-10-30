@@ -1,0 +1,548 @@
+---
+title: "Experiment 2"
+author: "Sneha Manu Jacob"
+date: "2024-10-25"
+categories: [A3, Tips?]
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+library(crosstable)
+```
+
+## Defining the Research Experiment:
+
+Goal of the Experiment: To determine if there is a significant difference in the amount of money given as tip among vegetarian and non-vegetarian young adults.
+
+**Methodology**
+
+Sampling: The population consists of students on a college campus who have ordered food through online delivery services like Swiggy or Zomato recently. The method of online platforms must have been chosen since it is easy to access and recollect the amount paid as tip this way and tipping in restaurants is not too socially expected in India unlike in the West. The sample population is a randomly chosen group of students from Manipal Academy of Higher Education, Bangalore, ensuring a hopefully balanced set of participants that is a true representation of the population.
+
+Method Followed- To ensure a lack of bias, a coin was tossed to even determine if data would be collected from a person or not. This lead to random sampling ensure diversity in age, year of study, and socioeconomic background.
+
+Sample Size: We have a total of 60 participants 30 vegetarians and 30 non-vegetarians.
+
+**Why could knowing this be useful?**
+
+1.  It can provide insights for businesses like restaurants or food delivery services in understanding the financial behaviors of specific demographic segments.
+2.  Understanding these patterns can help employers design compensation and customer engagement strategies that ensure fair tipping opportunities for their staff.
+
+### Reading and Analyzing the data:
+
+```{r}
+#| label: Read the data
+tips_data <- read.csv("../../data/tip.csv")
+tips_data
+```
+
+```{r}
+glimpse(tips_data)
+```
+
+### Defining the Data Dictionary:
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| Name | The name of the participant | Qualitative |
+| Gender | The Gender (Male/Female) of the participant | Qualitative |
+| Preferance | The dietary preference of the participant (Veg / Non-veg) | Qualitative |
+| Tip | The amount of money paid as tip to the participant's online delivery partner in their last order | Quantitative |
+
+**Observations:**
+
+1.  Variables 'Gender' and 'Preferance' need to be transformed to be factors.
+2.  Preference is spelled wrong!
+
+### Transforming and inspecting the data:
+
+```{r}
+tips_modified <- tips_data %>%
+  dplyr::mutate(
+    Gender = as_factor(Gender),
+    Preferance = factor(Preferance,
+      levels = c("Veg", "Non-veg"),
+      labels = c("Veg", "Non-veg"),
+      ordered = TRUE)
+  )
+tips_modified
+```
+
+## Descriptive Analysis:
+
+```{r}
+glimpse(tips_modified)
+```
+
+```{r}
+skim(tips_modified)
+```
+
+**Observations:**
+
+1.  There are no missing values in the data-set.
+2.  There are 30 vegetarian and 30 non-vegetarian entries in the Food Preference factor. There are 30 male and 30 female entries in the Gender factor.Was data collected in a way that there are 15 male and 15 female vegetarians and 15 male and 15 female non-vegetarians? I should summerise and check!
+3.  It's interesting to see that the progression of p0 to p100 is a series of 0, 0, 0, 20 and 100. The smallest tip given is 0 while the biggest is 100. This also indicates a large number of 0 -no tip in the data set compared to other values. It's most likely a very right skewed distribution. It would be interesting to analyse who contributed to more of these 0s or if everyone is equally kanjoos regardless of food preference or gender.
+
+### Summeries and Visualizations of the data
+
+**Distribution of overall tips:**
+
+```{r}
+tips_modified %>%
+  gf_histogram(~Tip)
+```
+
+**Observations:**
+
+1.  Like i had thought inspecting the day, a majority of participants have not given any tip. It as a right skewed distribution.
+2.  Among people who do tip, 20rs is the most tipped value of money.
+3.  Is tipping value 100 an outlier?
+
+```{r}
+tips_modified %>%
+  group_by(Preferance, Gender) %>%
+  summarize(count =n()) 
+```
+
+**Observation:** My previous hypothesis that there are 15 male and 15 female vegetarians and 15 male and 15 female non-vegetarians is right! This must have been done to remove any gender bias from our analysis.
+
+It gives us the opportunity to also inspect another aspect to tipping - if gender plays a roll or not- it works either ways- on doing it in this way, our analysis has no bias based on dietary decisions. For now, let's continue with the Food preference tipping analysis.
+
+**Tips faceted by Food Preference:**
+
+```{r}
+gf_histogram(~Tip, fill = ~Preferance, data = tips_modified, bins=100) %>%
+  gf_labs(title = "Tips faceted by Food Preference", caption = "ggformula")
+```
+
+```{r}
+tips_modified %>%
+  gf_histogram(~Tip|Preferance, fill = ~Preferance, color = "black", alpha = 0.3) %>%
+  gf_labs(
+    title = "Tips faceted by Food Preference",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1 
+    )
+  ))
+```
+
+```{r}
+tips_modified %>%
+  gf_density(
+    ~ Tip,
+    fill = ~ Preferance,
+    alpha = 0.5,
+    title = "Money Spent Densities",
+    subtitle = "Vegetarians vs Non-Vegetarians"
+  )
+```
+
+**Observations:**
+
+1.  Both groups show a right-skewed distribution with a high count of low tip (0) amount. The count of participants giving no tip appears to be similar for both groups.
+2.  These graphs suggest that while the count of tips (below 25) appears to be higher for non-vegetarians, The count of higher tips (above 25), while low for both groups, is relatively higher for vegetarians.
+3.  Maybe food preference might not have a strong influence on the tip amounts given by students? Or maybe Vegetarians tip more than non vegetarians in the sense that when they vegetarians do give tips, they tend to give a higher amounts than non- vegetarians do?
+
+#### Crosstables:
+
+Trying to find the difference in means and medians of tips given based on the difference in food preference within the sample population to get a better understanding of what the data is saying:
+
+```{r}
+crosstable(Tip ~ Preferance, data = tips_modified) %>%
+  crosstable::as_flextable()
+```
+
+**Visualizing the Median and IQR ranges:**
+
+```{r}
+tips_modified %>%
+  gf_boxplot(Preferance ~ Tip, fill = ~Preferance, alpha=0.5) %>%
+  gf_labs(title = "Box plot of Tip filled with Food Preference")
+```
+
+**Observations**:
+
+1.  The mean value of the tips given by vegetarians(12.3) is higher than that given by non- vegetarians(10) which makes sense considering our earlier observation of the fact that the giving of higher tips is more common among vegetarians.
+2.  The higher standard deviation in the Vegetarian group-21.9 suggests that they have more variability in tipping behavior compared to Non-vegetarians-12.9.
+3.  The median tip for both groups is 0, indicating that at least half of the participants from both groups tipped nothing.
+4.  The IQR range for both groups is 0 to 20 i.e. 50% of the tips for both groups falls within this range.
+5.  Does this suggest that most participants, regardless of food preference, tend to give low tips, with the Vegetarian group having one visible outlier that skews its range higher- there is no difference in tipping behavior based on food preference?
+
+### Forming my Hypothesis:
+
+Null Hypothesis: There is no difference in the average tip amount between vegetarians and non-vegetarians.
+
+Alternative Hypothesis: Vegetarians tend give larger values as tips than non-vegetarians.
+
+*It's not possible to come to any concrete conclusion with just the descriptive analysis of the data, and so, I move to conduct statistical analysis on this data.*
+
+## Statistical Analysis: Hypothesis Testing
+
+### A t-test:
+
+Assumptions: 1. The distribution for each group - Vegetarians and Non-vegetarians is normal.
+
+```{r}
+mosaic::t_test(Tip ~ Preferance, data = tips_modified)%>%
+  broom::tidy()
+```
+
+**Observations:**
+
+1.  The estimate suggests that vegetarians, on average, give 2.3rs more tip than non-vegetarians in my sample data set.
+2.  The high p-value of 0.6 1, greater than the typical significance level of 0.05, suggests that there is no statistically significant difference in the average tip amounts between vegetarians and non-vegetarians.The result could just be random, so I don’t have strong evidence that something is happening.
+3.  0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggest the same.
+4.  Therefore we cannot reject the null hypothesis.
+
+What if my assumption of these 2 distribution of tip faceted by Food Preference being normal is not right? We could do a Shapiro test to confirm.
+
+### A Shapiro test:
+
+Shapiro test is one used to determine if a sample comes from a normally distributed population or not.
+
+First we transform our data set to be 2 different ones- one with all the Veg values and the other with all the Non-veg values.
+
+```{r}
+filtered_Veg <- tips_modified %>%
+  filter(Preferance == "Veg")
+filtered_Non <- tips_modified %>%
+  filter(Preferance == "Non-veg")
+filtered_Veg
+filtered_Non
+```
+
+Visualizing the distribution we acquire vs a normal distribution for each group:
+
+```{r}
+tips_modified %>%
+  gf_density( ~ Tip,
+              fill = ~ Preferance,
+              alpha = 0.5,
+              title = "Tip given") %>%
+  gf_facet_grid(~ Preferance) %>% 
+  gf_fitdistr(dist = "dnorm")
+```
+
+These graphs don't seem to suggest that these 2 distributions are normally distributed. Does the shapiro test say the same?
+
+#### For Vegetarians:
+
+Null hypothesis: The money given as tip by Vegetarians is normally distributed.
+
+```{r}
+shapiro.test(filtered_Veg$Tip)%>%
+  broom::tidy()
+```
+
+A high w (statistic) value - one greater than 0.9 indicates that a distribution is normal. With a w value so low : 0.62, we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it's less than 0.05 which confirms that the w value we received is statistically significant, it did hot happen by chance.
+
+Therefore, the distribution of tips given by vegetarians are not normally distributed.
+
+#### For Non-Vegetarians:
+
+Null hypothesis: The money given as tip by Non-Vegetarians is normally distributed.
+
+```{r}
+shapiro.test(filtered_Non$Tip)%>%
+  broom::tidy()
+```
+
+The conclusions of this Shapiro test is similar to the last- a low w which indicates that the distribution is not normally distributed. Though a little more than the the previous one. We confirm this by assessing the p-value of the test: a very low value confirming that this was not by chance.
+
+Therefore, the distribution of tips given by Non-vegetarians are not normally distributed.
+
+And so we through out any inferences we pulled from the t test- our assumption has been proven to be false- making it invalid.
+
+### Mann-Whitney Test
+
+The Mann-Whitney Test is used to compare two independent groups when the data doesn’t follow a normal distribution.
+
+```{r}
+wilcox.test(Tip ~ Preferance, data = tips_modified, 
+            conf.int = TRUE, 
+            conf.level = 0.95) %>% 
+  broom::tidy()
+```
+
+Okay i have a doubt- The test does not directly indicate which group (variable) has higher values. If i look at my skim or even my estimate1 in t-test, Veg is the first group, I also ordered my levels to be Veg first, so that's how it works here too? Yep, that's what I'm going with.
+
+1.  The estimate mean difference is 3.7rs.
+2.  The p-value is 0.8 (greater than 0.05) suggesting that the estimate result could easily /probably happened by chance, so it’s not considered significant. We therefore, cannot reject the null hypothesis.
+3.  0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggests the same- we cannot reject the null hypothesis.
+
+I received an error saying "Warning: cannot compute exact p-value with ties Warning: cannot compute exact confidence intervals with ties". This means that because i have so may repeating values (I'm guessing mainly 0)- there are many values with the same rank and polarity. This could lead to not having a precise p-values and confidence interval result. Therefore, i cannot reject or accept the null hypothesis right away, to make sure, i will go ahead and perform a permutation test to come to a solid inference, one that i cannot question.
+
+### Permutation Test
+
+The permutation test is very flexible and requires minimal assumptions. It doesn’t assume normality or equal variances, making it useful for small or skewed data.
+
+```{r}
+obs_diff_pref <- diffmean(Tip ~ Preferance, 
+                            data = tips_modified) 
+
+obs_diff_pref
+```
+
+Non-veg mean - Veg mean = -2.3
+
+In my sample data, vegetarians, on average, give 2.3rs more tip than non-vegetarians.
+
+**Creating the Null Distribution by Permutation**
+
+```{r}
+null_dist_tips <- 
+  do(4999) * diffmean(data = tips_modified, 
+                      Tip ~ shuffle(Preferance))
+##null_dist_tips , it appears too long when i render it!
+```
+
+**Visualizing this:**
+
+```{r}
+gf_histogram(data = null_dist_tips, ~ diffmean, 
+             bins = 25) %>%
+  gf_vline(xintercept = obs_diff_pref, 
+           colour = "darkred", linewidth = 1,
+           title = "Null Distribution by Permutation", 
+           subtitle = "Histogram") %>% 
+  gf_labs(x = "Difference in Means")
+```
+
+**Acquiring the p-value:**
+
+The p-value is calculated by comparing the obs_diff_pref (from the actual data) to the null distribution acquired through permutation. It represents the proportion of times a difference as extreme as the observed one occurs by random chance alone.
+
+```{r}
+prop1(~ diffmean <= obs_diff_pref, data = null_dist_tips)
+```
+
+**Observations:**
+
+1.  The p-value observed through the permutation test is 0.32. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in case of a higher value like 0.3, we cannot reject the null hypothesis: There is no difference in the tipping behavior between vegetarians and non-vegetarians.
+2.  The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same. The observed mean difference is seen around the middle of our null distribution - I can easily mimic nature here - Nothing special is happening - I cannot reject the null hypothesis.
+
+### Conclusion:
+
+In the assumption that my sample population is a true representation of my population- there appears to be no significant difference in tipping behavior based on dietary preference.
+
+------------------------------------------------------------------------
+
+## Descriptive Analysis (based on gender):
+
+### Visualizing Tips faceted by Gender
+
+```{r}
+gf_histogram(~Tip, fill = ~Gender, data = tips_modified) %>%
+  gf_labs(title = "Tips faceted by Gender", caption = "ggformula")
+```
+
+```{r}
+tips_modified %>%
+  gf_histogram(~Tip|Gender, fill = ~Gender, color = "black", alpha = 0.3) %>%
+  gf_labs(
+    title = "Tips faceted by Gender",
+    caption = "ggformula"
+  ) %>%
+  gf_theme(theme(
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1 
+    )
+  ))
+```
+
+```{r}
+tips_modified %>%
+  gf_density(
+    ~ Tip,
+    fill = ~ Gender,
+    alpha = 0.5,
+    title = "Money Spent Densities",
+    subtitle = "Males vs Females"
+  )
+```
+
+**Observations:**
+
+1.  If I ignore the outlier for males at 100, from looking the data, i think females tend to tip more than males.
+
+### Crosstables:
+
+Does the summation of the data support my hunch?
+
+```{r}
+crosstable(Tip ~ Gender, data = tips_modified) %>%
+  crosstable::as_flextable()
+```
+
+Visualization of median and IQR ranges:
+
+```{r}
+tips_modified %>%
+  gf_boxplot(Gender ~ Tip, fill = ~Gender, alpha=0.5) %>%
+  gf_labs(title = "Box plot of Tip filled with Gender")
+```
+
+**Observations:**
+
+1.  50 percent of all tips for both genders lie within the same range 0-20.
+2.  Despite this similarity, the difference in mean by 2 values (which i accept and notice is not too much), the higher value being present for Females, suggest that there are females are more likely to pay more tip than men.
+
+### Forming My Hypothesis:
+
+Null Hypothesis: There is no difference in tipping behavior between males and females.
+
+Alternative Hypothesis: Females tend give larger values as tips than Males.
+
+## Statistical Analysis: Hypothesis Testing
+
+### A t-test:
+
+Assumptions: 1. The distribution for each group - male and female is normal.
+
+```{r}
+mosaic::t_test(Tip ~ Gender, data = tips_modified)%>%
+  broom::tidy()
+```
+
+**Observations:**
+
+1.  The estimate suggests that females, on average, give 2rs more tip than males in our sample data set.
+2.  The high p-value of 0.66, greater than the typical significance level of 0.05, suggests that there is no statistically significant difference in the average tip amounts between males and females.The result could just be random, so I don’t have strong evidence that something is happening.
+3.  0- which indicates that there is no difference on the average tip, falls within the confidence interval (-7.2 to 11.9) which suggest the same.
+4.  Therefore we cannot reject the null hypothesis.
+
+But what if my assumption of the tips being distributed normally is not accurate?
+
+First we transform our data set to be 2 different ones- one with all the Male values and the other with all the Female values.
+
+```{r}
+filtered_Male <- tips_modified %>%
+  filter(Gender == "Male")
+filtered_Female <- tips_modified %>%
+  filter(Gender == "Female")
+filtered_Male
+filtered_Female
+```
+
+Visualizing the distribution we acquire vs a normal distribution for each group:
+
+```{r}
+tips_modified %>%
+  gf_density( ~ Tip,
+              fill = ~ Gender,
+              alpha = 0.5,
+              title = "Tip given") %>%
+  gf_facet_grid(~ Gender) %>% 
+  gf_fitdistr(dist = "dnorm")
+```
+
+The data does not seem to be normally distributed. Let's confirm!
+
+### A Shapiro test:
+
+Shapiro test is one used to determine if a sample comes from a normally distributed population or not.
+
+#### For Males:
+
+Null hypothesis: The money given as tip by Males is normally distributed.
+
+```{r}
+shapiro.test(filtered_Male$Tip)%>%
+  broom::tidy()
+```
+
+With a w value so low : 0.5 (\<0.9), we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it's less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.
+
+Tips given by males are not normally distributed.
+
+#### For Females:
+
+Null hypothesis: The money given as tip by Females is normally distributed.
+
+```{r}
+shapiro.test(filtered_Female$Tip)%>%
+  broom::tidy()
+```
+
+With a w value so low : 0.7 (\<0.9), we can reject the null hypothesis that it is normally distributed. The p-value suggests the same- it's less than 0.05 which confirms that the w value we received is statistically significant, it did not happen by chance.
+
+Tips given by females are not normally distributed.
+
+### Mann-Whitney Test
+
+Since we proved the t-test p-value to be invalid, we can use the Mann-Whitney test to pull inferences. It is used to compare two independent groups when the data doesn’t follow a normal distribution.
+
+```{r}
+wilcox.test(Tip ~ Gender, data = tips_modified, 
+            conf.int = TRUE, 
+            conf.level = 0.95) %>% 
+  broom::tidy()
+```
+
+1.  The estimate suggests that females, on average, give 4.446004e-05rs more tip than males.
+2.  The p-value is 0.4(greater than 0.05) suggesting that the estimate result could easily /probably happened by chance, so it’s not considered significant. We therefore, cannot reject the null hypothesis.
+3.  0- which indicates that there is no difference on the average tip, falls within the confidence intervals which suggests the same- we cannot reject the null hypothesis.
+
+I received an error saying "Warning: cannot compute exact p-value with tiesWarning: cannot compute exact confidence intervals with ties". This means that because i have so may repeating values (I'm guessing mainly 0)- there are many values with the same rank and polarity. This could lead to not having a precise p-values and confidence interval result. Therefore, i cannot reject or accept the null hypothesis right away, to make sure, i will go ahead and perform a permutation test to come to a solid inference, one that i cannot question.
+
+### Permutation Test
+
+The permutation test is very flexible and requires minimal assumptions. It doesn’t assume normality or equal variances, making it useful for small or skewed data.
+
+```{r}
+obs_diff_gender <- diffmean(Tip ~ Gender, 
+                            data = tips_modified) 
+
+obs_diff_gender
+```
+
+Male mean - Female mean = -2
+
+In my sample data, females, on average, give 2rs more tip than males.
+
+**Creating the Null Distribution by Permutation**
+
+```{r}
+null_dist_tips2 <- 
+  do(4999) * diffmean(data = tips_modified, 
+                      Tip ~ shuffle(Gender))
+##null_dist_tips2 , it appears too long when i render it!
+```
+
+**Visualizing this:**
+
+```{r}
+gf_histogram(data = null_dist_tips2, ~ diffmean, 
+             bins = 25) %>%
+  gf_vline(xintercept = obs_diff_gender, 
+           colour = "darkred", linewidth = 1,
+           title = "Null Distribution by Permutation", 
+           subtitle = "Histogram") %>% 
+  gf_labs(x = "Difference in Means")
+```
+
+**Acquiring the p-value:**
+
+The p-value is calculated by comparing the obs_diff_gender (from the actual data) to the null distribution acquired through permutation. It represents the proportion of times a difference as extreme as the observed one occurs by random chance alone.
+
+```{r}
+prop1(~ diffmean <= obs_diff_gender, data = null_dist_tips2)
+```
+
+**Observations:**
+
+1.  The p-value observed through the permutation test is 0.35. If it would have been a value less than 0.05, it would indicate that that the observed difference is unlikely to have occurred by chance, leading to a rejection of the null hypothesis. But in case of a higher value like 0.3, we cannot reject the null hypothesis: There is no difference in the tipping behavior between male and female students .
+2.  The visualization of the histogram of mean differences- null distribution along with the observed mean different suggests the same. The observed mean difference is observed around the middle of our null distribution - I can easily mimic nature here - Nothing special is happening - I cannot reject the null hypothesis.
+
+### Conclusion:
+
+In the assumption that my sample population is a true representation of my population-there appears to be no significant difference in tipping behavior based on gender.
