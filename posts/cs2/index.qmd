@@ -58,7 +58,7 @@ skim(scores_cleaned)
 ### Data Dictionary:
 
 | Variable name | Description | Type of variable |
-|-----------------------------|-------------------------|------------------|
+|----|----|----|
 | Year | Refers to the year the data was collected | Qualitative |
 | StateCode | Represent the standardized code for U.S. states | Qualitative |
 | TotalTestTakers | This column likely shows the total number of students who took the standardized test in each state for that year. | Quantitative |

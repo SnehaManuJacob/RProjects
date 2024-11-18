@@ -1,0 +1,153 @@
+---
+title: "Impact of Visual Narratives on Public Perception"
+author: "Sneha Manu Jacob"
+date: "2024-11-11"
+categories: [Descriptive Analysis, Statistics]
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(mosaic)
+library(skimr)
+library(ggformula)
+library(crosstable)
+library(infer) 
+library(patchwork) 
+library(ggprism)
+library(supernova) 
+```
+
+## Defining the Experiment:
+
+**Objective:** What impact does a video (any video, be it real or fake) presenting a negative narrative (even if it is clearly extremist) have on attitudes towards the entirety of a specific demographic group.
+
+**Hypothesis:**
+
+Null Hypothesis: The video has no impact on the viewers existing perspective.
+
+Alternate hypothesis: A video with an extremist narrative targeting a particular demographic will negatively impact viewers' attitudes towards the entire population associated with that demographic.
+
+**Experiment Design:**
+
+1.  **Participants**\
+    Select a diverse group of participants with varying prior attitudes towards Islam to minimize pre-existing bias. This group should ideally be balanced across demographics like age, gender, and educational background.
+
+2.  **Pre-Exposure Opinion Score**
+
+    -   Each participant is asked to rate their attitudes toward Islam on a scale (e.g., -10 to 10, where -10 = very negative and 10 = very positive).
+
+3.  **Exposure to Video**
+
+    -   Participants watch a video that presents an extremist or negative narrative about Islam.
+
+    -   The video is designed to influence opinions through emotionally charged or polarizing content that could potentially lead to and or agree with exisiting biases or stereotypes.
+
+4.  **Post-Exposure Opinion Score**
+
+    -   After watching the video, participants are asked to rate their attitudes toward Islam again using the same scale.
+
+5.  **Data Collection**
+
+    -   Collect both pre- and post-exposure scores to quantify the change in attitudes.
+
+Form passed around: <https://forms.gle/taP3QGedSHRc5cpx5>
+
+### Reading and Analyzing the data:
+
+```{r}
+#| label: Read the data
+visual_data <- read.csv("../../data/Visual_Responses.csv")
+visual_data
+```
+
+```{r}
+visual_data %>%
+  select(
+    Before.Exposure.to.video,
+    Post.exposure.to.video
+  )%>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Time",
+    values_to = "Value"
+  ) -> visual_long
+
+visual_long
+```
+
+```{r}
+glimpse(visual_data)
+```
+
+```{r}
+skim(visual_data)
+```
+
+### Defining the Data Dictionary:
+
+| Variable name | Description | Type of variable |
+|------------------------|------------------------|------------------------|
+| ID | Assigned to each participant to keep sources anonymous | Qualitative |
+| Before | The opinion score recorded before watching the video | Quantitative |
+| After | The opinion score recorded before watching the video | Quantitative |
+
+## Descriptive Analysis:
+
+**Distribution of overall scores before:**
+
+```{r}
+visual_data %>%
+  gf_histogram(~Before.Exposure.to.video)
+```
+
+Observation: This distribution is skewed in the negative direction
+
+**Distribution of overall scores after:**
+
+```{r}
+visual_data %>%
+  gf_histogram(~Post.exposure.to.video)
+```
+
+Observation: This distribution is skewed in the negative direction
+
+```{r}
+visual_long %>%
+  gf_density(
+    ~ Value,
+    fill = ~ Time,
+    alpha = 0.5,
+    title = "Opinion Score Densities by Time ",
+    subtitle = "Before vs After"
+  )
+```
+
+```{r}
+visual_new <- visual_data %>%
+  mutate(Difference = Before.Exposure.to.video - Post.exposure.to.video)
+visual_new
+```
+
+```{r}
+visual_new %>%
+  gf_density(
+    ~ Difference,
+    title = "Opinion Score Density difference",
+    subtitle = "Before - After"
+  )
+```
+
+```{r}
+ggplot(visual_data, aes(x = as.factor(ID))) +
+  geom_bar(aes(y = Before.Exposure.to.video, fill = "Before.Exposure.to.video"), 
+           stat = "identity", position = "dodge") +
+  geom_bar(aes(y = Post.exposure.to.video, fill = "Post.exposure.to.video"), 
+           stat = "identity", position = "dodge", alpha = 0.6) +
+  labs(x = "Participant ID", y = "Opinion Score", fill = "Condition") +
+  theme_minimal() +
+  scale_fill_manual(values = c("Before.Exposure.to.video" = "gold", 
+                               "Post.exposure.to.video" = "blue"))
+```
+
+

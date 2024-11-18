@@ -326,9 +326,8 @@ null_dist_infer %>%
   coord_cartesian(xlim = c(0.2, 500), clip = "off") +
   annotation_logticks(outside = FALSE)
 ```
-Warning: NaNs produced
-Warning: [38;5;232m[32mlog-10[38;5;232m transformation introduced infinite values.[39m
-I don't understand this error that shows up!
+
+Warning: NaNs produced Warning: \[38;5;232m\[32mlog-10\[38;5;232m transformation introduced infinite values.\[39m I don't understand this error that shows up!
 
 ```{r}
 p_value <- null_dist_infer %>%

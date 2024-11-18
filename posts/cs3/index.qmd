@@ -38,7 +38,7 @@ ice
 ### Data Dictionary:
 
 | Variable name | Description | Type of variable |
-|----------------------|-------------------------------|-------------------|
+|----|----|----|
 | ..1 | Refers to the month the data was collected in | Qualitative |
 | ..2 | Refers to date of the month the data was collected in | Qualitative |
 | Year (1978, 1979 ... 2027) | Sea Ice Extent - the total area covered by sea ice, often measured in square kilometers based on the year, month and day | Quantitative |

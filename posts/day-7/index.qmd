@@ -87,7 +87,7 @@ Diving2017_long %>%
 
 # **Comparing Multiple Means with ANOVA**
 
-## Frog data: 
+## Frog data:
 
 ```{r}
 library(patchwork) # Arranging Plots
@@ -222,13 +222,9 @@ The black points: Estimate difference in means of the hatching time i.e. differe
 
 ## Proportions:
 
-CLT for proportions
- 1. sample proportion = population propotion
- 2. only go ahead with a sample if it has atleast 10 of the "minority"
- 
- 
+CLT for proportions 1. sample proportion = population propotion 2. only go ahead with a sample if it has atleast 10 of the "minority"
+
 ```{r}
 data(yrbss, package = "openintro")
 yrbss
 ```
-
